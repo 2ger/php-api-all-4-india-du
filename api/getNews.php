@@ -16,7 +16,6 @@ foreach($list as $val){
       $res=  pdo_insert("site_news",$data);
       if($res) echo "<br>\n\n成功采集：". $data['title'];
     }
-
 }
 
 //测试

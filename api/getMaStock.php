@@ -27,8 +27,25 @@ curl_setopt_array($curl, array(
   
   ),
 ));
-
 $response = curl_exec($curl);
-
 curl_close($curl);
+
+//1天的，加15分钟
+if($time =="1D"){
+  $response = json_decode($response,true);
+  foreach ($response['quote_candle'] as &$val){
+      $val['time'] = $val['time']+60*15;
+  }
+  foreach ($response['quote_price'] as &$val){
+      $val['time'] = $val['time']+60*15;
+  }
+  foreach ($response['quote_volume'] as &$val){
+      $val['time'] = $val['time']+60*15;
+  }
+
+$response['time'] = $time;
+  $response = json_encode($response);
+}
+//加15分结束
+
 echo $response;

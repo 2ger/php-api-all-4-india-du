@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width;initial-scale=1;maximum-scale=1;user-scalable=0;"><title></title><link rel=stylesheet href=./static/css/public.css type=text/css><link rel=stylesheet type=text/css href=./static/translateelement.css><style>body,
+    html {
+      background: #323337;
+      overflow: hidden;
+    }</style><script type=text/javascript>// 步骤一:创建异步对象
+    var ajax = new XMLHttpRequest();
+    // 步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+    ajax.open('get', 'https://api.bitskd.pro/api/site/getInfo.do');
+    // ajax.open('get', 'http://localhost:8070/api/site/getInfo.do');
+    // 步骤三:发送请求
+    ajax.send();
+    // 步骤四:注册事件 onreadystatechange 状态改变就会调用
+    ajax.onreadystatechange = function () {
+      if (ajax.readyState == 4 && ajax.status == 200) {
+        // 步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+        var styleName = JSON.parse(ajax.responseText).data.siteColor
+        if (styleName == 'black') {
+          window.localStorage.setItem('styleName', 'black-bg')
+          document.getElementsByTagName('body')[0].className = 'black-bg'
+        } else if (styleName == 'yellow') {
+          window.localStorage.setItem('styleName', 'red-bg')
+          document.getElementsByTagName('body')[0].className = 'yellow-bg'
+        } else {
+          window.localStorage.setItem('styleName', 'red-bg')
+          document.getElementsByTagName('body')[0].className = 'red-bg'
+        }
+      }
+    }</script><link href=./static/css/app.bd19b5d567b1b198fcd6bdc15d5b7564.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.23c72ff24ff1bebd4f48.js></script><script type=text/javascript src=./static/js/app.20974a6ce021cc6a8d3d.js></script></body></html><script type=text/javascript></script>

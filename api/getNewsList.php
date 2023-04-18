@@ -8,4 +8,4 @@ $list = pdo_fetchall("select id,title,add_time from site_news where source_name=
 $data['code'] = 0;
 if($list) $data['code'] = 1;
 $data['list'] = $list;
-die(json_encode($data));
+echo json_encode($data);
