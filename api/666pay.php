@@ -6,7 +6,7 @@ header("Access-Control-Allow-Origin: *");
  $key = "7bd5ff811951429084682738b8c9d818";
  $pay_code='1500'; //通道编码，商户后台查看
  $currency = "MYR";
- $notify_url = "https://phpapi.bitskd.pro/api/666notify.php";
+ $notify_url = "https://tradingdiario.com/api/666notify.php";
  
  $amt = $_GET['amt'];
  $id = $_GET['id'];
@@ -21,7 +21,7 @@ header("Access-Control-Allow-Origin: *");
 $map = [
     'mer_no'=>$mer,
     'notifyUrl'=>$notify_url,
-    'order_no'=>time().rand(100000,999999),//$id,//
+    'order_no'=>$id,//,//time().rand(100000,999999)
     'pay_code'=>$pay_code,
     'currency'=>$currency,
     'order_amount'=>$amt,
@@ -48,10 +48,12 @@ if($res['code'] == "SUCCESS"){
     echo "<a href='".$url."'> go to pay</a>";
     header("location:$url");
 }else{
-    var_dump($res); 
+    $message = $res['message'];
+    echo "<script>alert('$message');history.go(-1)</script>";
+    // var_dump($res); 
 }
 
-die($res); //json
+// die($res); //json
 die;
 
 

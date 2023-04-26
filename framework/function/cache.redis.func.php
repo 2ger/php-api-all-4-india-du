@@ -28,6 +28,8 @@ function cache_redis() {
 			return error(-1,'redis连接失败，错误信息：'.$e->getMessage());
 		}
 	}
+	 //设置指定数据库 3 马股
+    $redisobj->select(3);
 	return $redisobj;
 }
 

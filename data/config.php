@@ -4,18 +4,12 @@ defined('IN_IA') or exit('Access Denied');
 $config = array();
 
 $config['db']['master']['host'] = '127.0.0.1';
+// $config['db']['master']['host'] = '104.219.251.111';
 
 $config['db']['master']['database'] = 'stockdama';
 $config['db']['master']['username'] = 'stockdama';
 $config['db']['master']['password'] = 'TAxHjDdGmRH2wAMb';
 
-// $config['db']['master']['database'] = 'amazonshoper';
-// $config['db']['master']['username'] = 'amazonshoper';
-// $config['db']['master']['password'] = 'MTAM4yZtMBw8jP4H';
-
-// $config['db']['master']['database'] = 'amazonspro';
-// $config['db']['master']['username'] = 'amazonspro';
-// $config['db']['master']['password'] = 'mi55XfXnDmkJxdAj';
 
 $config['db']['master']['port'] = '3306';
 $config['db']['master']['charset'] = 'utf8';
@@ -42,7 +36,7 @@ $config['cookie']['path'] = '/';
 
 // --------------------------  CONFIG SETTING  --------------------------- //
 $config['setting']['charset'] = 'utf-8';
-$config['setting']['cache'] = 'mysql';
+$config['setting']['cache'] = 'redis';
 $config['setting']['timezone'] = 'Asia/Shanghai';
 $config['setting']['memory_limit'] = '256M';
 $config['setting']['filemode'] = 0644;
@@ -68,3 +62,12 @@ $config['setting']['memcache']['session'] = 1;
 // --------------------------  CONFIG PROXY  --------------------------- //
 $config['setting']['proxy']['host'] = '';
 $config['setting']['proxy']['auth'] = '';
+
+
+// -------------------------- CONFIG REDIS --------------------------- //
+$config['setting']['redis']['server'] = '127.0.0.1';//如果redis服务器在别的机器，请填写机器的IP地址。
+$config['setting']['redis']['port'] = 6379;
+$config['setting']['redis']['pconnect'] = 0;
+$config['setting']['redis']['timeout'] = 1;
+$config['setting']['redis']['auth'] = 'yuucn'; //微擎
+$config['setting']['redis']['requirepass'] = '';//人人商城用这个
