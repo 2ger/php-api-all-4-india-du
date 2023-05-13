@@ -6,8 +6,8 @@ $config = array();
 $config['db']['master']['host'] = '127.0.0.1';
 // $config['db']['master']['host'] = '104.219.251.111';
 
-$config['db']['master']['database'] = 'stockdama';
-$config['db']['master']['username'] = 'stockdama';
+$config['db']['master']['database'] = 'stockdama3';
+$config['db']['master']['username'] = 'stockdama3';
 $config['db']['master']['password'] = 'TAxHjDdGmRH2wAMb';
 
 
