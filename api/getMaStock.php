@@ -1,5 +1,5 @@
 <?php
-
+//更新单个马股价格 
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
@@ -34,24 +34,32 @@ curl_close($curl);
     // echo count($content);
     $count = count($content);
     $val = $content[$count-1];
-    // var_dump();
     
-     $data['stock_code']= $code;
-     $data['stock_gid']= "msy".$code;
-     $data['open']= $val[4];
-     $data['close']= $val[4];
-     $data['high']= $val[2];
-     $data['low']= $val[3];
-     $data['volume']='100';// $val[5]
-     $data['timestamp']= date('Y-m-d H:i:s',time());
-     $data['add_time']=  date('Y-m-d H:i:s',time());
-     $res =  pdo_insert("real_time_data",$data);
-     $data['status'] = $res;
-    if($res){
-        die(json_encode($data));
+    if($val[4]){
+         $data['stock_code']= $code;
+         $data['stock_gid']= "mys".$code;
+         $data['open']= $val[4];
+         $data['close']= $val[4];
+         $data['high']= $val[2];
+         $data['low']= $val[3];
+         $data['volume']='100';// $val[5]
+         $data['timestamp']= date('Y-m-d H:i:s',time());
+         $data['add_time']=  date('Y-m-d H:i:s',time());
+         
+         $res =  pdo_insert("real_time_data",$data);
+         $data['status'] = $res;
+      
+        
+       $id = pdo_insertid();
+       //删除多余的
+      pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
+     if($res){
+            die(json_encode($data));
+        }
+       
     }
             
-
+// if($id) echo "更新成功";
     // data[i][0], // the date
     // data[i][1], // open
     // data[i][2], // high
