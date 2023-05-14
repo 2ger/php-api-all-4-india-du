@@ -6,7 +6,7 @@ require '../framework/bootstrap.inc.php';
 
 $op = $_GPC["op"];
 if($op == "list"){
-   
+   //持
     $list = pdo_fetchall("SELECT p.stock_gid,p.stock_name,p.stock_code,r.close FROM `user_position` as p left join `real_time_data` as r on p.stock_code=r.stock_code where r.close is null GROUP by stock_code  ORDER BY `p`.`stock_gid` ASC");
     if(!$list) die("无任务");
     echo count($list)."个无价格，请点击更新<br>";
@@ -17,6 +17,20 @@ if($op == "list"){
             echo $val["stock_gid"]."<br>";
         }else{
            echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["stock_gid"]."</a><br>"; 
+        }
+        
+    }
+    //新股
+      $list = pdo_fetchall("SELECT p.new_code,r.close FROM `user_stock_subscribe` as p left join `real_time_data` as r on p.new_code=r.stock_code where r.close is null GROUP by stock_code  ORDER BY `p`.`new_code` ASC");
+    if(!$list) die("无任务");
+    echo count($list)."个无价格，请点击更新<br>";
+  
+    foreach ($list as $val){
+        $type = substr($val["new_code"], 0 ,2);
+        if($type != "us" && $type != "hk"){
+            echo $val["new_code"]."<br>";
+        }else{
+           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["new_code"]."</a><br>"; 
         }
         
     }
