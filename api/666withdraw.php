@@ -23,7 +23,7 @@ require '../framework/bootstrap.inc.php';
  $withdraw = pdo_get("user_withdraw",$where);
 //  pdo_debug();
  if(!$withdraw) die("订单已审核！");
-
+//   die("SUCCESS"); //不提交支付平台，直接通过
 $map = [
     'mer_no'=>$mer,
     'settle_id'=>$id,//,//time().rand(100000,999999)

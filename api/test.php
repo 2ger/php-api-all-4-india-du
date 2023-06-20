@@ -8,7 +8,8 @@ $time = $_GET['time'];
 $insert = $_GET['insert'];
 
 
-$url = "https://www.klsescreener.com/v2/stocks/chart/5101/embedded/1y";  
+$url = "https://www.shareinvestor.com/prices/searchbox_prices_f.html?counter=$code.MY";  
+// $res = file_get_contents($url);
 
 $curl = curl_init();
 
@@ -19,6 +20,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 0,
   CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_VERBOSE => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
 //   CURLOPT_POSTFIELDS =>$code,
@@ -27,21 +29,44 @@ curl_setopt_array($curl, array(
   ),
 ));
 $response = curl_exec($curl);
-curl_close($curl);
-   $pattern = '/data =(.*?)\/\/ split the data set into ohlc and volume/s';
+
+
+// 检查是否有错误发生
+if(curl_errno($curl)) {
+    echo 'cURL 错误：' . curl_error($curl);
+}
+
+// var_dump($response);
+
+  
+   $pattern = '/\<td rowspan\=\"2\" class=\"sic_lastdone\"><strong>(.*?)\<\/strong\>/s';
     preg_match($pattern, $response, $matches);
     $content = $matches[1];
-    $content = str_replace(array("\r\n", "\r", "\n", "\t", ";"), "", $content);
-    $content = str_replace(array("],        ]"), "]]", $content);
-    $content = json_decode($content,true);
-    echo count($content);
-    $count = count($content);
-    var_dump($content[$count-1]);
+   $data['open']=  $data['close']= $content;
+    
+   $pattern = '/\<td\>Price Range\: \<strong\>(.*?) - /s';
+    preg_match($pattern, $response, $matches);
+    $content = $matches[1];
+    $data['low']= $content;
+   $pattern = '/ - (.*?)\<\/strong\>/s';
+    preg_match($pattern, $response, $matches);
+    $content = $matches[1];
+    $data['high']= $content;
+    
+    $data['stock_code']= $code;
+    $data['stock_gid']= "mys".$code;
+    
+     $data['volume']='100';// $val[5]
+     $data['timestamp']= date('Y-m-d H:i:s',time());
+     $data['add_time']=  date('Y-m-d H:i:s',time());
+     
+     $res =  pdo_insert("real_time_data",$data);
+     $data['insert']  = $res;
+       $id = pdo_insertid();
+         
+    //删除多余的
+      pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
+     if($res){
+            die(json_encode($data));
+      }
 
-    // data[i][0], // the date
-    // data[i][1], // open
-    // data[i][2], // high
-    // data[i][3], // low
-    // data[i][4] // close
-    // data[i][0], // the date
-    // data[i][5] // the volume

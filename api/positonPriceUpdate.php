@@ -8,7 +8,7 @@ $op = $_GPC["op"];
    //持
     $list = pdo_fetchall("SELECT * FROM `user_position` WHERE `sell_order_time` is null and user_id >0 GROUP by stock_code");
     if(!$list) die("无任务");
-    echo count($list)."个持仓,开始更新<br>";
+    echo count($list)."个持仓,开始更新<br>\n";
 //   die();
     foreach ($list as $val){
         echo "<br>\n".$val["stock_gid"]."<br>\n";

@@ -1,5 +1,6 @@
 <?php
 //采集文章
+// https://tradingdiario.com/api/getNews.php
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
@@ -12,6 +13,11 @@ foreach($list as $val){
     $url = $site.$val['url'];
     $data = getWebsiteTitleAndContent($url);
     if($data){
+    if(isChinese($data['title'])){
+        echo "<br>\n\n 不采集中文：". $data['title'];
+         continue;//不采集中文
+    }
+    
         $data['source_name'] = "my";
       $res=  pdo_insert("site_news",$data);
       if($res) echo "<br>\n\n成功采集：". $data['title'];
@@ -36,6 +42,9 @@ function getWebsiteTitleAndContent($url) {
     $content = isset($matches[1][0]) ? $matches[1][0] : '';
 
     return array('title' => $title, 'content' => $content);
+}
+function isChinese($str) {
+    return preg_match("/[\x{4e00}-\x{9fa5}]+/u", $str);
 }
 
 function getArticleListUsingPregMatch() {

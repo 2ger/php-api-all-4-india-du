@@ -1,11 +1,20 @@
 <?php
-//更新单个马股价格 
+
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
 $code = $_GET['code'];
+$time = $_GET['time'];
+$insert = $_GET['insert'];
 
-$url = "https://www.klsescreener.com/v2/stocks/chart/$code/embedded/1y";  
+
+    //连接到 Redis 数据库
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
+    $redis->select(3);
+    
+$url = "https://www.shareinvestor.com/prices/searchbox_prices_f.html?counter=$code.MY";  
+// $res = file_get_contents($url);
 
 $curl = curl_init();
 
@@ -16,6 +25,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 0,
   CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_VERBOSE => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
 //   CURLOPT_POSTFIELDS =>$code,
@@ -24,46 +34,67 @@ curl_setopt_array($curl, array(
   ),
 ));
 $response = curl_exec($curl);
-curl_close($curl);
-   $pattern = '/data =(.*?)\/\/ split the data set into ohlc and volume/s';
+
+
+// 检查是否有错误发生
+if(curl_errno($curl)) {
+    echo 'cURL 错误：' . curl_error($curl);
+}
+
+// var_dump($response);
+
+  
+   $pattern = '/\<td rowspan\=\"2\" class=\"sic_lastdone\"><strong>(.*?)\<\/strong\>/s';
     preg_match($pattern, $response, $matches);
     $content = $matches[1];
-    $content = str_replace(array("\r\n", "\r", "\n", "\t", ";"), "", $content);
-    $content = str_replace(array("],        ]"), "]]", $content);
-    $content = json_decode($content,true);
-    // echo count($content);
-    $count = count($content);
-    $val = $content[$count-1];
+    $content = str_replace(',','',$content);
+   $data['open']=  $data['close']= $content;
     
-    if($val[4]){
-         $data['stock_code']= $code;
-         $data['stock_gid']= "mys".$code;
-         $data['open']= $val[4];
-         $data['close']= $val[4];
-         $data['high']= $val[2];
-         $data['low']= $val[3];
-         $data['volume']='100';// $val[5]
-         $data['timestamp']= date('Y-m-d H:i:s',time());
-         $data['add_time']=  date('Y-m-d H:i:s',time());
-         
-         $res =  pdo_insert("real_time_data",$data);
-         $data['status'] = $res;
-      
-        
+   $pattern = '/\<td\>Price Range\: \<strong\>(.*?) - /s';
+    preg_match($pattern, $response, $matches);
+    $content = $matches[1];
+    $content = str_replace(',','',$content);
+    $data['low']= $content;
+   $pattern = '/ - (.*?)\<\/strong\>/s';
+    preg_match($pattern, $response, $matches);
+    $content = $matches[1];
+    $content = str_replace(',','',$content);
+    $data['high']= $content;
+    
+    $data['stock_code']= $code;
+    $data['stock_gid']= "mys".$code;
+    
+     $data['volume']='100';// $val[5]
+     $data['timestamp']= date('Y-m-d H:i:s',time());
+     $data['add_time']=  date('Y-m-d H:i:s',time());
+     
+     $res =  pdo_insert("real_time_data",$data);
+     $data['insert']  = $res;
        $id = pdo_insertid();
-       //删除多余的
+       
+       
+        $redis_data['chinese_stock_name']=    $redis_data['stock_name']=  $data['stock_code'];
+     $redis_data['stock_code']=     $data['stock_code'];
+   $redis_data['last_done']= $data['open'];
+   $redis_data['percent_change']=0.01;
+
+      $redis_data['id']= $id;
+      $redis_data['created_on']= date("Y-m-d H:i:s");
+      $redis_data['market']=  "Main MARKET";
+      $redis_data['buy_price']= $redis_data['sell_price']=$data['close'];
+      
+
+      $redis_data['high']=$data['high'];
+      $redis_data['low']=$data['low'];
+      $redis_data['volume']=$redis_data['buy_volume']=$redis_data['sell_volume']= 100;
+      $redis_data['change']= 0.01;
+     $data['redis']= $redis->set('mys'.$value['value'], json_encode($redis_data));
+     $data['redis_str']= $redis->get('mys'.$value['value']);
+     
+         
+    //删除多余的
       pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
      if($res){
             die(json_encode($data));
-        }
-       
-    }
-            
-// if($id) echo "更新成功";
-    // data[i][0], // the date
-    // data[i][1], // open
-    // data[i][2], // high
-    // data[i][3], // low
-    // data[i][4] // close
-    // data[i][0], // the date
-    // data[i][5] // the volume
+      }
+

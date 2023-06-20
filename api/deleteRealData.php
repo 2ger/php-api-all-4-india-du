@@ -26,7 +26,7 @@ if($op == "list"){
     $list = pdo_fetchall("select id,stock_gid, count(*) as total from real_time_data where 1 GROUP by stock_gid order by total desc, id desc");
     $i = 1;
     foreach ($list as $val){
-        if($val["total"] >1){
+        if($val["total"] >10){
             echo $i;
             $i++;
             if($_GPC['from']){
@@ -36,6 +36,7 @@ if($op == "list"){
             }
         }
     }
+    if($i == 1)  echo " 无任务 \n\r";
 }
 if($op == "del"){
     $stock_gid = $_GPC['stock_gid'];
@@ -54,12 +55,15 @@ if($op == "del"){
 }
 //方法三，浏览器自动跳转删除
 if($op == "auto"){
-    $list = pdo_fetchall("select id,stock_gid, count(*) as total from real_time_data where 1 GROUP by stock_gid order by total desc, id desc limit 10");
- 
+    $time = time();
+    echo date("H:i:s")." 开始\n";
+    $list = pdo_fetchall("select id,stock_gid, count(*) as total from real_time_data where 1 GROUP by stock_gid order by total desc, id desc limit 50");
+    $i = 1;
     foreach ($list as $val){
         if($val["total"] >10){
-                echo " - ".$val["stock_gid"]." - ".$val["total"]."条\n\r";
-             $stock_gid = $val['stock_gid'];
+            echo $i." - ".$val["stock_gid"]." - ".$val["total"]."条 - ";
+            $i++;
+            $stock_gid = $val['stock_gid'];
             $id = pdo_fetchcolumn("select id from real_time_data where stock_gid = '".$stock_gid."' order by  id desc");
      
             $wdel['stock_gid'] =$stock_gid;
@@ -67,7 +71,7 @@ if($op == "auto"){
             $res = pdo_delete("real_time_data",$wdel);
             // $res = pdo_fetch($delsql);
             if($res) {
-                echo $stock_gid." - id:".$id;
+                // echo $stock_gid." - id:".$id;
                 echo " 删除成功\n\r";
                 // sleep(5);
                 $url = "https://tradingdiario.com/api/deleteRealData.php?op=auto";
@@ -75,4 +79,8 @@ if($op == "auto"){
             }
         }
     }
+    if($i == 1)  echo " 无任务 \n\r";
+    echo date("H:i:s")." 结束\n";
+    $time = time() - $time;
+    echo "用时: ".$time."s \n";
 }
