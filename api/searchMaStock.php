@@ -58,18 +58,23 @@ if($list){
     $content = str_replace(',','',$content);
     $data['high']= $content;
     
-    $data['stock_code']= $code;
+  $where['stock_code']=   $data['stock_code']= $code;
     $data['stock_gid']= "mys".$code;
     
      $data['volume']='100';// $val[5]
      $data['timestamp']= date('Y-m-d H:i:s',time());
      $data['add_time']=  date('Y-m-d H:i:s',time());
      
-     $res =  pdo_insert("real_time_data",$data);
+     //先更新，没有则写入
+     $res =  pdo_update("real_time_data",$data,$where);
+     if(!$res){
+         $res =  pdo_insert("real_time_data",$data);
+     }
+     
    $val['insert']=  $data['insert']  = $res;
-       $id = pdo_insertid();
+    //   $id = pdo_insertid();
     //删除多余的
-      pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
+    //   pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
     }
         
     $list2[] =$val;

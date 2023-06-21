@@ -7,16 +7,16 @@ require '../framework/bootstrap.inc.php';
 $op = $_GPC["op"];
 if($op == "list"){
    //持仓
-    $list = pdo_fetchall("SELECT p.stock_gid,p.stock_name,p.stock_code,r.close FROM `user_position` as p left join `real_time_data` as r on p.stock_code=r.stock_code where r.close is null GROUP by stock_code  ORDER BY `p`.`stock_gid` ASC");
+    $list = pdo_fetchall("SELECT p.id,p.stock_gid,p.stock_name,p.stock_code,r.close FROM `user_position` as p left join `real_time_data` as r on p.stock_code=r.stock_code where r.close is null GROUP by stock_code  ORDER BY `p`.`stock_gid` ASC");
     // if(!$list) die("无任务");
     echo count($list)."个【持仓】无价格，请点击更新<br>";
   
     foreach ($list as $val){
         $type = substr($val["stock_gid"], 0 ,2);
         if($type != "us" && $type != "hk"){
-           echo "<a href='https://tradingdiario.com/api/getMaStock.php?time=2W&insert=1&code=".$val["stock_code"]."'>".$val["stock_code"]."</a><br>"; 
+           echo "<a href='cloud_pass.php?code=".$val["stock_code"]."'>".$val["id"]." - ".$val["stock_code"]."</a><br>"; 
         }else{
-           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["stock_gid"]."</a><br>"; 
+           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["id"]." - ".$val["stock_gid"]."</a><br>"; 
         }
         
     }
@@ -28,14 +28,14 @@ if($op == "list"){
     foreach ($list as $val){
         $type = substr($val["stock_code"], 0 ,2);
         // if($type != "us" && $type != "hk"){
-           echo "<a href='https://tradingdiario.com/api/getMaStock.php?time=2W&insert=1&code=".$val["new_code"]."'>".$val["new_code"]."</a><br>"; 
+           echo "<a href='cloud_pass.php?code=".$val["new_code"]."'>".$val["id"]." - ".$val["new_code"]."</a><br>"; 
         // }else{
-           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["stock_gid"]."</a><br>"; 
+           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["id"]." - ".$val["stock_gid"]."</a><br>"; 
         // }
         
     }
     //自选
-      $list = pdo_fetchall("SELECT p.stock_code,r.close,p.stock_gid FROM `stock_option` as p left join `real_time_data` as r on p.stock_code=r.stock_code where r.close is null GROUP by stock_code  ORDER BY `p`.`stock_code` ASC");
+      $list = pdo_fetchall("SELECT p.id,p.stock_code,r.close,p.stock_gid FROM `stock_option` as p left join `real_time_data` as r on p.stock_code=r.stock_code where r.close is null GROUP by stock_code  ORDER BY `p`.`stock_code` ASC");
     if(!$list) die("无任务");
     echo count($list)."个【自选】无价格，请点击更新<br>";
   
@@ -43,9 +43,9 @@ if($op == "list"){
         $type = substr($val["stock_gid"], 0 ,2);
         if($type != "us" && $type != "hk"){
             
-           echo "<a href='https://tradingdiario.com/api/getMaStock.php?time=2W&insert=1&code=".$val["stock_code"]."'>".$val["stock_gid"]."</a><br>"; 
+           echo "<a href='cloud_pass.php?code=".$val["stock_code"]."'>".$val["id"]." - ".$val["stock_gid"]."</a><br>"; 
         }else{
-           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["stock_gid"]."</a><br>"; 
+           echo "<a href='nullPrice.php?stock_code=".$val["stock_code"]."&op=".$type."'>".$val["id"]." - ".$val["stock_gid"]."</a><br>"; 
         }
         
     }
@@ -57,6 +57,7 @@ if($op == "hk" ||$op == "us"){
     $url = "https://api.my.shopro.pro/api/stock/getStock.do?pageNum=1&pageSize=15&stockPlate=&stockType=".$op."&keyWords=".$_GPC['stock_code'];
     $data0 = file_get_contents($url);
     $data0 = json_decode($data0,true);
+    if(!$data0)  die("写入失败");  
     // print_r($data0); 
     // die();
     $val =$data0['data']['list'][0];

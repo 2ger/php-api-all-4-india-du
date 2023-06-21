@@ -1,5 +1,5 @@
 <?php
-
+// https://tradingdiario.com/api/test.php
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
@@ -8,35 +8,42 @@ $time = $_GET['time'];
 $insert = $_GET['insert'];
 
 
-$url = "https://www.shareinvestor.com/prices/searchbox_prices_f.html?counter=$code.MY";  
+$apiUrl = "https://www.klsescreener.com/v2/stocks/chart/$code/embedded/1y";  
+
+// $url = "https://klse.i3investor.com/web/stock/overview/0183";  
+// $url = "https://www.bursamarketplace.com/index.php?tpl=stock_ajax&type=gettixdetail&code=SALU";
+// $apiUrl = "https://www.klsescreener.com/v2/stocks/chart/0183/embedded/1y";    
 // $res = file_get_contents($url);
 
-$curl = curl_init();
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => $url,
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_VERBOSE => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'GET',
-//   CURLOPT_POSTFIELDS =>$code,
-  CURLOPT_HTTPHEADER => array(
-    'Referer: https://www.klsescreener.com/',
-  ),
-));
-$response = curl_exec($curl);
+// $apiUrl = 'https://api.cloudbypass.com/v2/stocks/chart/0183/embedded/1y';
+$apiKey = '9df5b13045654eb4b03c4d5a1bdf172e';
+$externalHost = 'www.klsescreener.com';
 
+$ch = curl_init();
 
-// 检查是否有错误发生
-if(curl_errno($curl)) {
-    echo 'cURL 错误：' . curl_error($curl);
+curl_setopt($ch, CURLOPT_URL, $apiUrl);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$headers = [
+    'x-cb-apikey: '.$apiKey,
+    'x-cb-host: '.$externalHost,
+];
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$result = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'Error: '.curl_error($ch);
+} else {
+    echo $result;
 }
 
-// var_dump($response);
+curl_close($ch);
+
+var_dump($result);die();
 
   
    $pattern = '/\<td rowspan\=\"2\" class=\"sic_lastdone\"><strong>(.*?)\<\/strong\>/s';
