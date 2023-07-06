@@ -25,7 +25,7 @@ $offset = ($pageNum-1)*$pageSize;
 // }
 
     //新股上架，搜索不到，手动从详情写入数据库，再从数据库查出来
-    $list = pdo_fetchall("SELECT r.*,s.stock_name  FROM `real_time_data` r left join stock s on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_gid like '%mys%'  group by r.stock_code limit $pageSize ");//OFFSET $offset
+    $list = pdo_fetchall("SELECT r.*,s.stock_name  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_gid like '%mys%'  group by s.stock_code limit $pageSize ");//OFFSET $offset
 if($list){
     foreach ($list as $item){
         

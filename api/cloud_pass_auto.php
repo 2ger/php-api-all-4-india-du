@@ -1,6 +1,7 @@
 <?php
 //持机 更新持仓中的价格
-// https://tradingdiario.com/api/cloud_pass_auto.php?op=auto
+// 挂机采集 https://tradingdiario.com/api/cloud_pass_auto.php?op=auto
+//测试采集 https://tradingdiario.com/api/cloud_pass_auto.php?op=auto&limit=1
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
@@ -9,6 +10,13 @@ $limit = $_GPC["limit"];//带参数则不限制
 
 if(!$limit){ 
 //时间限制，仅8-5点执行
+$hour = date("H");
+if(($hour >=9 &&$hour <12) ||($hour>=14 && $hour <17)){
+    echo $hour."点，开始采集";
+}else{
+    echo $hour."点，未开盘";
+    die();
+}
 
 }
 

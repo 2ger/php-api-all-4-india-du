@@ -23,7 +23,7 @@ $count = count($response);
 if($response){
     foreach($response as &$value) {
        $redis_data['chinese_stock_name']=    $redis_data['stock_name']=    $stock['stock_spell'] =  $stock['stock_name'] =  $val['name'] = $value['label'];
-        $where['stock_code'] =   $redis_data['stock_code']= $real['stock_code'] =       $stock['stock_code'] =  $val['code'] = $value['value'];
+        $where['stock_code'] =   $redis_data['stock_code']= $real['stock_code'] =     $stock['stock_code'] =  $val['code'] = $value['value'];
        $redis_data['last_done']= $real['close'] =  $real['open'] =   $val['nowPrice'] = $value['price'];
        $redis_data['percent_change']=$val['hcrate'] = number_format($value['price_change']/$val['nowPrice']*100,2);
     

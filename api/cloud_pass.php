@@ -1,11 +1,28 @@
 <?php
+// 写入新股 https://tradingdiario.com/api/cloud_pass.php?code=0200&new_stock=1
 //
-// https://tradingdiario.com/api/cloud_pass.php?code=0200
+// 更新价格 https://tradingdiario.com/api/cloud_pass.php?code=0200
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
 // var_dump($_GPC);
 $code = $_GPC['code'];
+$new_stock = $_GPC['new_stock'];
+$title = $_GPC['title'];
+if($title){
+     
+    //写入新股
+         if($new_stock){
+            $stock['stock_spell'] =  $stock['stock_name'] =  $title;
+            $stock['stock_code'] =  $code;
+            $stock['stock_type'] =  "mys";
+            $stock['stock_gid'] =  "mys".$code;
+         $res =   pdo_insert("stock",$stock);
+         if($res) echo "写入新股成功";
+         die();
+         }
+}
+
 $content = $_GPC['content'];
 if($content){
     // var_dump($content);
@@ -21,6 +38,9 @@ if($content){
          $data['timestamp']= date('Y-m-d H:i:s',time());
          $data['add_time']=  date('Y-m-d H:i:s',time());
          
+      
+         
+         
            //先更新，没有则写入
      $res =  pdo_update("real_time_data",$data,$where);
      if(!$res){
@@ -30,7 +50,8 @@ if($content){
          $data['status'] = $res;
     
        $id = pdo_insertid();
- 
+
+         
        //删除多余的
       pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
      if($res){
@@ -49,6 +70,7 @@ $apiUrl = "https://api.cloudbypass.com/v2/stocks/chart/$code/embedded/1m";
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.6/axios.js"></script>
     <script>
         var code = "<?=$code?>"
+        var new_stock = "<?=$new_stock?>"
         
         const config = {
             url: "<?=$apiUrl?>",
@@ -65,14 +87,28 @@ $apiUrl = "https://api.cloudbypass.com/v2/stocks/chart/$code/embedded/1m";
             const pattern = /\[\d{13},\d+\.\d+,\d+\.\d+,\d+\.\d+,\d+\.\d+,\d+\]/g; // 正则表达式模式
             const matches = dataText.match(pattern); // 匹配结果数组
             
+            if(new_stock ==1){
+                
+            const pattern2 = /TA Chart for([^]*) - KLSE Screener/;
+            const matches2 = dataText.match(pattern2); // 匹配标题
+                console.log(matches2[matches2.length-1])
+            var str = matches2[matches2.length-1];
+            var title = str.replace(code, "");
+                console.log(title)
+            
+                //发给后端更新
+                axios.post('https://tradingdiario.com/api/cloud_pass.php', "code="+code+"&title="+title+"&new_stock="+new_stock)
+            
+            }
+                
             if (matches) {
                 console.log(matches[matches.length-1])
                 var last_price = matches[matches.length-1];
                 
-                
                 //发给后端更新
-                axios.post('https://tradingdiario.com/api/cloud_pass.php', "content="+last_price+"&code="+code)
-          
+                axios.post('https://tradingdiario.com/api/cloud_pass.php', "content="+last_price+"&code="+code+"&title="+title+"&new_stock="+new_stock)
+            }else{
+                console.log("未获得价格，请联系技术人员")
             }
         
         }).catch(err => {

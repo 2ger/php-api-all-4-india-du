@@ -29,6 +29,8 @@ php 补充api
 8. 后台：挂单
     1. 列表   https://tradingdiario.com/api/pendingOrder.php?op=list
     2. 通过   https://tradingdiario.com/api/pendingOrder.php?op=prove&positionId=xxx
+3. 7-6 
+    4.新股 写入新股 https://tradingdiario.com/api/cloud_pass.php?code=0200&new_stock=1  
 
 ### 支付api 
 1. 666withdraw.php 提现
