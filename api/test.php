@@ -1,79 +1,91 @@
 <?php
-// https://tradingdiario.com/api/test.php
+
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
+//连接到 Redis 数据库
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+$redis->select(3);
 
-$code = $_GET['code'];
-$time = $_GET['time'];
-$insert = $_GET['insert'];
+$code = $_GPC['keyWords'];
+$pageSize = $_GPC['pageSize'];
+$pageNum = $_GPC['pageNum'];
 
-
-$apiUrl = "https://www.klsescreener.com/v2/stocks/chart/$code/embedded/1y";  
-
-// $url = "https://klse.i3investor.com/web/stock/overview/0183";  
-// $url = "https://www.bursamarketplace.com/index.php?tpl=stock_ajax&type=gettixdetail&code=SALU";
-// $apiUrl = "https://www.klsescreener.com/v2/stocks/chart/0183/embedded/1y";    
-// $res = file_get_contents($url);
+$offset = ($pageNum-1)*$pageSize;
 
 
-// $apiUrl = 'https://api.cloudbypass.com/v2/stocks/chart/0183/embedded/1y';
-$apiKey = '9df5b13045654eb4b03c4d5a1bdf172e';
-$externalHost = 'www.klsescreener.com';
+// if(strlen($code) >=4){
+    
+// $data['status'] = 0;
+// $data['msg'] = strlen($code);
+// // $data['data'] =[];
+// $data = json_encode($data);
+// echo $data;
+// exit();
+// } 
 
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $apiUrl);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$headers = [
-    'x-cb-apikey: '.$apiKey,
-    'x-cb-host: '.$externalHost,
-];
-
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-$result = curl_exec($ch);
-
-if (curl_errno($ch)) {
-    echo 'Error: '.curl_error($ch);
-} else {
-    echo $result;
+    //新股上架，搜索不到，手动从详情写入数据库，再从数据库查出来
+    $list = pdo_fetchall("SELECT r.*,s.stock_name  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_gid like '%mys%' order by r.id desc   ");//OFFSET $offset
+if($list){
+    foreach ($list as $item){
+        
+     $val['name'] = $item['stock_name'];
+     $val['code'] = $item['stock_code'];
+     $val['nowPrice'] = $item['close'];
+     $val['hcrate'] = number_format(($item['high']-$item['low'])/$item['close']*100,2);
+     
+     
+//     if(strlen($code) >=4){
+//         //实时查
+//         $url = "https://www.shareinvestor.com/prices/searchbox_prices_f.html?counter=$code.MY";  
+//         $response = file_get_contents($url);
+//       $pattern = '/\<td rowspan\=\"2\" class=\"sic_lastdone\"><strong>(.*?)\<\/strong\>/s';
+//         preg_match($pattern, $response, $matches);
+//         $content = $matches[1];
+//         $content = str_replace(',','',$content);
+//      $val['nowPrice']=   $content;
+//       $data['open']=  $data['close']= $content;
+    
+//   $pattern = '/\<td\>Price Range\: \<strong\>(.*?) - /s';
+//     preg_match($pattern, $response, $matches);
+//     $content = $matches[1];
+//     $content = str_replace(',','',$content);
+//     $data['low']= $content;
+//   $pattern = '/ - (.*?)\<\/strong\>/s';
+//     preg_match($pattern, $response, $matches);
+//     $content = $matches[1];
+//     $content = str_replace(',','',$content);
+//     $data['high']= $content;
+    
+//   $where['stock_code']=   $data['stock_code']= $code;
+//     $data['stock_gid']= "mys".$code;
+    
+//      $data['volume']='100';// $val[5]
+//      $data['timestamp']= date('Y-m-d H:i:s',time());
+//      $data['add_time']=  date('Y-m-d H:i:s',time());
+     
+//      //先更新，没有则写入
+//      $res =  pdo_update("real_time_data",$data,$where);
+//      if(!$res){
+//          $res =  pdo_insert("real_time_data",$data);
+//      }
+     
+//   $val['insert']=  $data['insert']  = $res;
+//     //   $id = pdo_insertid();
+//     //删除多余的
+//     //   pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
+//     }
+        
+    $list2[] =$val;
+    }
 }
 
-curl_close($ch);
+$data['status'] = 0;
+$data['data'] = $list2;
 
-var_dump($result);die();
+// pdo_debug();
 
-  
-   $pattern = '/\<td rowspan\=\"2\" class=\"sic_lastdone\"><strong>(.*?)\<\/strong\>/s';
-    preg_match($pattern, $response, $matches);
-    $content = $matches[1];
-   $data['open']=  $data['close']= $content;
-    
-   $pattern = '/\<td\>Price Range\: \<strong\>(.*?) - /s';
-    preg_match($pattern, $response, $matches);
-    $content = $matches[1];
-    $data['low']= $content;
-   $pattern = '/ - (.*?)\<\/strong\>/s';
-    preg_match($pattern, $response, $matches);
-    $content = $matches[1];
-    $data['high']= $content;
-    
-    $data['stock_code']= $code;
-    $data['stock_gid']= "mys".$code;
-    
-     $data['volume']='100';// $val[5]
-     $data['timestamp']= date('Y-m-d H:i:s',time());
-     $data['add_time']=  date('Y-m-d H:i:s',time());
-     
-     $res =  pdo_insert("real_time_data",$data);
-     $data['insert']  = $res;
-       $id = pdo_insertid();
-         
-    //删除多余的
-      pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
-     if($res){
-            die(json_encode($data));
-      }
+$data = json_encode($data);
+echo $data;
+
 

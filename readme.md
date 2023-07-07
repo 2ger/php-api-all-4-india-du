@@ -20,7 +20,7 @@ php 补充api
        9.  https://ws20.bursamalaysia.com/api/v2/stock_price_data?stock_code=0021.MY&mode=intraday&from_date=20230620&ws_a=80156f7b4453e622a9696997b207116ed2928cf3dc4a7719eaad19af3a90e034&ws_m=1687269357.0
        10.  https://api.wsj.net/api/dylan/quotes/v2/comp/quoteByDialect?dialect=official&needed=CompositeTrading|BluegrassChannels&MaxInstrumentMatches=1&accept=application/json&EntitlementToken=cecc4267a0194af89ca343805a3e57af&ckey=cecc4267a0&dialects=Charting&id=Stock-MY-0021
        11.  
-6. 搜索并更新价格  https://tradingdiario.com/api/searchMaStock.php
+6. 搜索并更新价格  https://tradingdiario.com/api/searchMaStock.php 【失效仅搜索】
     7. 'https://www.klsescreener.com/v2/stocks/all.json?term='.$code;【失败】
     8. https://www.bursamalaysia.com/api/v1/search/stock_list?keyword=0021&lang=EN&limit=99  无价格 
     9. https://www.shareinvestor.com/search/stocks_lookup?keyword=0021 无价格
@@ -30,7 +30,9 @@ php 补充api
     1. 列表   https://tradingdiario.com/api/pendingOrder.php?op=list
     2. 通过   https://tradingdiario.com/api/pendingOrder.php?op=prove&positionId=xxx
 3. 7-6 
-    4.新股 写入新股 https://tradingdiario.com/api/cloud_pass.php?code=0200&new_stock=1  
+    4.新股 写入新股 https://tradingdiario.com/api/cloud_pass.php?code=0200&new_stock=1
+5. 7-7
+    6. 新股没有k线 通过搜索 更新价格 https://tradingdiario.com/api/cloud_pass_search.php?keyWords=5315 
 
 ### 支付api 
 1. 666withdraw.php 提现

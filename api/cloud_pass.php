@@ -1,5 +1,5 @@
 <?php
-// 写入新股 https://tradingdiario.com/api/cloud_pass.php?code=0200&new_stock=1
+// 写入新股 https://tradingdiario.com/api/cloud_pass.php?code=5315&new_stock=1
 //
 // 更新价格 https://tradingdiario.com/api/cloud_pass.php?code=0200
 header('Access-Control-Allow-Origin:*');
@@ -13,13 +13,36 @@ if($title){
      
     //写入新股
          if($new_stock){
-            $stock['stock_spell'] =  $stock['stock_name'] =  $title;
-            $stock['stock_code'] =  $code;
+        $redis_data['chinese_stock_name']=    $redis_data['stock_name']=      $stock['stock_spell'] =  $stock['stock_name'] =  trim($title);
+          $redis_data['stock_code']=       $stock['stock_code'] =  $code;
             $stock['stock_type'] =  "mys";
             $stock['stock_gid'] =  "mys".$code;
          $res =   pdo_insert("stock",$stock);
+     $data['new_stock']=    $id = pdo_insertid();
+         
+          //连接到 Redis 数据库
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
+    $redis->select(3);
+    
+   $redis_data['last_done']= 1;
+   $redis_data['percent_change']=0.01;
+
+      $redis_data['id']= $id;
+      $redis_data['created_on']= date("Y-m-d H:i:s");
+      $redis_data['market']=  "Main MARKET";
+      $redis_data['buy_price']= 1;
+      
+
+      $redis_data['high']=1;
+      $redis_data['low']=1;
+      $redis_data['volume']=$redis_data['buy_volume']=$redis_data['sell_volume']= 100;
+      $redis_data['change']= 0.01;
+     $data['redis']= $redis->set('mys'.$code, json_encode($redis_data));
+     $data['redis_str']= $redis->get('mys'.$code);
+    
          if($res) echo "写入新股成功";
-         die();
+         die(json_encode($data));
          }
 }
 
