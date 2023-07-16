@@ -1,22 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+        <meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pay types</title>
+</head>
+<body>
+    
 <?php
 header("Access-Control-Allow-Origin: *");
 
  $pay_url = "https://api.666pay.xyz/pay/order/create";
  $mer = "888458203";
  $key = "7bd5ff811951429084682738b8c9d818";
- $pay_code='1500'; //通道编码，商户后台查看
+//  $pay_code='1500'; //通道编码，商户后台查看 1501 钱包  1500 银行卡
  $currency = "MYR";
  $notify_url = "https://tradingdiario.com/api/666notify.php";
  
+ $pay_code = $_GET['pay_code'];
  $amt = $_GET['amt'];
  $id = $_GET['id'];
  $user_id = $_GET['user_id'];
  
-//  $amt = $_POST['amt'];
-//  $id = $_POST['id'];
-//  $user_id = $_POST['user_id
 
-// $amt =  100;
+     
+$currentURL = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']."&pay_code=";
+
+
+?>
+
+<div class="title">
+    --- Choose a Pay Type ---
+</div>
+
+<a href="<?=$currentURL?>1500" class="btn banks">via Banks</a>
+<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>
+<style>
+.title{
+      margin: 50px 20px;
+        color: #00112c;
+        text-align: center;
+        font-size: 18px;
+}
+    .btn{
+        display: block;
+        /*border: 1px solid #ccc;*/
+        /*border-radius: 10px;*/
+        margin: 20px;
+        background: #0abf53;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        padding: 10px;
+        border: 2px solid rgba(0,0,0,0);
+    border-radius: 8px;
+        height: 44px;
+    /*margin: 3px;*/
+    padding: 9px 24px;
+        font-size: 16px;
+    font-weight: 700;
+    line-height: 44px;
+    }
+    .wallet{
+            background-color: #00112c;
+    }
+</style>
+<?
+ if(!$pay_code){
+     
+die();
+ }
+
 
 $map = [
     'mer_no'=>$mer,
@@ -103,3 +157,6 @@ function sendSign($params, $appsecret)
     return strtolower(md5($signStr));
 }
 ?>
+
+</body>
+</html>
