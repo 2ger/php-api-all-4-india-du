@@ -12,6 +12,9 @@ $insert = $_GET['insert'];
  $res =  pdo_fetch("select * from real_time_data where stock_code = '".$code."' order by id desc ");
  if($res){
      $res['status'] =1;
+     if(time()-strtotime($res['add_time']) < 60*30){
+        $res['newPrice'] =1;
+     }
      $res['open'] =$res['close'];
      
       die(json_encode($res));
