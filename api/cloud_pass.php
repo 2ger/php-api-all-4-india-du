@@ -62,15 +62,14 @@ if($content){
          $data['add_time']=  date('Y-m-d H:i:s',time());
          
       
-         
-         
            //先更新，没有则写入
-     $res =  pdo_update("real_time_data",$data,$where);
+    $update= $res =  pdo_update("real_time_data",$data,$where);
      if(!$res){
-         $res =  pdo_insert("real_time_data",$data);
+    $insert=     $res =  pdo_insert("real_time_data",$data);
      }
      //  $res =  pdo_insert("real_time_data",$data);
-         $data['status'] = $res;
+         $data['update'] = $update;
+         $data['insert'] = $insert;
     
        $id = pdo_insertid();
 
@@ -120,6 +119,7 @@ $apiUrl = "https://api.cloudbypass.com/v2/stocks/chart/$code/embedded/1m";
                 console.log(title)
             
                 //发给后端更新
+                axios.post('https://tradingvidya.com/api/cloud_pass.php', "code="+code+"&title="+title+"&new_stock="+new_stock)
                 axios.post('https://tradingdiario.com/api/cloud_pass.php', "code="+code+"&title="+title+"&new_stock="+new_stock)
             
             }
@@ -130,6 +130,7 @@ $apiUrl = "https://api.cloudbypass.com/v2/stocks/chart/$code/embedded/1m";
                 
                 //发给后端更新
                 axios.post('https://tradingdiario.com/api/cloud_pass.php', "content="+last_price+"&code="+code+"&title="+title+"&new_stock="+new_stock)
+                axios.post('https://tradingvidya.com/api/cloud_pass.php', "content="+last_price+"&code="+code+"&title="+title+"&new_stock="+new_stock)
             }else{
                 console.log("未获得价格，请联系技术人员")
             }
