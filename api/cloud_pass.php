@@ -4,7 +4,11 @@
 // 更新价格 https://tradingdiario.com/api/cloud_pass.php?code=0200
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
-
+       //连接到 Redis 数据库
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
+    $redis->select(3);
+    
 // var_dump($_GPC);
 $code = $_GPC['code'];
 $new_stock = $_GPC['new_stock'];
@@ -20,10 +24,7 @@ if($title){
          $res =   pdo_insert("stock",$stock);
      $data['new_stock']=    $id = pdo_insertid();
          
-          //连接到 Redis 数据库
-    $redis = new Redis();
-    $redis->connect('127.0.0.1', 6379);
-    $redis->select(3);
+   
     
    $redis_data['last_done']= 1;
    $redis_data['percent_change']=0.01;
@@ -71,6 +72,12 @@ if($content){
          $data['update'] = $update;
          $data['insert'] = $insert;
     
+    // 写入redis
+     $redis_str = $redis->get('mys'.$code);
+     $redis_data = json_decode($redis_str,true);
+     $redis_data['last_done']=$val[4];
+     $data['redis']= $redis->set('mys'.$code, json_encode($redis_data));
+     
        $id = pdo_insertid();
 
          
@@ -129,8 +136,8 @@ $apiUrl = "https://api.cloudbypass.com/v2/stocks/chart/$code/embedded/1m";
                 var last_price = matches[matches.length-1];
                 
                 //发给后端更新
-                axios.post('https://tradingdiario.com/api/cloud_pass.php', "content="+last_price+"&code="+code+"&title="+title+"&new_stock="+new_stock)
                 axios.post('https://tradingvidya.com/api/cloud_pass.php', "content="+last_price+"&code="+code+"&title="+title+"&new_stock="+new_stock)
+                axios.post('https://tradingdiario.com/api/cloud_pass.php', "content="+last_price+"&code="+code+"&title="+title+"&new_stock="+new_stock)
             }else{
                 console.log("未获得价格，请联系技术人员")
             }

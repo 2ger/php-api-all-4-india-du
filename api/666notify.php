@@ -7,7 +7,7 @@ require '../framework/bootstrap.inc.php';
  $key = "a545103df14340038a9f59df25463a78";
  $pay_code='1500'; //通道编码，商户后台查看
  $currency = "MYR";
- $notify_url = "https://phpapi.bitskd.pro/api/666notify.php";
+ $notify_url = "https://tradingvidya.com/api/666notify.php";
  
 // var_dump($_GPC);
 $ip_address = $_SERVER['REMOTE_ADDR'];
@@ -52,6 +52,6 @@ if($mer == $get_mer_no && $currency == $get_currency && $payResult ==1){
     }
       
 }else{
-    die("nupay");
+    die($mer_no." nupay");
 }
 

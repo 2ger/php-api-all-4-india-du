@@ -38,8 +38,8 @@ $mch_private_key = "0DF849BA870147AABA3EEAD101E3ECB5";
 $gatewayUrl = 'https://api.doitwallet.asia/merchant/reqfpx';
 
 
-$orderNo = $_GET['orderNo'];
-$amount = $_GET['amount']*1; //美元汇率
+$orderNo = $_GET['id'];
+$amount = $_GET['amt']*1; //美元汇率
 $notifyUrl = "https://tradingvidya.com/api/OMPay/notify.php";
 $pageUrl = "https://tradingvidya.com/wap/#/user"; 
 // $data['subject'] = 'test'.$_GET['uid'];
@@ -56,9 +56,9 @@ $token = MD5($orderNo.$APIKey.$mch_private_key.$amount);
 
 
 $data['merchantCode'] = $merId; //->merId
-$data['serialNo'] = $_GET['orderNo'];
+$data['serialNo'] = $orderNo;
 $data['currency'] = 'MYR';
-$data['amount'] = $_GET['amount']*1; //美元汇率
+$data['amount'] = $amount*1; //美元汇率
 $data['notifyUrl'] = "https://tradingvidya.com/api/OMPay/notifyFPX.php";
 $data['returnUrl'] = "https://tradingvidya.com/wap/#/user"; 
 $data['token'] = $token; //->merId

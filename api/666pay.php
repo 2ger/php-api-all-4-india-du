@@ -18,7 +18,7 @@ header("Access-Control-Allow-Origin: *");
 
 //  $pay_code='1500'; //通道编码，商户后台查看 1501 钱包  1500 银行卡
  $currency = "MYR";
- $notify_url = "https://tradingdiario.com/api/666notify.php";
+ $notify_url = "https://tradingvidya.com/api/666notify.php";
  
  $pay_code = $_GET['pay_code'];
  $amt = $_GET['amt'];
@@ -29,6 +29,7 @@ header("Access-Control-Allow-Origin: *");
      
 $currentURL = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']."&pay_code=";
 
+$OMPay = "https://" . $_SERVER['HTTP_HOST'] ."/api/OMPay/pay.php?amt=$amt&id=$id&user_id=$user_id";
 
 ?>
 
@@ -37,7 +38,8 @@ $currentURL = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']."&pay
 </div>
 
 <a href="<?=$currentURL?>1500" class="btn banks">via Banks</a>
-<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>
+<!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
+<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>
 <style>
 .title{
       margin: 50px 20px;

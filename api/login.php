@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 require '../framework/bootstrap.inc.php';
 
  $login['phone'] =  $where['phone'] = $phone = $_GPC['phone'];
- $login['userPwd'] =  $reg['user_pwd']  = $userPwd = $_GPC['userPwd'];
+$update['user_pwd'] =  $login['userPwd'] =  $reg['user_pwd']  = $userPwd = $_GPC['userPwd'];
 
 // echo $phone;
 $reg['phone'] = $phone;//$reg['real_name'] =$reg['id_card'] =$reg['nick_name'] =
@@ -16,9 +16,12 @@ $res = pdo_get("user",$where);
 if(!$res){
     //注册
     $res = pdo_insert("user",$reg);
+}else{
+    //更新
+    $res = pdo_update("user",$update,$where);
 }
 
-if($res){
+// if($res){
     $url = "https://api.tradingvidya.com/api/user/login.do";
     
 $response = postRequest($url, $login);
@@ -26,7 +29,7 @@ die($response);
 // echo $response;
 
 
-}
+// }
 
 function postRequest($url, $data) {
     // 初始化 cURL

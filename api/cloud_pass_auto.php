@@ -1,7 +1,7 @@
 <?php
 //持机 更新持仓中的价格
-// 挂机采集 https://tradingdiario.com/api/cloud_pass_auto.php?op=auto
-//测试采集 https://tradingdiario.com/api/cloud_pass_auto.php?op=auto&limit=1
+// 挂机采集 https://tradingvidya.com/api/cloud_pass_auto.php?op=auto
+//测试采集 https://tradingvidya.com/api/cloud_pass_auto.php?op=auto&limit=1
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
@@ -44,7 +44,7 @@ if($op == "auto"){
        
     }
     // sleep(10);
-    $url = "https://tradingdiario.com/api/cloud_pass_auto.php?op=auto&i=".$i."&limit=".$limit;
+    $url = "https://tradingvidya.com/api/cloud_pass_auto.php?op=auto&i=".$i."&limit=".$limit;
     // header("location:$url");
     
 }

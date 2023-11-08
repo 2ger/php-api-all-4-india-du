@@ -73,10 +73,7 @@ if($op == "prove"){
              $resp['msg'] = "用户余额不足,所需金额:".$position['order_total_price'].",用户可用金额：".$user['enable_amt'];
              die(json_encode($resp));
     }else{
-        $userupdate['enable_amt -='] = $position['order_total_price'];
-        $userwhere['id'] = $position['user_id'];
-        
-        pdo_update("user",$userupdate,$userwhere);
+      
         // pdo_debug();
         // die();
         
@@ -84,10 +81,22 @@ if($op == "prove"){
     // var_dump($order);
     // var_dump($position);die();
     $res = pdo_insert("user_position",$position);
-    if($res){
+    $insert_id = pdo_insertid();
+    if($insert_id >0){
+        //减余额
+          $userupdate['enable_amt -='] = $position['order_total_price'];
+        $userwhere['id'] = $position['user_id'];
+        
+        pdo_update("user",$userupdate,$userwhere);
+        
+        //更新订单
         $update['status'] = 1;
+        $update['update_time'] = date("Y-m-d H:i:s");
+        $update['position_id'] = $insert_id;
         $where['id'] = $id;
      $res2 =   pdo_update("user_pendingorder",$update,$where);
+     
+    //  pdo_debug();
          if($res2){
              $resp['status'] = 0;
              $resp['msg'] = "操作成功";
