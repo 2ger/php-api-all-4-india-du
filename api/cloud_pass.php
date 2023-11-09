@@ -9,6 +9,13 @@ require '../framework/bootstrap.inc.php';
     $redis->connect('127.0.0.1', 6379);
     $redis->select(3);
     
+    
+    
+//  设置klse cookies
+// https://www.klsescreener.com/v2/stocks/view/5243
+$cookie_value = "Q2FrZQ%3D%3D.DECxkqRjyMjZHGf3kBKJNz%2F3HgeHOBlXQRGy2WFbQSUygwITZ%2FwOmv6qY309QfmaxbhI0Jaz3PdgmiOXmx4jNHQ%3D";
+setcookie("klsescreener[User]", "$cookie_value", time() + 3600*7, "/");
+    
 // var_dump($_GPC);
 $code = $_GPC['code'];
 $new_stock = $_GPC['new_stock'];
@@ -107,6 +114,7 @@ $apiUrl = "https://api.cloudbypass.com/v2/stocks/chart/$code/embedded/1m";
             headers: {
                 "x-cb-apikey": "9df5b13045654eb4b03c4d5a1bdf172e",
                 "x-cb-host": "www.klsescreener.com",
+                "x-cb-cookie": "klsescreener[User]=<?=$cookie_value?>",
             },
         }
         axios(config).then(res => {

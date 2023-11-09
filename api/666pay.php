@@ -98,17 +98,23 @@ $sign = sendSign($map, $key);
 $map = array_merge($map,['sign' => $sign]);
 //echo $sign;
 //var_dump($map);die;
-$res = httpPost($pay_url, $map);
+$res0 = $res = httpPost($pay_url, $map);
+// var_dump($res);die;
 
 //php
 $res = json_decode($res,true);
-if($res['code'] == "SUCCESS"){
     $url = $res['pay_url'];
+    
+if($res['code'] == "SUCCESS" && $url != "null"){
     echo "<a href='".$url."'> go to pay</a>";
     header("location:$url");
 }else{
     $message = $res['message'];
-    echo "<script>alert('$message');history.go(-1)</script>";
+    // echo "<script>alert('$message');history.go(-1)</script>";
+   echo "Pay error: \n<br>" ;
+var_dump(json_encode($map));
+ echo "Pay error return: \n<br>" ;
+die($res0);die();
     // var_dump($res); 
 }
 
