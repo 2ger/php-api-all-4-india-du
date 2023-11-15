@@ -1,4 +1,5 @@
 <?php
+//自动登陆
 header("Access-Control-Allow-Origin: *");
 require '../framework/bootstrap.inc.php';
 
@@ -7,14 +8,14 @@ $update['user_pwd'] =  $login['userPwd'] =  $reg['user_pwd']  = $userPwd = $_GPC
 
 // echo $phone;
 $reg['phone'] = $phone;//$reg['real_name'] =$reg['id_card'] =$reg['nick_name'] =
-$reg['agent_id'] = 2;
-$reg['is_active'] = 0;
-$reg['reg_time'] = date("Y-m-d H:i:s");
 
 $res = pdo_get("user",$where);
 
 if(!$res){
     //注册
+$reg['agent_id'] = 2;
+$reg['is_active'] = 0;
+$reg['reg_time'] = date("Y-m-d H:i:s");
     $res = pdo_insert("user",$reg);
 }else{
     //更新
