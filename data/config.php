@@ -4,7 +4,7 @@ defined('IN_IA') or exit('Access Denied');
 $config = array();
 
 $config['db']['master']['host'] = '127.0.0.1';
-// $config['db']['master']['host'] = '104.219.251.111';
+// $config['db']['master']['host'] = '43.134.20.164';
 
 $config['db']['master']['database'] = 'stockdama3';
 $config['db']['master']['username'] = 'stockdama3';

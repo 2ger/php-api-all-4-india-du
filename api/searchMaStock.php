@@ -15,7 +15,6 @@ $offset = ($pageNum-1)*$pageSize;
 
 
 // if(strlen($code) >=4){
-    
 // $data['status'] = 0;
 // $data['msg'] = strlen($code);
 // // $data['data'] =[];
@@ -24,16 +23,22 @@ $offset = ($pageNum-1)*$pageSize;
 // exit();
 // } 
 
+
+// stock_name
+// stock_code
+// stock_spell
+// stock_type
+// stock_gid
+// stock_plate
     //新股上架，搜索不到，手动从详情写入数据库，再从数据库查出来
-    $list = pdo_fetchall("SELECT r.*,s.stock_name  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_gid like '%mys%'  group by s.stock_code limit $pageSize ");//OFFSET $offset
-if($list){
-    foreach ($list as $item){
+    $list = pdo_fetchall("SELECT r.*,s.*  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_type like '%india%'  group by s.stock_code limit $pageSize ");//OFFSET $offset
+// if($list){
+//     foreach ($list as $item){
         
-     $val['name'] = $item['stock_name'];
-     $val['code'] = $item['stock_code'];
-     $val['nowPrice'] = $item['close'];
-     $val['hcrate'] = number_format(($item['high']-$item['low'])/$item['close']*100,2);
-     
+//      $val['name'] = $item['stock_name'];
+//      $val['code'] = $item['stock_code'];
+//      $val['nowPrice'] = $item['close'];
+//      $val['hcrate'] = number_format(($item['high']-$item['low'])/$item['close']*100,2);
      
 //     if(strlen($code) >=4){
 //         //实时查
@@ -76,12 +81,12 @@ if($list){
 //     //   pdo_fetch("delete from real_time_data where stock_code = '".$code."' and id < ".$id);
 //     }
         
-    $list2[] =$val;
-    }
-}
+//     $list2[] =$val;
+//     }
+// }
 
 $data['status'] = 0;
-$data['data'] = $list2;
+$data['data'] = $list;
 
 // pdo_debug();
 
