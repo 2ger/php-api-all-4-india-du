@@ -10,9 +10,9 @@ $code = $_GET['code'];
 //  pdo_debug();
  if($res){
      $res['status'] =1;
-     if(time()-strtotime($res['add_time']) < 60*30){
+    //  if(time()-strtotime($res['add_time']) < 60*30){
         $res['newPrice'] =1;
-     }
+    //  }
      $res['open'] =$res['close'];
      $res['open_px'] =$res['close'];
      $res['id'] =$res['sid'];

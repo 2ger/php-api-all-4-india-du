@@ -1,86 +1,35 @@
 <?php
-//采集文章
-// https://tradingdiario.com/api/getNews.php
+//采集文章 > 印度
+// https://india.qq3.bpanel.ccapi/getNews.php
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 
 
 $list = getArticleListUsingPregMatch();
-// var_dump($list);
+var_dump($list);
+die();
 
-$site = 'https://www.klsescreener.com';
-foreach($list as $val){
-    $url = $site.$val['url'];
-    $data = getWebsiteTitleAndContent($url);
-    if($data){
-    if(isChinese($data['title'])){
-        echo "<br>\n\n 不采集中文：". $data['title'];
-         continue;//不采集中文
-    }
-    
-        $data['source_name'] = "my";
-      $res=  pdo_insert("site_news",$data);
-      if($res) echo "<br>\n\n成功采集：". $data['title'];
-    }
-}
-
-//测试
-// $url = "https://www.klsescreener.com/v2/news/view/1140901/%E9%98%BF%E5%85%B9%E6%9B%BC-%E9%A2%81900%E4%B8%87%E9%A3%9F%E6%B2%B9%E8%A1%A5%E8%B4%B4%E6%B2%A1%E8%B6%85%E9%A2%9D";
-// $data = getWebsiteTitleAndContent($url);
-// var_dump($data);
-
-
-function getWebsiteTitleAndContent($url) {
-    $html = file_get_contents($url);
-
-    // 匹配网站标题
-    preg_match("/<h2>(.*?)<\/h2>/i", $html, $matches);
-    $title = isset($matches[1]) ? $matches[1] : '';
-
-    // 匹配新闻内容
-    preg_match_all('/<div class="content text-justify" style="font-size:16px;">(.*?)<div class="news-container-translated message-translated"><\/div>/is', $html, $matches);
-    $content = isset($matches[1][0]) ? $matches[1][0] : '';
-
-    return array('title' => $title, 'content' => $content);
-}
-function isChinese($str) {
-    return preg_match("/[\x{4e00}-\x{9fa5}]+/u", $str);
-}
 
 function getArticleListUsingPregMatch() {
     // 设置目标网站的 URL
-    $url = 'https://www.klsescreener.com/v2/news';
+    $url = 'https://www.nirmalbang.com/ajaxpages/AjaxNewsUpdates.aspx?SecID=4&SubSecID=40&pageNo=1&PageSize=10';
+ $html = file_get_contents($url);
 
-    // 使用 cURL 初始化 HTTP 请求
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    // 匹配网站标题
+    preg_match_all("/<div class='GrNewsHead'>(.*?)<\/div>/i", $html, $matches);
+ 
+    $title = isset($matches[1]) ? $matches[1] : '';
 
-    // 获取目标网站的 HTML 内容
-    $html = curl_exec($ch);
-
-    // 关闭 cURL 请求
-    curl_close($ch);
-
-    // 使用 preg_match 函数从 HTML 中提取文章列表
-    $pattern = '/<ul class="channel_list_show">(.*?)<\/ul>/s';
-    preg_match($pattern, $html, $matches);
-    $content = $matches[1];
-
-    $pattern = '/<a href="(.*?)" target="_blank">(.*?)<\/a>/s';
-    preg_match_all($pattern, $content, $matches, PREG_SET_ORDER);
-    
-    // 遍历匹配结果，提取文章的标题和 URL
-    $result = array();
-    foreach ($matches as $match) {
-        $title = trim($match[2]);
-        $url = trim($match[1]);
-        if (!empty($title) && !empty($url)) {
-            $result[] = array('title' => $title, 'url' => $url);
+    // 匹配新闻内容
+    preg_match_all("/<div class='GrNewsDetCont close1'>(.*?)<\/div>/i", $html, $matches);
+ 
+    $content = isset($matches[1]) ? $matches[1] : '';
+    $count = count($title);
+    for($i=0;$i<$count;$i++){
+     
+     $data = array('title' => $title[$i], 'content' => $content[$i]);
+            $data['source_name'] = "india";
+          $res=  pdo_insert("site_news",$data);
+          if($res) echo "<br>\n\n成功采集：". $data['title'];
         }
-    }
-
-    // 返回文章列表数组
-    return $result;
 }

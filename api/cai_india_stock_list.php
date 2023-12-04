@@ -10,25 +10,40 @@ $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 $redis->select(3);
 
-$url = 'https://etmarketsapis.indiatimes.com/ET_Stats/gainers?pagesize=250&exchange=nse&marketcap=largecap&duration=1w&sort=7days&sortby=percentchange&sortorder=desc&pageno=1';
-// echo $url;
+$page = 1;
+if($_GPC['page']) $page = $_GPC['page'];
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/gainers?pageno='.$page.'&pagesize=1000&sortby=percentchange&sortorder=desc&sort=intraday&exchange=nse&marketcap=largecap%2Cmidcap&duration=1d';//462
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/losers?pageno='.$page.'&pagesize=1000&sortby=percentchange&sortorder=asc&sort=intraday&exchange=nse&marketcap=largecap%2Cmidcap&duration=1d';//140
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/hourlygainers?pageno='.$page.'&pagesize=1000&sortby=percentchange&sortorder=desc&service=gainers&exchange=nse&marketcap=largecap%2Cmidcap';//322
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/hourlylosers?pageno='.$page.'&pagesize=1000&sortby=percentchange&sortorder=asc&service=losers&exchange=nse&marketcap=largecap%2Cmidcap';//301
+
+$url = 'https://etmarketsapis.indiatimes.com/ET_Stats/moversvolume?pageno='.$page.'&pagesize=1000&sortby=volume&sortorder=desc&service=volumemovers&exchange=nse&marketcap=largecap%2Cmidcap';//609
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/moversvalue?pageno='.$page.'&pagesize=1000&sortby=value&sortorder=desc&service=valuemovers&exchange=nse&marketcap=largecap%2Cmidcap'; //609
+
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/onlybuyer?pageno='.$page.'&pagesize=1000&sortby=bestBuyQty&sortorder=desc&service=buyers&exchange=nse';
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/onlyseller?pageno='.$page.'&pagesize=251&sortby=bestSellQty&sortorder=desc&service=sellers&exchange=nse';
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/new52weekshigh?pageno='.$page.'&pagesize=251&sortby=percentchange&sortorder=desc&exchange=nse&marketcap=largecap%2Cmidcap';
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/new52weekslow?pageno'.$page.'&pagesize=251&sortby=percentchange&sortorder=asc&exchange=nse&marketcap=largecap%2Cmidcap';
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/near52weekshigh?pageno='.$page.'&pagesize=251&sortby=highPercentGap&sortorder=asc&exchange=nse&marketcap=largecap%2Cmidcap';
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/fallfromhigh?pageno='.$page.'&pagesize=251&sortby=belowDaysHighPerChange&sortorder=asc&service=intradayhigh&exchange=nse&marketcap=largecap%2Cmidcap';
+echo $url;
 
 $response = file_get_contents($url);
 
 $response = json_decode($response,true);
  $response =$response['searchresult'];
 $count = count($response);
-
+echo "\n 一共".$count."个 \n";
 if($response){
     foreach($response as &$value) {
        $redis_data['stock_name']=    $stock['stock_spell'] =   $value['nseScripCode'];
-       $redis_data['chinese_stock_name']=    $stock['stock_name'] = $value['companyShortName'];
+       $redis_data['chinese_stock_name']=    $stock['stock_name'] = $value['companyName'];
         $where['stock_code'] =   $redis_data['stock_code']= $real['stock_code'] =     $stock['stock_code'] =  $value['companyId'];
        $redis_data['last_done']=  $value['current'];
        $redis_data['percent_change']= $stock['increase_ratio']= $value['aboveDaysLowPerChange'];
     
           //1 如没有则写入stock表
-          $ss = pdo_fetch("select id,stock_code  from stock where stock_code = '".$value['seoName']."' order by id asc");
+          $ss = pdo_fetch("select id,stock_code  from stock where stock_code = '".$value['companyId']."' order by id asc");
           $id = $ss['id'];
           
           $stock['stock_type'] =  "india";
@@ -37,9 +52,9 @@ if($response){
           if(!$ss){
               $data['stock']  = pdo_insert("stock",$stock);
                $id = pdo_insertid();
-                echo "\n >> 写入 股票 成功 ".$value['companyShortName'];
+                echo "\n >> 写入 股票 成功 ".$value['companyName'];
             }else{
-                echo "\n 更新 股票 成功 ".$value['companyShortName'];
+                echo "\n 更新 股票 成功 ".$value['companyName'];
             $res  =  pdo_update("stock",$stock,$where);
              $id = $ss['id'];
           }
@@ -75,15 +90,15 @@ if($response){
             if(!$res){
                 $res  =  pdo_insert("real_time_data",$real);  
                  if(!$res){
-                    echo "\n >> 写入价格失败 *** ".$value['seoName'];
+                    echo " >> 写入价格失败 *** ".$value['seoName'];
                     pdo_debug();
                     die();
                      
                  }else{
-                    echo "\n >> 写入价格成功 ".$value['seoName']." -- " .$value['companyId'];
+                    echo " >> 写入价格成功 ".$value['seoName']." -- " .$value['companyId'];
                  }
             }else{
-                echo "\n 更新价格成功 ".$value['seoName']." -- " .$value['companyId'];
+                echo " 更新价格成功 ".$value['seoName']." -- " .$value['companyId'];
             }
           }
           
