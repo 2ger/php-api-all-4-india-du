@@ -1,3 +1,35 @@
+## 目录说明
+~~~
+api  php补充api
+data 配置数据库
+java-api-jar  后端java程序 
+wap  手机前端
+web  电脑前端
+web_admin  总后台
+web_agent 代理后台
+sql  数据库文件
+~~~
+
+## 安装 
+1. php 5.6, redis
+2. 安装java端,设置域名
+3. wap,web 设置好java  api域名，打包
+4. data/config 设置数据库
+5. 计划任务
+6. 
+
+### 计划任务
+~~~
+每1分钟
+// 采集印度股票 https://profitmarts.in/api/cai_india_index_list.php
+
+每1分钟
+// 采集印度股票 https://profitmarts.in/api/cai_india_stock_list.php
+
+采集文章 > 印度 每天早上
+// https://india.qq3.bpanel.ccapi/getNews.php
+~~~
+
 
 
 ### api
