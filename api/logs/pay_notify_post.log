@@ -1,949 +1,13 @@
 
 
-2023-10-10 22:39:00----
+2023-11-16 20:48:00----
 8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1696947856385129","payAmount":"2000.00","ptOrderNo":"6032004378","sign":"ce1d0aed96c2c2a8decf2d1b0909df7f","currency":"MYR"}
+{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
 
-
-
-2023-11-07 12:09:14----
-8.217.149.119
-{"payResult":"1","currency":"MYR","mer_no":"888458208","orderNo":"C1699330114176990","payAmount":"300","ptOrderNo":"6032004378"}
-
-2023-11-07 12:56:15----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699332887717380","payAmount":"5000.00","ptOrderNo":"6032108567","sign":"c8bf5a75042ef2af4ea880d3e8d1b490","currency":"MYR"}
-2023-11-07 12:56:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699332887717380","payAmount":"5000.00","ptOrderNo":"6032108567","sign":"c8bf5a75042ef2af4ea880d3e8d1b490","currency":"MYR"}
-2023-11-07 12:59:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699332887717380","payAmount":"5000.00","ptOrderNo":"6032108567","sign":"c8bf5a75042ef2af4ea880d3e8d1b490","currency":"MYR"}
-2023-11-07 13:02:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699332887717380","payAmount":"5000.00","ptOrderNo":"6032108567","sign":"c8bf5a75042ef2af4ea880d3e8d1b490","currency":"MYR"}
-2023-11-07 13:05:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699332887717380","payAmount":"5000.00","ptOrderNo":"6032108567","sign":"c8bf5a75042ef2af4ea880d3e8d1b490","currency":"MYR"}
-2023-11-07 13:08:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699332887717380","payAmount":"5000.00","ptOrderNo":"6032108567","sign":"c8bf5a75042ef2af4ea880d3e8d1b490","currency":"MYR"}
-2023-11-07 20:20:10----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359487430606","payAmount":"5000.00","ptOrderNo":"6032109500","sign":"02430d793ee8bf28a62befa7640f9c51","currency":"MYR"}
-2023-11-07 20:20:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359487430606","payAmount":"5000.00","ptOrderNo":"6032109500","sign":"02430d793ee8bf28a62befa7640f9c51","currency":"MYR"}
-2023-11-07 20:20:55----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359572654359","payAmount":"9000.00","ptOrderNo":"6032109504","sign":"a2fdc84d41cc2153c5b453a4a046b193","currency":"MYR"}
-2023-11-07 20:21:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359572654359","payAmount":"9000.00","ptOrderNo":"6032109504","sign":"a2fdc84d41cc2153c5b453a4a046b193","currency":"MYR"}
-2023-11-07 20:23:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359487430606","payAmount":"5000.00","ptOrderNo":"6032109500","sign":"02430d793ee8bf28a62befa7640f9c51","currency":"MYR"}
-2023-11-07 20:24:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359572654359","payAmount":"9000.00","ptOrderNo":"6032109504","sign":"a2fdc84d41cc2153c5b453a4a046b193","currency":"MYR"}
-2023-11-07 20:26:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359487430606","payAmount":"5000.00","ptOrderNo":"6032109500","sign":"02430d793ee8bf28a62befa7640f9c51","currency":"MYR"}
-2023-11-07 20:27:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359572654359","payAmount":"9000.00","ptOrderNo":"6032109504","sign":"a2fdc84d41cc2153c5b453a4a046b193","currency":"MYR"}
-2023-11-07 20:29:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359487430606","payAmount":"5000.00","ptOrderNo":"6032109500","sign":"02430d793ee8bf28a62befa7640f9c51","currency":"MYR"}
-2023-11-07 20:30:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359572654359","payAmount":"9000.00","ptOrderNo":"6032109504","sign":"a2fdc84d41cc2153c5b453a4a046b193","currency":"MYR"}
-2023-11-07 20:32:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359487430606","payAmount":"5000.00","ptOrderNo":"6032109500","sign":"02430d793ee8bf28a62befa7640f9c51","currency":"MYR"}
-2023-11-07 20:33:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699359572654359","payAmount":"9000.00","ptOrderNo":"6032109504","sign":"a2fdc84d41cc2153c5b453a4a046b193","currency":"MYR"}
-2023-11-07 21:16:41----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699362848195761","payAmount":"1000.00","ptOrderNo":"6032109637","sign":"d67f65cf0c1890c0000b630281390582","currency":"MYR"}
-2023-11-07 21:17:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699362848195761","payAmount":"1000.00","ptOrderNo":"6032109637","sign":"d67f65cf0c1890c0000b630281390582","currency":"MYR"}
-2023-11-07 21:20:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699362848195761","payAmount":"1000.00","ptOrderNo":"6032109637","sign":"d67f65cf0c1890c0000b630281390582","currency":"MYR"}
-2023-11-07 21:20:35----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363104104233","payAmount":"2000.00","ptOrderNo":"6032109657","sign":"1af8ba6402e04706a4f8b271cb4081cd","currency":"MYR"}
-2023-11-07 21:21:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363104104233","payAmount":"2000.00","ptOrderNo":"6032109657","sign":"1af8ba6402e04706a4f8b271cb4081cd","currency":"MYR"}
-2023-11-07 21:23:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699362848195761","payAmount":"1000.00","ptOrderNo":"6032109637","sign":"d67f65cf0c1890c0000b630281390582","currency":"MYR"}
-2023-11-07 21:24:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363104104233","payAmount":"2000.00","ptOrderNo":"6032109657","sign":"1af8ba6402e04706a4f8b271cb4081cd","currency":"MYR"}
-2023-11-07 21:24:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363388438694","payAmount":"1000.00","ptOrderNo":"6032109673","sign":"0c8adf9ec4bee0c8d4c1a7a6123ffa7f","currency":"MYR"}
-2023-11-07 21:25:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363388438694","payAmount":"1000.00","ptOrderNo":"6032109673","sign":"0c8adf9ec4bee0c8d4c1a7a6123ffa7f","currency":"MYR"}
-2023-11-07 21:26:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699362848195761","payAmount":"1000.00","ptOrderNo":"6032109637","sign":"d67f65cf0c1890c0000b630281390582","currency":"MYR"}
-2023-11-07 21:27:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363104104233","payAmount":"2000.00","ptOrderNo":"6032109657","sign":"1af8ba6402e04706a4f8b271cb4081cd","currency":"MYR"}
-2023-11-07 21:27:01----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363515931989","payAmount":"2000.00","ptOrderNo":"6032109679","sign":"c6fd7951a306804b48bd168da992d897","currency":"MYR"}
-2023-11-07 21:27:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363515931989","payAmount":"2000.00","ptOrderNo":"6032109679","sign":"c6fd7951a306804b48bd168da992d897","currency":"MYR"}
-2023-11-07 21:28:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363388438694","payAmount":"1000.00","ptOrderNo":"6032109673","sign":"0c8adf9ec4bee0c8d4c1a7a6123ffa7f","currency":"MYR"}
-2023-11-07 21:28:40----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363604905640","payAmount":"4000.00","ptOrderNo":"6032109685","sign":"5938c76726de2f4a9c3bcb184aaf35f9","currency":"MYR"}
-2023-11-07 21:29:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699362848195761","payAmount":"1000.00","ptOrderNo":"6032109637","sign":"d67f65cf0c1890c0000b630281390582","currency":"MYR"}
-2023-11-07 21:29:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363604905640","payAmount":"4000.00","ptOrderNo":"6032109685","sign":"5938c76726de2f4a9c3bcb184aaf35f9","currency":"MYR"}
-2023-11-07 21:30:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363104104233","payAmount":"2000.00","ptOrderNo":"6032109657","sign":"1af8ba6402e04706a4f8b271cb4081cd","currency":"MYR"}
-2023-11-07 21:30:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363647304341","payAmount":"2000.00","ptOrderNo":"6032109687","sign":"6771bc67bff707a00184ff92b9b7ef48","currency":"MYR"}
-2023-11-07 21:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363515931989","payAmount":"2000.00","ptOrderNo":"6032109679","sign":"c6fd7951a306804b48bd168da992d897","currency":"MYR"}
-2023-11-07 21:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363647304341","payAmount":"2000.00","ptOrderNo":"6032109687","sign":"6771bc67bff707a00184ff92b9b7ef48","currency":"MYR"}
-2023-11-07 21:31:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363388438694","payAmount":"1000.00","ptOrderNo":"6032109673","sign":"0c8adf9ec4bee0c8d4c1a7a6123ffa7f","currency":"MYR"}
-2023-11-07 21:32:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363604905640","payAmount":"4000.00","ptOrderNo":"6032109685","sign":"5938c76726de2f4a9c3bcb184aaf35f9","currency":"MYR"}
-2023-11-07 21:33:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363104104233","payAmount":"2000.00","ptOrderNo":"6032109657","sign":"1af8ba6402e04706a4f8b271cb4081cd","currency":"MYR"}
-2023-11-07 21:33:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363515931989","payAmount":"2000.00","ptOrderNo":"6032109679","sign":"c6fd7951a306804b48bd168da992d897","currency":"MYR"}
-2023-11-07 21:33:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363647304341","payAmount":"2000.00","ptOrderNo":"6032109687","sign":"6771bc67bff707a00184ff92b9b7ef48","currency":"MYR"}
-2023-11-07 21:34:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363388438694","payAmount":"1000.00","ptOrderNo":"6032109673","sign":"0c8adf9ec4bee0c8d4c1a7a6123ffa7f","currency":"MYR"}
-2023-11-07 21:35:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363604905640","payAmount":"4000.00","ptOrderNo":"6032109685","sign":"5938c76726de2f4a9c3bcb184aaf35f9","currency":"MYR"}
-2023-11-07 21:36:10----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364024080131","payAmount":"2000.00","ptOrderNo":"6032109699","sign":"e668a06ded8134e9a58bba6fc868e343","currency":"MYR"}
-2023-11-07 21:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363515931989","payAmount":"2000.00","ptOrderNo":"6032109679","sign":"c6fd7951a306804b48bd168da992d897","currency":"MYR"}
-2023-11-07 21:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363647304341","payAmount":"2000.00","ptOrderNo":"6032109687","sign":"6771bc67bff707a00184ff92b9b7ef48","currency":"MYR"}
-2023-11-07 21:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364024080131","payAmount":"2000.00","ptOrderNo":"6032109699","sign":"e668a06ded8134e9a58bba6fc868e343","currency":"MYR"}
-2023-11-07 21:37:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363388438694","payAmount":"1000.00","ptOrderNo":"6032109673","sign":"0c8adf9ec4bee0c8d4c1a7a6123ffa7f","currency":"MYR"}
-2023-11-07 21:38:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363604905640","payAmount":"4000.00","ptOrderNo":"6032109685","sign":"5938c76726de2f4a9c3bcb184aaf35f9","currency":"MYR"}
-2023-11-07 21:39:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363515931989","payAmount":"2000.00","ptOrderNo":"6032109679","sign":"c6fd7951a306804b48bd168da992d897","currency":"MYR"}
-2023-11-07 21:39:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363647304341","payAmount":"2000.00","ptOrderNo":"6032109687","sign":"6771bc67bff707a00184ff92b9b7ef48","currency":"MYR"}
-2023-11-07 21:39:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364024080131","payAmount":"2000.00","ptOrderNo":"6032109699","sign":"e668a06ded8134e9a58bba6fc868e343","currency":"MYR"}
-2023-11-07 21:41:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363604905640","payAmount":"4000.00","ptOrderNo":"6032109685","sign":"5938c76726de2f4a9c3bcb184aaf35f9","currency":"MYR"}
-2023-11-07 21:42:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699363647304341","payAmount":"2000.00","ptOrderNo":"6032109687","sign":"6771bc67bff707a00184ff92b9b7ef48","currency":"MYR"}
-2023-11-07 21:42:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364024080131","payAmount":"2000.00","ptOrderNo":"6032109699","sign":"e668a06ded8134e9a58bba6fc868e343","currency":"MYR"}
-2023-11-07 21:45:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364024080131","payAmount":"2000.00","ptOrderNo":"6032109699","sign":"e668a06ded8134e9a58bba6fc868e343","currency":"MYR"}
-2023-11-07 21:48:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364024080131","payAmount":"2000.00","ptOrderNo":"6032109699","sign":"e668a06ded8134e9a58bba6fc868e343","currency":"MYR"}
-2023-11-07 23:34:35----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699371079333228","payAmount":"1280.00","ptOrderNo":"6032110007","sign":"4508d9b40f9a0ca00efe17d9b9c84c0a","currency":"MYR"}
-2023-11-07 23:35:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699371079333228","payAmount":"1280.00","ptOrderNo":"6032110007","sign":"4508d9b40f9a0ca00efe17d9b9c84c0a","currency":"MYR"}
-2023-11-07 23:38:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699371079333228","payAmount":"1280.00","ptOrderNo":"6032110007","sign":"4508d9b40f9a0ca00efe17d9b9c84c0a","currency":"MYR"}
-2023-11-07 23:41:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699371079333228","payAmount":"1280.00","ptOrderNo":"6032110007","sign":"4508d9b40f9a0ca00efe17d9b9c84c0a","currency":"MYR"}
-2023-11-07 23:44:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699371079333228","payAmount":"1280.00","ptOrderNo":"6032110007","sign":"4508d9b40f9a0ca00efe17d9b9c84c0a","currency":"MYR"}
-2023-11-07 23:47:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699371079333228","payAmount":"1280.00","ptOrderNo":"6032110007","sign":"4508d9b40f9a0ca00efe17d9b9c84c0a","currency":"MYR"}
-2023-11-08 00:04:05----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699372931925196","payAmount":"10000.00","ptOrderNo":"6032110111","sign":"ed458939daedbb280751af11e17992d2","currency":"MYR"}
-2023-11-08 00:04:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699372931925196","payAmount":"10000.00","ptOrderNo":"6032110111","sign":"ed458939daedbb280751af11e17992d2","currency":"MYR"}
-2023-11-08 00:07:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699372931925196","payAmount":"10000.00","ptOrderNo":"6032110111","sign":"ed458939daedbb280751af11e17992d2","currency":"MYR"}
-2023-11-08 00:10:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699372931925196","payAmount":"10000.00","ptOrderNo":"6032110111","sign":"ed458939daedbb280751af11e17992d2","currency":"MYR"}
-2023-11-08 00:13:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699372931925196","payAmount":"10000.00","ptOrderNo":"6032110111","sign":"ed458939daedbb280751af11e17992d2","currency":"MYR"}
-2023-11-08 00:16:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699372931925196","payAmount":"10000.00","ptOrderNo":"6032110111","sign":"ed458939daedbb280751af11e17992d2","currency":"MYR"}
-2023-11-08 09:02:45----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699405265572285","payAmount":"9900.00","ptOrderNo":"6032110721","sign":"b29da6f7e507d5b5cf43cd9778f2e64f","currency":"MYR"}
-2023-11-08 09:03:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699405265572285","payAmount":"9900.00","ptOrderNo":"6032110721","sign":"b29da6f7e507d5b5cf43cd9778f2e64f","currency":"MYR"}
-2023-11-08 09:06:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699405265572285","payAmount":"9900.00","ptOrderNo":"6032110721","sign":"b29da6f7e507d5b5cf43cd9778f2e64f","currency":"MYR"}
-2023-11-08 09:09:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699405265572285","payAmount":"9900.00","ptOrderNo":"6032110721","sign":"b29da6f7e507d5b5cf43cd9778f2e64f","currency":"MYR"}
-2023-11-08 09:12:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699405265572285","payAmount":"9900.00","ptOrderNo":"6032110721","sign":"b29da6f7e507d5b5cf43cd9778f2e64f","currency":"MYR"}
-2023-11-08 09:15:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699405265572285","payAmount":"9900.00","ptOrderNo":"6032110721","sign":"b29da6f7e507d5b5cf43cd9778f2e64f","currency":"MYR"}
-2023-11-08 11:53:41----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415518818725","payAmount":"3000.00","ptOrderNo":"6032110914","sign":"dca9a2f4f5b4f0da739344287b8093e3","currency":"MYR"}
-2023-11-08 11:54:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415518818725","payAmount":"3000.00","ptOrderNo":"6032110914","sign":"dca9a2f4f5b4f0da739344287b8093e3","currency":"MYR"}
-2023-11-08 11:57:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415518818725","payAmount":"3000.00","ptOrderNo":"6032110914","sign":"dca9a2f4f5b4f0da739344287b8093e3","currency":"MYR"}
-2023-11-08 12:00:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415518818725","payAmount":"3000.00","ptOrderNo":"6032110914","sign":"dca9a2f4f5b4f0da739344287b8093e3","currency":"MYR"}
-2023-11-08 12:03:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415518818725","payAmount":"3000.00","ptOrderNo":"6032110914","sign":"dca9a2f4f5b4f0da739344287b8093e3","currency":"MYR"}
-2023-11-08 12:06:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415518818725","payAmount":"3000.00","ptOrderNo":"6032110914","sign":"dca9a2f4f5b4f0da739344287b8093e3","currency":"MYR"}
-2023-11-08 13:24:55----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699420981251388","payAmount":"1000.00","ptOrderNo":"6032111034","sign":"daf1435ed43f60b5c4fd7db7bc5a84b2","currency":"MYR"}
-2023-11-08 13:25:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699420981251388","payAmount":"1000.00","ptOrderNo":"6032111034","sign":"daf1435ed43f60b5c4fd7db7bc5a84b2","currency":"MYR"}
-2023-11-08 13:28:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699420981251388","payAmount":"1000.00","ptOrderNo":"6032111034","sign":"daf1435ed43f60b5c4fd7db7bc5a84b2","currency":"MYR"}
-2023-11-08 13:31:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699420981251388","payAmount":"1000.00","ptOrderNo":"6032111034","sign":"daf1435ed43f60b5c4fd7db7bc5a84b2","currency":"MYR"}
-2023-11-08 13:34:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699420981251388","payAmount":"1000.00","ptOrderNo":"6032111034","sign":"daf1435ed43f60b5c4fd7db7bc5a84b2","currency":"MYR"}
-2023-11-08 13:37:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699420981251388","payAmount":"1000.00","ptOrderNo":"6032111034","sign":"daf1435ed43f60b5c4fd7db7bc5a84b2","currency":"MYR"}
-2023-11-08 14:12:46----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415188495236","payAmount":"15000.00","ptOrderNo":"6032110909","sign":"be808ac01ac522151ccc4c9bc5088a29","currency":"MYR"}
-2023-11-08 14:13:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415188495236","payAmount":"15000.00","ptOrderNo":"6032110909","sign":"be808ac01ac522151ccc4c9bc5088a29","currency":"MYR"}
-2023-11-08 14:16:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415188495236","payAmount":"15000.00","ptOrderNo":"6032110909","sign":"be808ac01ac522151ccc4c9bc5088a29","currency":"MYR"}
-2023-11-08 14:19:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415188495236","payAmount":"15000.00","ptOrderNo":"6032110909","sign":"be808ac01ac522151ccc4c9bc5088a29","currency":"MYR"}
-2023-11-08 14:22:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415188495236","payAmount":"15000.00","ptOrderNo":"6032110909","sign":"be808ac01ac522151ccc4c9bc5088a29","currency":"MYR"}
-2023-11-08 14:24:14----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364286641266","payAmount":"5000.00","ptOrderNo":"6032109724","sign":"f62dc3e13732ed50acd1f9071bde5a17","currency":"MYR"}
-2023-11-08 14:24:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364286641266","payAmount":"5000.00","ptOrderNo":"6032109724","sign":"f62dc3e13732ed50acd1f9071bde5a17","currency":"MYR"}
-2023-11-08 14:25:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699415188495236","payAmount":"15000.00","ptOrderNo":"6032110909","sign":"be808ac01ac522151ccc4c9bc5088a29","currency":"MYR"}
-2023-11-08 14:27:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364286641266","payAmount":"5000.00","ptOrderNo":"6032109724","sign":"f62dc3e13732ed50acd1f9071bde5a17","currency":"MYR"}
-2023-11-08 14:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364286641266","payAmount":"5000.00","ptOrderNo":"6032109724","sign":"f62dc3e13732ed50acd1f9071bde5a17","currency":"MYR"}
-2023-11-08 14:33:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364286641266","payAmount":"5000.00","ptOrderNo":"6032109724","sign":"f62dc3e13732ed50acd1f9071bde5a17","currency":"MYR"}
-2023-11-08 14:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699364286641266","payAmount":"5000.00","ptOrderNo":"6032109724","sign":"f62dc3e13732ed50acd1f9071bde5a17","currency":"MYR"}
-2023-11-08 16:03:25----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430509458254","payAmount":"2000.00","ptOrderNo":"6032111335","sign":"1b8bf0694aca59779e364a28c28d6d9e","currency":"MYR"}
-2023-11-08 16:03:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430509458254","payAmount":"2000.00","ptOrderNo":"6032111335","sign":"1b8bf0694aca59779e364a28c28d6d9e","currency":"MYR"}
-2023-11-08 16:05:25----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430623535224","payAmount":"2000.00","ptOrderNo":"6032111339","sign":"f239bfc72825d845b38f2f946e002964","currency":"MYR"}
-2023-11-08 16:05:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430623535224","payAmount":"2000.00","ptOrderNo":"6032111339","sign":"f239bfc72825d845b38f2f946e002964","currency":"MYR"}
-2023-11-08 16:06:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430509458254","payAmount":"2000.00","ptOrderNo":"6032111335","sign":"1b8bf0694aca59779e364a28c28d6d9e","currency":"MYR"}
-2023-11-08 16:08:21----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430796405664","payAmount":"2000.00","ptOrderNo":"6032111348","sign":"ce6a01aae8fa8a48c16185e6436fbcaa","currency":"MYR"}
-2023-11-08 16:08:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430623535224","payAmount":"2000.00","ptOrderNo":"6032111339","sign":"f239bfc72825d845b38f2f946e002964","currency":"MYR"}
-2023-11-08 16:08:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430796405664","payAmount":"2000.00","ptOrderNo":"6032111348","sign":"ce6a01aae8fa8a48c16185e6436fbcaa","currency":"MYR"}
-2023-11-08 16:09:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430509458254","payAmount":"2000.00","ptOrderNo":"6032111335","sign":"1b8bf0694aca59779e364a28c28d6d9e","currency":"MYR"}
-2023-11-08 16:11:01----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430972569312","payAmount":"2000.00","ptOrderNo":"6032111358","sign":"8f7881527f80b4fa6f032a9ef4f1c28a","currency":"MYR"}
-2023-11-08 16:11:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430623535224","payAmount":"2000.00","ptOrderNo":"6032111339","sign":"f239bfc72825d845b38f2f946e002964","currency":"MYR"}
-2023-11-08 16:11:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430796405664","payAmount":"2000.00","ptOrderNo":"6032111348","sign":"ce6a01aae8fa8a48c16185e6436fbcaa","currency":"MYR"}
-2023-11-08 16:11:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430972569312","payAmount":"2000.00","ptOrderNo":"6032111358","sign":"8f7881527f80b4fa6f032a9ef4f1c28a","currency":"MYR"}
-2023-11-08 16:12:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430509458254","payAmount":"2000.00","ptOrderNo":"6032111335","sign":"1b8bf0694aca59779e364a28c28d6d9e","currency":"MYR"}
-2023-11-08 16:14:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430623535224","payAmount":"2000.00","ptOrderNo":"6032111339","sign":"f239bfc72825d845b38f2f946e002964","currency":"MYR"}
-2023-11-08 16:14:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430796405664","payAmount":"2000.00","ptOrderNo":"6032111348","sign":"ce6a01aae8fa8a48c16185e6436fbcaa","currency":"MYR"}
-2023-11-08 16:14:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430972569312","payAmount":"2000.00","ptOrderNo":"6032111358","sign":"8f7881527f80b4fa6f032a9ef4f1c28a","currency":"MYR"}
-2023-11-08 16:15:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430509458254","payAmount":"2000.00","ptOrderNo":"6032111335","sign":"1b8bf0694aca59779e364a28c28d6d9e","currency":"MYR"}
-2023-11-08 16:17:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430623535224","payAmount":"2000.00","ptOrderNo":"6032111339","sign":"f239bfc72825d845b38f2f946e002964","currency":"MYR"}
-2023-11-08 16:17:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430796405664","payAmount":"2000.00","ptOrderNo":"6032111348","sign":"ce6a01aae8fa8a48c16185e6436fbcaa","currency":"MYR"}
-2023-11-08 16:17:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430972569312","payAmount":"2000.00","ptOrderNo":"6032111358","sign":"8f7881527f80b4fa6f032a9ef4f1c28a","currency":"MYR"}
-2023-11-08 16:20:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430796405664","payAmount":"2000.00","ptOrderNo":"6032111348","sign":"ce6a01aae8fa8a48c16185e6436fbcaa","currency":"MYR"}
-2023-11-08 16:20:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430972569312","payAmount":"2000.00","ptOrderNo":"6032111358","sign":"8f7881527f80b4fa6f032a9ef4f1c28a","currency":"MYR"}
-2023-11-08 16:23:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430972569312","payAmount":"2000.00","ptOrderNo":"6032111358","sign":"8f7881527f80b4fa6f032a9ef4f1c28a","currency":"MYR"}
-2023-11-08 16:29:13----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430394331725","payAmount":"10000.00","ptOrderNo":"6032111326","sign":"e152e25b935ea216581525f66fd5f984","currency":"MYR"}
-2023-11-08 16:29:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430394331725","payAmount":"10000.00","ptOrderNo":"6032111326","sign":"e152e25b935ea216581525f66fd5f984","currency":"MYR"}
-2023-11-08 16:32:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430394331725","payAmount":"10000.00","ptOrderNo":"6032111326","sign":"e152e25b935ea216581525f66fd5f984","currency":"MYR"}
-2023-11-08 16:35:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430394331725","payAmount":"10000.00","ptOrderNo":"6032111326","sign":"e152e25b935ea216581525f66fd5f984","currency":"MYR"}
-2023-11-08 16:38:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430394331725","payAmount":"10000.00","ptOrderNo":"6032111326","sign":"e152e25b935ea216581525f66fd5f984","currency":"MYR"}
-2023-11-08 16:41:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699430394331725","payAmount":"10000.00","ptOrderNo":"6032111326","sign":"e152e25b935ea216581525f66fd5f984","currency":"MYR"}
-2023-11-08 21:01:15----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699448393377967","payAmount":"8000.00","ptOrderNo":"6032111869","sign":"3d004ecf9db6dddf76be1207570e40ac","currency":"MYR"}
-2023-11-08 21:01:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699448393377967","payAmount":"8000.00","ptOrderNo":"6032111869","sign":"3d004ecf9db6dddf76be1207570e40ac","currency":"MYR"}
-2023-11-08 21:04:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699448393377967","payAmount":"8000.00","ptOrderNo":"6032111869","sign":"3d004ecf9db6dddf76be1207570e40ac","currency":"MYR"}
-2023-11-08 21:07:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699448393377967","payAmount":"8000.00","ptOrderNo":"6032111869","sign":"3d004ecf9db6dddf76be1207570e40ac","currency":"MYR"}
-2023-11-08 21:10:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699448393377967","payAmount":"8000.00","ptOrderNo":"6032111869","sign":"3d004ecf9db6dddf76be1207570e40ac","currency":"MYR"}
-2023-11-08 21:13:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699448393377967","payAmount":"8000.00","ptOrderNo":"6032111869","sign":"3d004ecf9db6dddf76be1207570e40ac","currency":"MYR"}
-2023-11-08 21:51:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451434559379","payAmount":"5000.00","ptOrderNo":"6032111935","sign":"cf2908c853835c5cd51b80bfbee66038","currency":"MYR"}
-2023-11-08 21:52:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451434559379","payAmount":"5000.00","ptOrderNo":"6032111935","sign":"cf2908c853835c5cd51b80bfbee66038","currency":"MYR"}
-2023-11-08 21:55:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451434559379","payAmount":"5000.00","ptOrderNo":"6032111935","sign":"cf2908c853835c5cd51b80bfbee66038","currency":"MYR"}
-2023-11-08 21:55:20----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451611185894","payAmount":"1000.00","ptOrderNo":"6032111943","sign":"d80e1092d4753c479b54a6a44eb4fe8a","currency":"MYR"}
-2023-11-08 21:55:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451611185894","payAmount":"1000.00","ptOrderNo":"6032111943","sign":"d80e1092d4753c479b54a6a44eb4fe8a","currency":"MYR"}
-2023-11-08 21:58:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451434559379","payAmount":"5000.00","ptOrderNo":"6032111935","sign":"cf2908c853835c5cd51b80bfbee66038","currency":"MYR"}
-2023-11-08 21:58:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451611185894","payAmount":"1000.00","ptOrderNo":"6032111943","sign":"d80e1092d4753c479b54a6a44eb4fe8a","currency":"MYR"}
-2023-11-08 22:01:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451434559379","payAmount":"5000.00","ptOrderNo":"6032111935","sign":"cf2908c853835c5cd51b80bfbee66038","currency":"MYR"}
-2023-11-08 22:01:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451611185894","payAmount":"1000.00","ptOrderNo":"6032111943","sign":"d80e1092d4753c479b54a6a44eb4fe8a","currency":"MYR"}
-2023-11-08 22:04:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451434559379","payAmount":"5000.00","ptOrderNo":"6032111935","sign":"cf2908c853835c5cd51b80bfbee66038","currency":"MYR"}
-2023-11-08 22:04:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451611185894","payAmount":"1000.00","ptOrderNo":"6032111943","sign":"d80e1092d4753c479b54a6a44eb4fe8a","currency":"MYR"}
-2023-11-08 22:07:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699451611185894","payAmount":"1000.00","ptOrderNo":"6032111943","sign":"d80e1092d4753c479b54a6a44eb4fe8a","currency":"MYR"}
-2023-11-08 23:45:20----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699458222140640","payAmount":"500.00","ptOrderNo":"6032112128","sign":"209cb226497dd28935017b1c0952cf32","currency":"MYR"}
-2023-11-08 23:45:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699458222140640","payAmount":"500.00","ptOrderNo":"6032112128","sign":"209cb226497dd28935017b1c0952cf32","currency":"MYR"}
-2023-11-08 23:48:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699458222140640","payAmount":"500.00","ptOrderNo":"6032112128","sign":"209cb226497dd28935017b1c0952cf32","currency":"MYR"}
-2023-11-08 23:51:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699458222140640","payAmount":"500.00","ptOrderNo":"6032112128","sign":"209cb226497dd28935017b1c0952cf32","currency":"MYR"}
-2023-11-08 23:54:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699458222140640","payAmount":"500.00","ptOrderNo":"6032112128","sign":"209cb226497dd28935017b1c0952cf32","currency":"MYR"}
-2023-11-08 23:57:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699458222140640","payAmount":"500.00","ptOrderNo":"6032112128","sign":"209cb226497dd28935017b1c0952cf32","currency":"MYR"}
-2023-11-09 00:10:25----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699459718803230","payAmount":"10000.00","ptOrderNo":"6032112176","sign":"61cf3428148cf9663526abe341f4f08d","currency":"MYR"}
-2023-11-09 00:10:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699459718803230","payAmount":"10000.00","ptOrderNo":"6032112176","sign":"61cf3428148cf9663526abe341f4f08d","currency":"MYR"}
-2023-11-09 00:13:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699459718803230","payAmount":"10000.00","ptOrderNo":"6032112176","sign":"61cf3428148cf9663526abe341f4f08d","currency":"MYR"}
-2023-11-09 00:16:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699459718803230","payAmount":"10000.00","ptOrderNo":"6032112176","sign":"61cf3428148cf9663526abe341f4f08d","currency":"MYR"}
-2023-11-09 00:19:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699459718803230","payAmount":"10000.00","ptOrderNo":"6032112176","sign":"61cf3428148cf9663526abe341f4f08d","currency":"MYR"}
-2023-11-09 00:22:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699459718803230","payAmount":"10000.00","ptOrderNo":"6032112176","sign":"61cf3428148cf9663526abe341f4f08d","currency":"MYR"}
-2023-11-09 05:08:41----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477606402114","payAmount":"5000.00","ptOrderNo":"6032112456","sign":"262b96fa5b2bb3f8173add5e784074df","currency":"MYR"}
-2023-11-09 05:09:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477606402114","payAmount":"5000.00","ptOrderNo":"6032112456","sign":"262b96fa5b2bb3f8173add5e784074df","currency":"MYR"}
-2023-11-09 05:10:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477741913214","payAmount":"6800.00","ptOrderNo":"6032112457","sign":"0d8a0c4109a2a4635e5ebca30a82f985","currency":"MYR"}
-2023-11-09 05:11:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477741913214","payAmount":"6800.00","ptOrderNo":"6032112457","sign":"0d8a0c4109a2a4635e5ebca30a82f985","currency":"MYR"}
-2023-11-09 05:12:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477606402114","payAmount":"5000.00","ptOrderNo":"6032112456","sign":"262b96fa5b2bb3f8173add5e784074df","currency":"MYR"}
-2023-11-09 05:14:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477741913214","payAmount":"6800.00","ptOrderNo":"6032112457","sign":"0d8a0c4109a2a4635e5ebca30a82f985","currency":"MYR"}
-2023-11-09 05:15:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477606402114","payAmount":"5000.00","ptOrderNo":"6032112456","sign":"262b96fa5b2bb3f8173add5e784074df","currency":"MYR"}
-2023-11-09 05:17:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477741913214","payAmount":"6800.00","ptOrderNo":"6032112457","sign":"0d8a0c4109a2a4635e5ebca30a82f985","currency":"MYR"}
-2023-11-09 05:18:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477606402114","payAmount":"5000.00","ptOrderNo":"6032112456","sign":"262b96fa5b2bb3f8173add5e784074df","currency":"MYR"}
-2023-11-09 05:20:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477741913214","payAmount":"6800.00","ptOrderNo":"6032112457","sign":"0d8a0c4109a2a4635e5ebca30a82f985","currency":"MYR"}
-2023-11-09 05:21:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477606402114","payAmount":"5000.00","ptOrderNo":"6032112456","sign":"262b96fa5b2bb3f8173add5e784074df","currency":"MYR"}
-2023-11-09 05:23:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699477741913214","payAmount":"6800.00","ptOrderNo":"6032112457","sign":"0d8a0c4109a2a4635e5ebca30a82f985","currency":"MYR"}
-2023-11-09 07:16:05----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485277604307","payAmount":"20000.00","ptOrderNo":"6032112509","sign":"50758a6990789d889edfc51e0970d2c7","currency":"MYR"}
-2023-11-09 07:16:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485277604307","payAmount":"20000.00","ptOrderNo":"6032112509","sign":"50758a6990789d889edfc51e0970d2c7","currency":"MYR"}
-2023-11-09 07:18:20----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485417004647","payAmount":"20000.00","ptOrderNo":"6032112512","sign":"773cb4aa812cf3118e6eb0687ba05e18","currency":"MYR"}
-2023-11-09 07:18:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485417004647","payAmount":"20000.00","ptOrderNo":"6032112512","sign":"773cb4aa812cf3118e6eb0687ba05e18","currency":"MYR"}
-2023-11-09 07:19:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485277604307","payAmount":"20000.00","ptOrderNo":"6032112509","sign":"50758a6990789d889edfc51e0970d2c7","currency":"MYR"}
-2023-11-09 07:21:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485417004647","payAmount":"20000.00","ptOrderNo":"6032112512","sign":"773cb4aa812cf3118e6eb0687ba05e18","currency":"MYR"}
-2023-11-09 07:22:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485277604307","payAmount":"20000.00","ptOrderNo":"6032112509","sign":"50758a6990789d889edfc51e0970d2c7","currency":"MYR"}
-2023-11-09 07:24:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485417004647","payAmount":"20000.00","ptOrderNo":"6032112512","sign":"773cb4aa812cf3118e6eb0687ba05e18","currency":"MYR"}
-2023-11-09 07:25:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485277604307","payAmount":"20000.00","ptOrderNo":"6032112509","sign":"50758a6990789d889edfc51e0970d2c7","currency":"MYR"}
-2023-11-09 07:25:55----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485862073794","payAmount":"8000.00","ptOrderNo":"6032112514","sign":"41197cf4a5d3925de748500d5a7597b7","currency":"MYR"}
-2023-11-09 07:26:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485862073794","payAmount":"8000.00","ptOrderNo":"6032112514","sign":"41197cf4a5d3925de748500d5a7597b7","currency":"MYR"}
-2023-11-09 07:27:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485417004647","payAmount":"20000.00","ptOrderNo":"6032112512","sign":"773cb4aa812cf3118e6eb0687ba05e18","currency":"MYR"}
-2023-11-09 07:28:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485277604307","payAmount":"20000.00","ptOrderNo":"6032112509","sign":"50758a6990789d889edfc51e0970d2c7","currency":"MYR"}
-2023-11-09 07:28:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485996348566","payAmount":"7000.00","ptOrderNo":"6032112517","sign":"506396d505534e541319ceaf8a3ddc01","currency":"MYR"}
-2023-11-09 07:29:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485862073794","payAmount":"8000.00","ptOrderNo":"6032112514","sign":"41197cf4a5d3925de748500d5a7597b7","currency":"MYR"}
-2023-11-09 07:29:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485996348566","payAmount":"7000.00","ptOrderNo":"6032112517","sign":"506396d505534e541319ceaf8a3ddc01","currency":"MYR"}
-2023-11-09 07:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485417004647","payAmount":"20000.00","ptOrderNo":"6032112512","sign":"773cb4aa812cf3118e6eb0687ba05e18","currency":"MYR"}
-2023-11-09 07:32:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485862073794","payAmount":"8000.00","ptOrderNo":"6032112514","sign":"41197cf4a5d3925de748500d5a7597b7","currency":"MYR"}
-2023-11-09 07:32:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485996348566","payAmount":"7000.00","ptOrderNo":"6032112517","sign":"506396d505534e541319ceaf8a3ddc01","currency":"MYR"}
-2023-11-09 07:34:05----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486309608375","payAmount":"300.00","ptOrderNo":"6032112522","sign":"c399ee8f1f6acb306ff4b842c1e88138","currency":"MYR"}
-2023-11-09 07:34:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486309608375","payAmount":"300.00","ptOrderNo":"6032112522","sign":"c399ee8f1f6acb306ff4b842c1e88138","currency":"MYR"}
-2023-11-09 07:35:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485862073794","payAmount":"8000.00","ptOrderNo":"6032112514","sign":"41197cf4a5d3925de748500d5a7597b7","currency":"MYR"}
-2023-11-09 07:35:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485996348566","payAmount":"7000.00","ptOrderNo":"6032112517","sign":"506396d505534e541319ceaf8a3ddc01","currency":"MYR"}
-2023-11-09 07:36:20----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486496593763","payAmount":"300.00","ptOrderNo":"6032112524","sign":"6f3069a515796926251f98239b81085d","currency":"MYR"}
-2023-11-09 07:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486496593763","payAmount":"300.00","ptOrderNo":"6032112524","sign":"6f3069a515796926251f98239b81085d","currency":"MYR"}
-2023-11-09 07:37:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486309608375","payAmount":"300.00","ptOrderNo":"6032112522","sign":"c399ee8f1f6acb306ff4b842c1e88138","currency":"MYR"}
-2023-11-09 07:38:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485862073794","payAmount":"8000.00","ptOrderNo":"6032112514","sign":"41197cf4a5d3925de748500d5a7597b7","currency":"MYR"}
-2023-11-09 07:38:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485996348566","payAmount":"7000.00","ptOrderNo":"6032112517","sign":"506396d505534e541319ceaf8a3ddc01","currency":"MYR"}
-2023-11-09 07:39:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486496593763","payAmount":"300.00","ptOrderNo":"6032112524","sign":"6f3069a515796926251f98239b81085d","currency":"MYR"}
-2023-11-09 07:40:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486309608375","payAmount":"300.00","ptOrderNo":"6032112522","sign":"c399ee8f1f6acb306ff4b842c1e88138","currency":"MYR"}
-2023-11-09 07:41:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699485996348566","payAmount":"7000.00","ptOrderNo":"6032112517","sign":"506396d505534e541319ceaf8a3ddc01","currency":"MYR"}
-2023-11-09 07:42:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486496593763","payAmount":"300.00","ptOrderNo":"6032112524","sign":"6f3069a515796926251f98239b81085d","currency":"MYR"}
-2023-11-09 07:43:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486309608375","payAmount":"300.00","ptOrderNo":"6032112522","sign":"c399ee8f1f6acb306ff4b842c1e88138","currency":"MYR"}
-2023-11-09 07:45:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486496593763","payAmount":"300.00","ptOrderNo":"6032112524","sign":"6f3069a515796926251f98239b81085d","currency":"MYR"}
-2023-11-09 07:46:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486309608375","payAmount":"300.00","ptOrderNo":"6032112522","sign":"c399ee8f1f6acb306ff4b842c1e88138","currency":"MYR"}
-2023-11-09 07:48:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699486496593763","payAmount":"300.00","ptOrderNo":"6032112524","sign":"6f3069a515796926251f98239b81085d","currency":"MYR"}
-2023-11-09 09:09:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699492094140388","payAmount":"8888.88","ptOrderNo":"6032112602","sign":"76053c61d16c324dd91e86eadb0b7a42","currency":"MYR"}
-2023-11-09 09:10:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699492094140388","payAmount":"8888.88","ptOrderNo":"6032112602","sign":"76053c61d16c324dd91e86eadb0b7a42","currency":"MYR"}
-2023-11-09 09:13:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699492094140388","payAmount":"8888.88","ptOrderNo":"6032112602","sign":"76053c61d16c324dd91e86eadb0b7a42","currency":"MYR"}
-2023-11-09 09:16:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699492094140388","payAmount":"8888.88","ptOrderNo":"6032112602","sign":"76053c61d16c324dd91e86eadb0b7a42","currency":"MYR"}
-2023-11-09 09:19:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699492094140388","payAmount":"8888.88","ptOrderNo":"6032112602","sign":"76053c61d16c324dd91e86eadb0b7a42","currency":"MYR"}
-2023-11-09 09:22:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699492094140388","payAmount":"8888.88","ptOrderNo":"6032112602","sign":"76053c61d16c324dd91e86eadb0b7a42","currency":"MYR"}
-2023-11-09 09:45:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699494236330689","payAmount":"8888.88","ptOrderNo":"6032112634","sign":"8e215431190e61be0edf21a4502bcb6f","currency":"MYR"}
-2023-11-09 09:46:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699494236330689","payAmount":"8888.88","ptOrderNo":"6032112634","sign":"8e215431190e61be0edf21a4502bcb6f","currency":"MYR"}
-2023-11-09 09:49:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699494236330689","payAmount":"8888.88","ptOrderNo":"6032112634","sign":"8e215431190e61be0edf21a4502bcb6f","currency":"MYR"}
-2023-11-09 09:52:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699494236330689","payAmount":"8888.88","ptOrderNo":"6032112634","sign":"8e215431190e61be0edf21a4502bcb6f","currency":"MYR"}
-2023-11-09 09:55:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699494236330689","payAmount":"8888.88","ptOrderNo":"6032112634","sign":"8e215431190e61be0edf21a4502bcb6f","currency":"MYR"}
-2023-11-09 09:58:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699494236330689","payAmount":"8888.88","ptOrderNo":"6032112634","sign":"8e215431190e61be0edf21a4502bcb6f","currency":"MYR"}
-2023-11-09 20:29:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699532880670650","payAmount":"200.00","ptOrderNo":"6032113585","sign":"556d4c915b16c0e7df5675fe57627ee6","currency":"MYR"}
-2023-11-09 20:30:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699532880670650","payAmount":"200.00","ptOrderNo":"6032113585","sign":"556d4c915b16c0e7df5675fe57627ee6","currency":"MYR"}
-2023-11-09 20:33:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699532880670650","payAmount":"200.00","ptOrderNo":"6032113585","sign":"556d4c915b16c0e7df5675fe57627ee6","currency":"MYR"}
-2023-11-09 20:36:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699532880670650","payAmount":"200.00","ptOrderNo":"6032113585","sign":"556d4c915b16c0e7df5675fe57627ee6","currency":"MYR"}
-2023-11-09 20:39:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699532880670650","payAmount":"200.00","ptOrderNo":"6032113585","sign":"556d4c915b16c0e7df5675fe57627ee6","currency":"MYR"}
-2023-11-09 20:42:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699532880670650","payAmount":"200.00","ptOrderNo":"6032113585","sign":"556d4c915b16c0e7df5675fe57627ee6","currency":"MYR"}
-2023-11-09 21:06:55----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699535130096563","payAmount":"3000.00","ptOrderNo":"6032113676","sign":"08d44883440b2023397016eab27c3e8d","currency":"MYR"}
-2023-11-09 21:07:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699535130096563","payAmount":"3000.00","ptOrderNo":"6032113676","sign":"08d44883440b2023397016eab27c3e8d","currency":"MYR"}
-2023-11-09 21:10:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699535130096563","payAmount":"3000.00","ptOrderNo":"6032113676","sign":"08d44883440b2023397016eab27c3e8d","currency":"MYR"}
-2023-11-09 21:13:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699535130096563","payAmount":"3000.00","ptOrderNo":"6032113676","sign":"08d44883440b2023397016eab27c3e8d","currency":"MYR"}
-2023-11-09 21:16:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699535130096563","payAmount":"3000.00","ptOrderNo":"6032113676","sign":"08d44883440b2023397016eab27c3e8d","currency":"MYR"}
-2023-11-09 21:19:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699535130096563","payAmount":"3000.00","ptOrderNo":"6032113676","sign":"08d44883440b2023397016eab27c3e8d","currency":"MYR"}
-2023-11-09 23:24:10----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347938226","payAmount":"2000.00","ptOrderNo":"6032114122","sign":"1a1942304022adf0b3cc1e48774ae7a9","currency":"MYR"}
-2023-11-09 23:24:10----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347610682","payAmount":"5000.00","ptOrderNo":"6032114123","sign":"f41156d4b6051d79159506dbce4435fe","currency":"MYR"}
-2023-11-09 23:24:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347938226","payAmount":"2000.00","ptOrderNo":"6032114122","sign":"1a1942304022adf0b3cc1e48774ae7a9","currency":"MYR"}
-2023-11-09 23:24:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347610682","payAmount":"5000.00","ptOrderNo":"6032114123","sign":"f41156d4b6051d79159506dbce4435fe","currency":"MYR"}
-2023-11-09 23:27:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347938226","payAmount":"2000.00","ptOrderNo":"6032114122","sign":"1a1942304022adf0b3cc1e48774ae7a9","currency":"MYR"}
-2023-11-09 23:27:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347610682","payAmount":"5000.00","ptOrderNo":"6032114123","sign":"f41156d4b6051d79159506dbce4435fe","currency":"MYR"}
-2023-11-09 23:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347938226","payAmount":"2000.00","ptOrderNo":"6032114122","sign":"1a1942304022adf0b3cc1e48774ae7a9","currency":"MYR"}
-2023-11-09 23:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347610682","payAmount":"5000.00","ptOrderNo":"6032114123","sign":"f41156d4b6051d79159506dbce4435fe","currency":"MYR"}
-2023-11-09 23:33:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347938226","payAmount":"2000.00","ptOrderNo":"6032114122","sign":"1a1942304022adf0b3cc1e48774ae7a9","currency":"MYR"}
-2023-11-09 23:33:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347610682","payAmount":"5000.00","ptOrderNo":"6032114123","sign":"f41156d4b6051d79159506dbce4435fe","currency":"MYR"}
-2023-11-09 23:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347938226","payAmount":"2000.00","ptOrderNo":"6032114122","sign":"1a1942304022adf0b3cc1e48774ae7a9","currency":"MYR"}
-2023-11-09 23:36:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699543347610682","payAmount":"5000.00","ptOrderNo":"6032114123","sign":"f41156d4b6051d79159506dbce4435fe","currency":"MYR"}
-2023-11-10 06:07:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699567532576402","payAmount":"1000.00","ptOrderNo":"6032114548","sign":"bedf23366ad51e8ec687ab55518be02d","currency":"MYR"}
-2023-11-10 06:08:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699567532576402","payAmount":"1000.00","ptOrderNo":"6032114548","sign":"bedf23366ad51e8ec687ab55518be02d","currency":"MYR"}
-2023-11-10 06:11:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699567532576402","payAmount":"1000.00","ptOrderNo":"6032114548","sign":"bedf23366ad51e8ec687ab55518be02d","currency":"MYR"}
-2023-11-10 06:14:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699567532576402","payAmount":"1000.00","ptOrderNo":"6032114548","sign":"bedf23366ad51e8ec687ab55518be02d","currency":"MYR"}
-2023-11-10 06:17:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699567532576402","payAmount":"1000.00","ptOrderNo":"6032114548","sign":"bedf23366ad51e8ec687ab55518be02d","currency":"MYR"}
-2023-11-10 06:20:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699567532576402","payAmount":"1000.00","ptOrderNo":"6032114548","sign":"bedf23366ad51e8ec687ab55518be02d","currency":"MYR"}
-2023-11-10 07:35:15----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699572832517124","payAmount":"10000.00","ptOrderNo":"6032114595","sign":"0c440e2b31f8e3e927474e517820633b","currency":"MYR"}
-2023-11-10 07:35:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699572832517124","payAmount":"10000.00","ptOrderNo":"6032114595","sign":"0c440e2b31f8e3e927474e517820633b","currency":"MYR"}
-2023-11-10 07:38:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699572832517124","payAmount":"10000.00","ptOrderNo":"6032114595","sign":"0c440e2b31f8e3e927474e517820633b","currency":"MYR"}
-2023-11-10 07:41:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699572832517124","payAmount":"10000.00","ptOrderNo":"6032114595","sign":"0c440e2b31f8e3e927474e517820633b","currency":"MYR"}
-2023-11-10 07:44:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699572832517124","payAmount":"10000.00","ptOrderNo":"6032114595","sign":"0c440e2b31f8e3e927474e517820633b","currency":"MYR"}
-2023-11-10 07:47:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699572832517124","payAmount":"10000.00","ptOrderNo":"6032114595","sign":"0c440e2b31f8e3e927474e517820633b","currency":"MYR"}
-2023-11-10 08:18:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575407539581","payAmount":"20000.00","ptOrderNo":"6032114619","sign":"1ba8a9cedea59f941f3efe7e70fc3357","currency":"MYR"}
-2023-11-10 08:18:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575407539581","payAmount":"20000.00","ptOrderNo":"6032114619","sign":"1ba8a9cedea59f941f3efe7e70fc3357","currency":"MYR"}
-2023-11-10 08:20:05----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575498053453","payAmount":"20000.00","ptOrderNo":"6032114620","sign":"f708706f090f04dfde40b60a5d499f95","currency":"MYR"}
-2023-11-10 08:20:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575498053453","payAmount":"20000.00","ptOrderNo":"6032114620","sign":"f708706f090f04dfde40b60a5d499f95","currency":"MYR"}
-2023-11-10 08:21:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575407539581","payAmount":"20000.00","ptOrderNo":"6032114619","sign":"1ba8a9cedea59f941f3efe7e70fc3357","currency":"MYR"}
-2023-11-10 08:23:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575498053453","payAmount":"20000.00","ptOrderNo":"6032114620","sign":"f708706f090f04dfde40b60a5d499f95","currency":"MYR"}
-2023-11-10 08:24:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575407539581","payAmount":"20000.00","ptOrderNo":"6032114619","sign":"1ba8a9cedea59f941f3efe7e70fc3357","currency":"MYR"}
-2023-11-10 08:26:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575498053453","payAmount":"20000.00","ptOrderNo":"6032114620","sign":"f708706f090f04dfde40b60a5d499f95","currency":"MYR"}
-2023-11-10 08:27:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575407539581","payAmount":"20000.00","ptOrderNo":"6032114619","sign":"1ba8a9cedea59f941f3efe7e70fc3357","currency":"MYR"}
-2023-11-10 08:29:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575498053453","payAmount":"20000.00","ptOrderNo":"6032114620","sign":"f708706f090f04dfde40b60a5d499f95","currency":"MYR"}
-2023-11-10 08:30:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575407539581","payAmount":"20000.00","ptOrderNo":"6032114619","sign":"1ba8a9cedea59f941f3efe7e70fc3357","currency":"MYR"}
-2023-11-10 08:32:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699575498053453","payAmount":"20000.00","ptOrderNo":"6032114620","sign":"f708706f090f04dfde40b60a5d499f95","currency":"MYR"}
-2023-11-10 08:55:56----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699539516575292","payAmount":"20000.00","ptOrderNo":"6032113857","sign":"8800d5c02041bd6c8b797046fd671196","currency":"MYR"}
-2023-11-10 08:56:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699539516575292","payAmount":"20000.00","ptOrderNo":"6032113857","sign":"8800d5c02041bd6c8b797046fd671196","currency":"MYR"}
-2023-11-10 08:59:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699539516575292","payAmount":"20000.00","ptOrderNo":"6032113857","sign":"8800d5c02041bd6c8b797046fd671196","currency":"MYR"}
-2023-11-10 09:02:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699539516575292","payAmount":"20000.00","ptOrderNo":"6032113857","sign":"8800d5c02041bd6c8b797046fd671196","currency":"MYR"}
-2023-11-10 09:05:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699539516575292","payAmount":"20000.00","ptOrderNo":"6032113857","sign":"8800d5c02041bd6c8b797046fd671196","currency":"MYR"}
-2023-11-10 09:08:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699539516575292","payAmount":"20000.00","ptOrderNo":"6032113857","sign":"8800d5c02041bd6c8b797046fd671196","currency":"MYR"}
-2023-11-10 16:08:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699603637919755","payAmount":"350.00","ptOrderNo":"6032115188","sign":"019b1bc238b267201fcff5cb83e11586","currency":"MYR"}
-2023-11-10 16:09:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699603637919755","payAmount":"350.00","ptOrderNo":"6032115188","sign":"019b1bc238b267201fcff5cb83e11586","currency":"MYR"}
-2023-11-10 16:12:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699603637919755","payAmount":"350.00","ptOrderNo":"6032115188","sign":"019b1bc238b267201fcff5cb83e11586","currency":"MYR"}
-2023-11-10 16:15:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699603637919755","payAmount":"350.00","ptOrderNo":"6032115188","sign":"019b1bc238b267201fcff5cb83e11586","currency":"MYR"}
-2023-11-10 16:18:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699603637919755","payAmount":"350.00","ptOrderNo":"6032115188","sign":"019b1bc238b267201fcff5cb83e11586","currency":"MYR"}
-2023-11-10 16:21:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699603637919755","payAmount":"350.00","ptOrderNo":"6032115188","sign":"019b1bc238b267201fcff5cb83e11586","currency":"MYR"}
-2023-11-10 23:48:55----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699631246588676","payAmount":"3000.00","ptOrderNo":"6032115935","sign":"86baa69893fa38d97b2ffb552444ce8e","currency":"MYR"}
-2023-11-10 23:49:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699631246588676","payAmount":"3000.00","ptOrderNo":"6032115935","sign":"86baa69893fa38d97b2ffb552444ce8e","currency":"MYR"}
-2023-11-10 23:52:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699631246588676","payAmount":"3000.00","ptOrderNo":"6032115935","sign":"86baa69893fa38d97b2ffb552444ce8e","currency":"MYR"}
-2023-11-10 23:55:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699631246588676","payAmount":"3000.00","ptOrderNo":"6032115935","sign":"86baa69893fa38d97b2ffb552444ce8e","currency":"MYR"}
-2023-11-10 23:58:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699631246588676","payAmount":"3000.00","ptOrderNo":"6032115935","sign":"86baa69893fa38d97b2ffb552444ce8e","currency":"MYR"}
-2023-11-11 00:01:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1699631246588676","payAmount":"3000.00","ptOrderNo":"6032115935","sign":"86baa69893fa38d97b2ffb552444ce8e","currency":"MYR"}
-2023-11-15 18:31:01----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700044134396179","payAmount":"200.00","ptOrderNo":"6032122043","sign":"eff32f218698a8b523c89387774a23b6","currency":"MYR"}
-2023-11-15 18:31:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700044134396179","payAmount":"200.00","ptOrderNo":"6032122043","sign":"eff32f218698a8b523c89387774a23b6","currency":"MYR"}
-2023-11-15 18:34:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700044134396179","payAmount":"200.00","ptOrderNo":"6032122043","sign":"eff32f218698a8b523c89387774a23b6","currency":"MYR"}
-2023-11-15 18:37:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700044134396179","payAmount":"200.00","ptOrderNo":"6032122043","sign":"eff32f218698a8b523c89387774a23b6","currency":"MYR"}
-2023-11-15 18:40:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700044134396179","payAmount":"200.00","ptOrderNo":"6032122043","sign":"eff32f218698a8b523c89387774a23b6","currency":"MYR"}
-2023-11-15 18:43:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700044134396179","payAmount":"200.00","ptOrderNo":"6032122043","sign":"eff32f218698a8b523c89387774a23b6","currency":"MYR"}
-2023-11-16 06:47:20----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700088335419862","payAmount":"280.00","ptOrderNo":"6032122696","sign":"0ee53a2913b5ba054b57ab62c56bb011","currency":"MYR"}
-2023-11-16 06:47:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700088335419862","payAmount":"280.00","ptOrderNo":"6032122696","sign":"0ee53a2913b5ba054b57ab62c56bb011","currency":"MYR"}
-2023-11-16 06:50:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700088335419862","payAmount":"280.00","ptOrderNo":"6032122696","sign":"0ee53a2913b5ba054b57ab62c56bb011","currency":"MYR"}
-2023-11-16 06:53:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700088335419862","payAmount":"280.00","ptOrderNo":"6032122696","sign":"0ee53a2913b5ba054b57ab62c56bb011","currency":"MYR"}
-2023-11-16 06:56:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700088335419862","payAmount":"280.00","ptOrderNo":"6032122696","sign":"0ee53a2913b5ba054b57ab62c56bb011","currency":"MYR"}
-2023-11-16 06:59:30----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700088335419862","payAmount":"280.00","ptOrderNo":"6032122696","sign":"0ee53a2913b5ba054b57ab62c56bb011","currency":"MYR"}
-2023-11-16 11:51:45----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700106612070211","payAmount":"1000.00","ptOrderNo":"6032122886","sign":"d6e0b816d2f1b4f47408c19dff304396","currency":"MYR"}
-2023-11-16 11:52:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700106612070211","payAmount":"1000.00","ptOrderNo":"6032122886","sign":"d6e0b816d2f1b4f47408c19dff304396","currency":"MYR"}
-2023-11-16 11:55:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700106612070211","payAmount":"1000.00","ptOrderNo":"6032122886","sign":"d6e0b816d2f1b4f47408c19dff304396","currency":"MYR"}
-2023-11-16 11:58:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700106612070211","payAmount":"1000.00","ptOrderNo":"6032122886","sign":"d6e0b816d2f1b4f47408c19dff304396","currency":"MYR"}
-2023-11-16 12:01:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700106612070211","payAmount":"1000.00","ptOrderNo":"6032122886","sign":"d6e0b816d2f1b4f47408c19dff304396","currency":"MYR"}
-2023-11-16 12:04:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700106612070211","payAmount":"1000.00","ptOrderNo":"6032122886","sign":"d6e0b816d2f1b4f47408c19dff304396","currency":"MYR"}
-2023-11-16 20:35:50----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
-2023-11-16 20:36:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
-2023-11-16 20:39:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
-2023-11-16 20:42:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
-2023-11-16 20:45:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
-2023-11-16 20:48:00----
-8.219.51.52
-{"payResult":"1","mer_no":"888458208","orderNo":"C1700138047165129","payAmount":"10000.00","ptOrderNo":"6032123691","sign":"562f66b2a02788b73cad28fe3624aa8f","currency":"MYR"}
+2023-12-09 19:19:36----
+8.218.241.247
+"{\"status\":\"2\",\"merchantOrderNo\":\"C1701160684092402\",\"payMoney\":\"100\"}"
+2023-12-09 19:27:53----
+54.207.225.82
+"{\"payMoney\":\"222.00\",\"payTime\":\"Sat Dec 09 11:27:52 UTC 2023\",\"sign\":\"d72793f191d9e20741d98a29990a7cee\",\"merchantOrderNo\":\"C1702120702866334\",\"status\":\"2\"}"
 

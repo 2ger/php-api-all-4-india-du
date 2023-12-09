@@ -1,6 +1,6 @@
 <?php
 //持机 每1分钟
-// 采集印度股票 https://profitmarts.in/api/cai_india_index_list.php
+// 采集印度指数 https://profitmarts.in/api/cai_india_index_list.php
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 

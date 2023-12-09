@@ -6,8 +6,12 @@ require '../framework/bootstrap.inc.php';
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 $redis->select(3);
-
+$market ="india";
 $code = $_GPC['keyWords'];
+if($_GPC['hot'])
+{
+    $market ="NSE";
+}
 if($code){
     $url = 'https://etsearch.indiatimes.com/etspeeds/etsearchMdata.ep?matchCompanyName=true&realstate=true&dvr=true&idr=true&trust=true&mcx=true&mf=true&crypto=true&nps=true&insideet=true&detail=false&forex=false&index=true&mecklai=true&etf=true&nonList=true&pagesize=6&outputtype=json&callback=searchResultCallback&ticker='.$code;
     // echo $url;
@@ -93,7 +97,7 @@ $pageNum = $_GPC['pageNum'];
 
 $offset = ($pageNum-1)*$pageSize;
 
-$list = pdo_fetchall("SELECT r.*,s.*  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_spell like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_type like '%india%'  group by s.stock_code limit $pageSize ");//OFFSET $offset
+$list = pdo_fetchall("SELECT r.*,s.*  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_spell like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_type like '%$market%'  group by s.stock_code  order by s.is_show desc,s.id limit $pageSize");//OFFSET $offset
 
 $data['status'] = 0;
 $data['data'] = $list;

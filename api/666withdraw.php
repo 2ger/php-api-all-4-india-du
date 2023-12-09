@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 require '../framework/bootstrap.inc.php';
 
  $pay_url = "https://api.666pay.xyz/withdraw/order/create";
- $mer = "888458208";
+ $mer = "xxxx";
  $key = "a545103df14340038a9f59df25463a78";
 //  $mer = "888458203";
 //  $key = "7bd5ff811951429084682738b8c9d818";

@@ -30,6 +30,7 @@ header("Access-Control-Allow-Origin: *");
 $currentURL = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']."&pay_code=";
 
 $OMPay = "https://" . $_SERVER['HTTP_HOST'] ."/api/OMPay/pay.php?amt=$amt&id=$id&user_id=$user_id";
+$uudes = "https://" . $_SERVER['HTTP_HOST'] ."/api/uudes/pay.php?amt=$amt&id=$id&user_id=$user_id";
 
 ?>
 
@@ -37,9 +38,11 @@ $OMPay = "https://" . $_SERVER['HTTP_HOST'] ."/api/OMPay/pay.php?amt=$amt&id=$id
     --- Choose a Pay Type ---
 </div>
 
-<a href="<?=$currentURL?>1500" class="btn banks">via Banks</a>
+<!--<a href="<?=$currentURL?>1500" class="btn banks">via Banks</a>-->
 <!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
-<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>
+<!--<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>-->
+
+<a href="<?=$uudes?>" class="btn banks">via Wallet</a>
 <style>
 .title{
       margin: 50px 20px;
