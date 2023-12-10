@@ -14,10 +14,15 @@ $pageNum = $_GPC['pageNum'];
 
 $offset = ($pageNum-1)*$pageSize;
 
-$list = pdo_fetchall("SELECT r.*,s.*  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_spell like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_type like '%MCX%'  group by s.stock_code limit $pageSize ");//OFFSET $offset
+$list = pdo_fetchall("SELECT r.*,s.*  FROM stock s left join `real_time_data` r on r.stock_code = s.stock_code WHERE (s.stock_code like '%".$code."%' or s.stock_spell like '%".$code."%' or s.stock_name like '%".$code."%') and s.stock_type like '%MCX%'  group by s.stock_code limit $pageSize OFFSET $offset");//OFFSET $offset
 
-$data['status'] = 0;
-$data['data'] = $list;
+if($list){
+    $data['status'] = 0;
+    $data['data'] = $list;
+}else{
+    $data['status'] = 1;
+    $data['msg'] = "no data";
+}
 
 // pdo_debug();
 
