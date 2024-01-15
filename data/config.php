@@ -37,7 +37,7 @@ $config['cookie']['path'] = '/';
 // --------------------------  CONFIG SETTING  --------------------------- //
 $config['setting']['charset'] = 'utf-8';
 $config['setting']['cache'] = 'redis';
-$config['setting']['timezone'] = 'Asia/Shanghai';
+$config['setting']['timezone'] = 'Asia/Kolkata';
 $config['setting']['memory_limit'] = '256M';
 $config['setting']['filemode'] = 0644;
 $config['setting']['authkey'] = '2f7bdf17';

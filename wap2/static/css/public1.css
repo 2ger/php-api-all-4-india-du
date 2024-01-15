@@ -1292,7 +1292,7 @@ input[type=checkbox]:checked + label[data-v-1f80ad0d]:before {
 }
 
 .table-list .name {
-  color: #26a2ff
+  color: #16171d
 }
 
 .table-list .li-base .mint-button {
@@ -2167,7 +2167,7 @@ body[data-v-69498231] {
 
 .mint-popup-1 h1[data-v-69498231] {
   font-size: 20px;
-  color: #26a2ff
+  color: #16171d
 }
 
 .mint-popup-1 p[data-v-69498231] {
@@ -11059,7 +11059,7 @@ button.close {
 .mint-header {
   -ms-flex-align: center;
   align-items: center;
-  background-color: #26a2ff;
+  background-color: #16171d;
   box-sizing: border-box;
   color: #fff;
   display: -ms-flexbox;
@@ -11178,13 +11178,13 @@ button.close {
 
 .mint-button--primary {
   color: #fff;
-  background-color: #26a2ff
+  background-color: #16171d
 }
 
 .mint-button--primary.is-plain {
-  border: 1px solid #26a2ff;
+  border: 1px solid #16171d;
   background-color: transparent;
-  color: #26a2ff
+  color: #16171d
 }
 
 .mint-button--danger {
@@ -11466,7 +11466,7 @@ button.close {
 }
 
 .mint-badge.is-primary {
-  background-color: #26a2ff
+  background-color: #16171d
 }
 
 .mint-badge.is-success {
@@ -11532,8 +11532,8 @@ button.close {
 }
 
 .mint-switch-input:checked + .mint-switch-core {
-  border-color: #26a2ff;
-  background-color: #26a2ff
+  border-color: #16171d;
+  background-color: #16171d
 }
 
 .mint-switch-input:checked + .mint-switch-core:before {
@@ -11792,8 +11792,8 @@ button.close {
 }
 
 .mint-navbar .mint-tab-item.is-selected {
-  border-bottom: 3px solid #26a2ff;
-  color: #26a2ff;
+  border-bottom: 3px solid #16171d;
+  color: #16171d;
   margin-bottom: -3px
 }
 
@@ -11823,7 +11823,7 @@ button.close {
 
 .mint-tabbar > .mint-tab-item.is-selected {
   background-color: #eaeaea;
-  color: #26a2ff
+  color: #16171d
 }
 
 .mint-tabbar.is-fixed {
@@ -11881,7 +11881,7 @@ button.close {
 }
 
 .mint-searchbar-cancel {
-  color: #26a2ff;
+  color: #16171d;
   margin-left: 10px;
   text-decoration: none
 }
@@ -11931,8 +11931,8 @@ button.close {
 }
 
 .mint-checkbox-input:checked + .mint-checkbox-core {
-  background-color: #26a2ff;
-  border-color: #26a2ff
+  background-color: #16171d;
+  border-color: #16171d
 }
 
 .mint-checkbox-input:checked + .mint-checkbox-core:after {
@@ -12000,8 +12000,8 @@ button.close {
 }
 
 .mint-radio-input:checked + .mint-radio-core {
-  background-color: #26a2ff;
-  border-color: #26a2ff
+  background-color: #16171d;
+  border-color: #16171d
 }
 
 .mint-radio-input:checked + .mint-radio-core:after {
@@ -12264,7 +12264,7 @@ button.close {
 .mt-range-progress {
   position: absolute;
   display: block;
-  background-color: #26a2ff;
+  background-color: #16171d;
   top: 50%;
   transform: translateY(-50%);
   width: 0
@@ -12460,7 +12460,7 @@ button.close {
 
 .mt-progress-progress {
   display: block;
-  background-color: #26a2ff;
+  background-color: #16171d;
   width: 0
 }
 
@@ -12643,12 +12643,12 @@ button.close {
 }
 
 .mint-msgbox-confirm {
-  color: #26a2ff;
+  color: #16171d;
   width: 50%
 }
 
 .mint-msgbox-confirm:active {
-  color: #26a2ff
+  color: #16171d
 }
 
 .msgbox-bounce-enter {
@@ -12680,7 +12680,7 @@ button.close {
   text-align: center;
   line-height: 40px;
   font-size: 16px;
-  color: #26a2ff
+  color: #16171d
 }
 
 .mint-datetime-cancel {
