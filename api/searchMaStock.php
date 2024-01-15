@@ -8,12 +8,20 @@ $redis->connect('127.0.0.1', 6379);
 $redis->select(3);
 $market ="india";
 $code = $_GPC['keyWords'];
+
 if($_GPC['hot'])
 {
     $market ="NSE";
 }
+//先搜索网上，更新或采集股票再搜索数据库
 if($code){
-    $url = 'https://etsearch.indiatimes.com/etspeeds/etsearchMdata.ep?matchCompanyName=true&realstate=true&dvr=true&idr=true&trust=true&mcx=true&mf=true&crypto=true&nps=true&insideet=true&detail=false&forex=false&index=true&mecklai=true&etf=true&nonList=true&pagesize=6&outputtype=json&callback=searchResultCallback&ticker='.$code;
+    $code2 = urlencode($code);
+    //在线搜索公司名
+    //私得公司名称、id
+    $url = "https://economictimes.indiatimes.com/stocksearch.cms?ticker=shri%20ja";
+    
+    //有价格，公司名称
+    $url = 'https://etsearch.indiatimes.com/etspeeds/etsearchMdata.ep?matchCompanyName=true&realstate=true&dvr=true&idr=true&trust=true&mcx=true&mf=true&crypto=true&nps=true&insideet=true&detail=false&forex=false&index=true&mecklai=true&etf=true&nonList=true&pagesize=6&outputtype=json&callback=searchResultCallback&ticker='.$code2;
     // echo $url;
     $response = file_get_contents($url);
     $response = str_replace("searchResultCallback(","",$response);
@@ -28,7 +36,7 @@ if($code){
     
     if($response){
         foreach($response as &$value) {
-            if(!$value['subType']){
+            if($value['lastTradedPrice']){
            $redis_data['chinese_stock_name']=    $redis_data['stock_name']=     $stock['stock_name'] =  $val['stock_name'] = $value['tagName'];
             $stock['stock_spell'] =   $value['symbol'];
             $stock['stock_plate'] =   $value['tagSeoName'];
@@ -36,26 +44,16 @@ if($code){
            $redis_data['last_done']= $real['close'] =  $real['open'] =   $val['close'] = $value['lastTradedPrice'];
            $redis_data['percent_change']=$val['increase_ratio'] = $value['NetChange'];
         
-          if($count<5){
-              //1 如没有则写入stock表
-              $ss = pdo_fetchall("select id,stock_code  from stock where stock_code = '".$val['stock_code']."' order by id asc");
-              $count =  count($ss);
-              $id = $ss[0]['id'];
-              if($count >1){
-                 //删除多余的
-                 $where["id >"] =$id;
-                 pdo_delete("stock",$where);
-              }
-              // echo $ss[0]['id'];
-            //   var_dump($ss);die();
-              $s = $ss[0];//pdo_get("stock",$where);
+            //写入或更新
+              $s = pdo_get("stock",$where);
               $stock['stock_type'] =  "india";
              $real['stock_gid'] = $stock['stock_gid'] =  "mys".$stock['stock_code'];
               
               if(!$s){
                   $data['stock']  = pdo_insert("stock",$stock);
-             $val['stock'] =        $id = pdo_insertid();
+                  $val['stock'] =        $id = pdo_insertid();
               }else{
+                   pdo_update("stock",$stock,$where);
                  $id = $s['id'];
               }
          
@@ -78,19 +76,25 @@ if($code){
                  $val['real_time_data'] =      $data['real_time_data']  =  pdo_insert("real_time_data",$real);
               }
               
-            //   //删除多余的 > 给任务定时执行
-            //   $id = pdo_insertid();
-            //   pdo_fetch("delete from real_time_data where stock_code = '".$value['value']."' and id < ".$id);
             
-          }
-          $list[] =$val;
+        //   }
+        //   $list[] =$val;
         }
         }
+        
+        if($list){
+            $data['status'] = 0;
+            $data['data'] = $list;
+        }else{
+            $data['status'] = 1;
+            $data['msg'] = "no data";
+        }
+            // $data = json_encode($data);
+            // die($data);
     }
     
     
 }
-
 
 $pageSize = $_GPC['pageSize'];
 $pageNum = $_GPC['pageNum'];
@@ -106,6 +110,7 @@ if($list){
     $data['status'] = 1;
     $data['msg'] = "no data";
 }
+
 
 
 // pdo_debug();

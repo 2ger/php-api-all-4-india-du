@@ -36,7 +36,7 @@ $stopLoss = $_GPC['stopLoss'];
 //当前价格
 $stock = pdo_fetch("select s.*,r.close from stock s left join real_time_data r on s.stock_gid= r.stock_gid where s.id = $stockId");
 if (!$stock) die("no stock found ");
-// var_dump($stock);die();
+
 //当前用户
 //连接到 Redis 数据库
 $redis = new Redis();
@@ -52,24 +52,34 @@ $order_total_price = $stock['close'] * $buyNum / $lever;
 $order_fee = $order_total_price / 10000;
 $spread_fee = 0;
 if ($stock['stock_type'] != "india") {
-    //指数、外江
+    //指数、大宗
 //    $order_total_price = $stock['close'] * $buyNum / $lever;
-    $order_fee = 50* $buyNum;
-    $order_total_price =1000* $buyNum;
+    $order_fee = 50 * $buyNum;
+    $order_total_price = 1000 * $buyNum;
     $spread_fee = 0;
     $position['spread_rate_price'] = 0;
 
 }
 
 //余额判断
-$enable_amt = pdo_fetchcolumn("select enable_amt from user where id = $user_id");
-if ($enable_amt < ($order_total_price + $order_fee + $spread_fee)) {
+// $enable_amt = pdo_fetchcolumn("select enable_amt from user where id = $user_id");
+$user_amt = pdo_get("user",["id"=>$user_id],["user_amt","enable_amt","djzj"]);
+
+if ($stock['stock_type'] == "Forex") {
+    //外汇使用美元汇率 *83
+    // $order_total_price *=83;
+    // $order_fee *=83;
+    // $spread_fee *=83;
+}
+if ($user_amt["enable_amt"] < ($order_total_price + $order_fee + $spread_fee)) {
     $res['status'] = 1;
     $res['msg'] = "No Available Amount";
+    die(json_encode($res));
 } else {
     $whereu['id'] = $user_id;
-    $updateu["enable_amt"] = $enable_amt - ($order_total_price + $order_fee + $spread_fee);
-    pdo_update("user", $updateu, $whereu);
+    $updateu["enable_amt"] = $user_amt['enable_amt'] - ($order_total_price + $order_fee + $spread_fee);
+    $updateu["user_amt"] = $user_amt['user_amt'] - ($order_fee + $spread_fee);
+    $updateu["djzj"] =$user_amt['djzj']+$order_total_price;
 }
 
 
@@ -81,7 +91,7 @@ $position['agent_id'] = $user->agentId;
 $position['position_type'] = $buyType;
 $position['order_direction'] = $buyType ? "Buy Down" : "Buy Up";
 $position['position_sn'] = time() . $user_id;
-$position['order_num'] = $buyNum;
+$position['order_num'] = floatval($buyNum);
 $position['order_lever'] = $lever;
 $position['order_total_price'] = $order_total_price;
 $position['order_fee'] = $order_fee;
@@ -96,18 +106,23 @@ $position['buy_order_id'] = date("YmdHis");
 $position['buy_order_time'] = date("Y-m-d H:i:s");
 $position['all_profit_and_lose'] = -$order_fee;
 
-$insert = pdo_insert("user_position", $position);
 
 $res['data'] = $position;
-if ($insert) {
-    $res['status'] = 0;
-    $res['msg'] = "success";
-    die(json_encode($res));
-} else {
+$res['status'] = 0;
+$res['msg'] = "success";
+pdo_begin();
+try {
+    pdo_update("user", $updateu, $whereu);
+    pdo_insert("user_position", $position);
+    pdo_commit();
+} catch (PDOException $exception) {
+    pdo_rollback();
     $res['status'] = 1;
     $res['msg'] = "add order fail";
-    die(json_encode($res));
+    $res['data'] = $exception->getMessage();
+
 }
+die(json_encode($res));
         
         
         

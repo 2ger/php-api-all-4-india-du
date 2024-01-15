@@ -50,6 +50,15 @@ echo $count." 个\n";
     if($response){
         foreach($response as &$value) {
             
+            if($value['S']=="XAGUSD"||$value['S']=="XAUUSD"){
+                //汇通
+                $symbol = str_replace("USD","",$value['S']);
+                $url="https://gold.fx678.com/ajax/history.html?symbol=$symbol&limit=1&resolution=5&codeType=5c00";
+                $res = file_get_contents($url); 
+                $res = json_decode($res,true);
+                $value['P']=$res['c'][0];
+                echo "\n汇通".$res['c'][0];
+            }
             $redis_data['stock_name']=     $redis_data['chinese_stock_name']=    
             $where['stock_code'] =   $redis_data['stock_code']= $real['stock_code'] =     $value['S'];    
            $redis_data['last_done']=  $value['P'];
@@ -60,7 +69,7 @@ echo $count." 个\n";
               $id = $ss['id'];
               
               
-                    echo " >> 更新 股票 成功 ".$value['S'];
+                    echo "\n >> 更新 股票 成功 ".$value['S'];
                 $res  =  pdo_update("stock",$stock,$where);
                  $id = $ss['id'];
               
@@ -95,15 +104,15 @@ echo $count." 个\n";
             if(!$res){
                 $res  =  pdo_insert("real_time_data",$real);  
                  if(!$res){
-                    echo " >> 写入价格失败 *** ".$value['P'];
+                    echo "\n >> 写入价格失败 *** ".$value['P'];
                     pdo_debug();
                     die();
                      
                  }else{
-                    echo " >> 写入价格成功 ".$value['P']." -- " .$value['S'];
+                    echo "\n >> 写入价格成功 ".$value['P']."》".$res['c'][0]." -- " .$value['S'];
                  }
             }else{
-                echo " 更新价格成功 ".$value['P']." -- " .$value['S'];
+                echo "\n 更新价格成功 ".$value['P']." -- " .$value['S'];
             }
           }
           

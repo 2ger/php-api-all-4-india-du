@@ -17,10 +17,10 @@ if($_GPC['page']) $page = $_GPC['page'];
 // $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/hourlygainers?pageno='.$page.'&pagesize=1000&sortby=percentchange&sortorder=desc&service=gainers&exchange=nse&marketcap=largecap%2Cmidcap';//322
 // $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/hourlylosers?pageno='.$page.'&pagesize=1000&sortby=percentchange&sortorder=asc&service=losers&exchange=nse&marketcap=largecap%2Cmidcap';//301
 
-$url = 'https://etmarketsapis.indiatimes.com/ET_Stats/moversvolume?pageno='.$page.'&pagesize=1000&sortby=volume&sortorder=desc&service=volumemovers&exchange=nse&marketcap=largecap%2Cmidcap';//609
-// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/moversvalue?pageno='.$page.'&pagesize=1000&sortby=value&sortorder=desc&service=valuemovers&exchange=nse&marketcap=largecap%2Cmidcap'; //609
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/moversvolume?pageno='.$page.'&pagesize=1000&sortby=volume&sortorder=desc&service=volumemovers&exchange=nse&marketcap=largecap%2Cmidcap';//609
+$url = 'https://etmarketsapis.indiatimes.com/ET_Stats/moversvalue?pageno='.$page.'&pagesize=1000&sortby=value&sortorder=desc&service=valuemovers&exchange=nse&marketcap=largecap%2Cmidcap'; //609
 
-// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/onlybuyer?pageno='.$page.'&pagesize=1000&sortby=bestBuyQty&sortorder=desc&service=buyers&exchange=nse';
+// $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/onlybuyer?pageno='.$page.'&pagesize=1000&sortby=bestBuyQty&sortorder=desc&service=buyers&exchange=nse';//新股
 // $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/onlyseller?pageno='.$page.'&pagesize=251&sortby=bestSellQty&sortorder=desc&service=sellers&exchange=nse';
 // $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/new52weekshigh?pageno='.$page.'&pagesize=251&sortby=percentchange&sortorder=desc&exchange=nse&marketcap=largecap%2Cmidcap';
 // $url = 'https://etmarketsapis.indiatimes.com/ET_Stats/new52weekslow?pageno'.$page.'&pagesize=251&sortby=percentchange&sortorder=asc&exchange=nse&marketcap=largecap%2Cmidcap';
