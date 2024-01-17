@@ -70,10 +70,13 @@ if ($order['stock_type'] == "Forex") {
     //外汇使用美元汇率 *83
     // $enable_amt *=83;
 }
+
+$djzj = $user_amt["djzj"] - $benjin;
+if($djzj<0) $djzj =0;
 $up_user = [
     "enable_amt" => $user_amt["enable_amt"] + $profit + $benjin,
     "user_amt" => $user_amt["user_amt"] + $profit,
-    "djzj" => $user_amt["djzj"] - $benjin
+    "djzj" => $djzj
 ];
 // var_dump($up_user);
 $position_up_where = ["id" => $order['id']];

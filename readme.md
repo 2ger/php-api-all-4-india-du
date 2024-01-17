@@ -20,16 +20,27 @@ sql  数据库文件
 
 ### 计划任务
 ~~~
-每1分钟
-// 采集印度股票 https://profitmarts.in/api/cai_india_index_list.php
 
 每1分钟
-// 采集印度股票 https://profitmarts.in/api/cai_india_stock_list.php
+// 采集印度股票 https://trade.pgim.pro/api/cai_india_stock_list.php
+
+访问URL[ https://trade.pgim.pro/api/getAliPrices.php ]	采集外汇	每隔1分钟执行
+
 
 采集文章 > 印度 每天早上
 // https://india.qq3.bpanel.ccapi/getNews.php
-~~~
 
+每1分钟
+修复djzj  https://trade.pgim.pro/api/fix_djzj.php.php
+~~~
+可停用，因搜索会采集
+~~~
+每1分钟
+// 采集印度股票 https://trade.pgim.pro/api/cai_india_index_list.php
+
+访问URL[ https://trade.pgim.pro/api/cai_india_economictimes_list.php ]	采集股票	每隔1分钟执行
+
+~~~
 
 
 ### api

@@ -83,7 +83,7 @@ echo $count." 个\n";
           $redis_data['volume']=$redis_data['buy_volume']=$redis_data['sell_volume']= $value['S'];
           $redis_data['business_balance']=  $redis_data['change']= $value['VF'];
           
-        $redis->set($stock['stock_gid'], json_encode($redis_data));
+        $redis->set("mys".$value['S'], json_encode($redis_data));
         //读取redis
         //   echo $rvalue;
     

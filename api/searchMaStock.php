@@ -66,7 +66,7 @@ if($code){
               $redis_data['last_done']=  $redis_data['lacp']= $redis_data['buy_price']= $redis_data['sell_price']=$redis_data['high']=$redis_data['low']=$value['lastTradedPrice'];
               $redis_data['volume']=$redis_data['buy_volume']=$redis_data['sell_volume']= $value['volume'];
               $redis_data['change']= $value['NetChange'];
-            $val['redis'] =   $redis->set('mys'.$value['lastTradedPrice'], json_encode($redis_data));
+            $val['redis'] =   $redis->set('mys'.$value['tagId'], json_encode($redis_data));
         
               //3写入价格表 
               if($value['lastTradedPrice'] >0){ //有价格才写入
