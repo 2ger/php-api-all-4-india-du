@@ -10,6 +10,9 @@ $stockId = $_GPC['stockId'];
 $profitTarget = $_GPC['profitTarget'];
 $stopLoss = $_GPC['stopLoss'];
 
+
+
+
 // 判断周末不能买
 
 // $date = date('Y-m-d'); // 获取当前日期
@@ -19,17 +22,6 @@ $stopLoss = $_GPC['stopLoss'];
 //         die(json_encode($res));
 // }
 
-// //下单时间判断
-// $currentDateTime = new DateTime('now', new DateTimeZone('Indian/Comoro')); // 替换为您的时区
-// $startDateTime = new DateTime('09:30', new DateTimeZone('Indian/Comoro')); // 替换为您的时区
-// $endDateTime = new DateTime('13:30', new DateTimeZone('Indian/Comoro')); // 替换为您的时区
-
-// if ($currentDateTime >= $startDateTime && $currentDateTime <= $endDateTime) {
-//     // echo "当前时间在9:30到13:30之间";
-//     $res['status'] = 1;
-//     $res['msg'] = "not in trading hours!";
-//     die(json_encode($res));
-// }
 
 //实名认证
 
@@ -60,6 +52,24 @@ if ($stock['stock_type'] != "india") {
     $position['spread_rate_price'] = 0;
 
 }
+
+// //下单时间判断
+if ($stock['stock_type'] != "Forex") {
+  
+//已在config.php定义时区
+    $begin_time=strtotime("09:15:00");
+    $end_time=strtotime("15:30:00");
+    
+    if($begin_time>time()||$end_time<time()){
+        $res=[
+            'status'=>1,
+            'msg'=>'not during the deal time',
+            'data'=>''
+            ];
+        die(json_encode($res));
+    }
+}
+
 
 //余额判断
 // $enable_amt = pdo_fetchcolumn("select enable_amt from user where id = $user_id");

@@ -9,7 +9,7 @@ if($op == "list"){
     
     $where['lever'] = 1;
     $where['status'] = 0; //仅未成交
-    if($_GPC['user_id'])$where['user_id'] = $_GPC['userId'];
+    if($_GPC['userId'])$where['user_id'] = $_GPC['userId'];
     if($_GPC['stock_id'])$where['stock_id'] = $_GPC['stock_id'];
     if($_GPC['id'])$where['id'] = $_GPC['positionSn'];
     
@@ -43,6 +43,24 @@ if($op == "list"){
 if($op == "prove"){
     // var_dump($_GPC);
     $id = $_GPC['positionId'];
+    $status = $_GPC['state'];
+    if($status ==2){
+        //拒绝
+         //更新订单
+        $update['status'] = 2;
+        $update['update_time'] = date("Y-m-d H:i:s");
+        $where['id'] = $id;
+        $res2 =   pdo_update("user_pendingorder",$update,$where);
+    //  pdo_debug();
+         if($res2){
+             $resp['status'] = 0;
+             $resp['msg'] = "操作成功";
+         }else{
+             $resp['status'] = 1;
+             $resp['msg'] = "操作失败";
+         }
+        die(json_encode($resp));
+    }
     // echo $id;
     $order = pdo_fetch("SELECT * FROM user_pendingorder where id= ".$id);
     $user =  pdo_fetch("select * from user where id = '".$order['user_id']."'");
