@@ -1,23 +1,20 @@
 <?php
 // qpay https://doc.qg-pay.com/
 
-$merId = "1000149";
-$mch_private_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJh4zOqBZyeaSH+sb0yokWNz07ulmSJ1WdhVKxf6KQciw0zMqIYjY8KcR+y/tzuyAwQRn++npB9cNY4/oTsFRjJSM696F6K4xRFqYXeC9xmkiwcAHBaIUGpX0jKBpS95e2e8VMHxCK/Lfk3RZUnt/1SvKmNzUEIpFZXksqQIgFKVAgMBAAECgYAsinWKN/0zc32kVnI5GbFHNUnwMkMW7uMtMEwjd//ORth4sfy1GteEvXTBc4wKk0kQQjnPn9BxHNXEVVA7VqIXkFJPAu/DNAYfPD3/N0Q+Lk5VphedPDlfWiA29yw4n0SgcOANLUCBmCZwuU5NkRzxmE9jCnYtBAsp4y5VwNY34QJBAPvvUM1jssK9Jt6yXMWBV12w53oMtLMs5BRpsDIUdiybDOjThUm4vIHBBHF8SoLxcE1tOjALp0tmjO5AfSmxRM0CQQCa7qBdvxL1HgeHzZlaQ1eCoTbMSM8YKaQWudxggTO84yPV1pnL3HmVgKy3R7KGlGNQuv2DRm4zpchi7VGha4TpAkEAkLidsw6VbraXsI/HKRGurTxlDEBmQRMFhhBcTbhhVihPVyPCymGbr/G/6q0aZHPrLh8TsOvQ00h6ppZXD+8r9QJADwc4jP9cwmQATP73chb4JRaoLxac5/YaEY5DvySpNRg/QJ3JW0nujT7nAfw1Z/J607jfoF0zkVTyZA4rDeJVCQJAV1C8HJ6vt5ho1lnOpmWijvwJJE8VFbaqSBHTSrcVp0a6n84W4uYIrRVt2gR3CVArDNj7Axr9jYspiXVgG/BCAA==";
+$merId = "1000784";
+$mch_private_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKARNXYiLsUp7k6KEHV8AjB7TXOCtXJamAaQjyPu4D52B1Eh4CYQCUNhy8On5ZXmQNDW458e9/dwacJ4YHuAq3jlM8YF9S8HqGZeVY0ZjVKabuWe9blC4UGSexFPa7lnZx/wW1w1z2/G0fA+Sk9zqGv3yZgO6/+Nes4Pe8dIxO7/AgMBAAECgYALFCXXH1aNXvGXjgbFmuer41zg+dMFLzAGhErj+cybhh/LhcS13bZGa6ZmzGAfl+g0jCsFAGe5QJaRVzOWWLmFcGaHncMyj33VxDbxbw0LfZ3hzqEDLqrcZCkP/LDKzo5hDTJdZEituMaCHZDJjn6Q3wPJXSeXnWHBeo8URBqZgQJBALVLI7D2mrRU+gldMV31pB/zd4mbMQtiqfgwZjaKg/lIPYagr9rqSm0OQ6Q+v0m0BehVunA3/wy1/p6jXx/mlfkCQQDiBuIz4E+Lva4iloQHh7xTH87msKqMfJ0Tb+igvKpnu5OmfR+QR+k4HVwBRk68r1roz/M9IBezQmQxJwi2tAq3AkBdWzgh5Jt9yVSIhejqDZhaq7Eetz/mMQR9vc6kv2d+cujb7tsfzA5PYk0KwxUWCxIPtjWvm+ZG0WEwp8hQURlhAkBdGDq45S2+P7zmUBpHQ7fkgNhmGePVA0prBA/LjImfOhohW63Rblz3mNgZSk0J2CvYcjYcOgio87JysEIdhmBXAkEAqzcjahGDNAK7QdgCE+sgLaf5v0FDns9G+Xzuz8my7kwkzEY5/zNnoW1Erh8g2ajFAjV+l1+RuhKH7mp2pGBCeg==";
 $gatewayUrl = 'https://api.qg-pay.com/orderPay';
 
 
 $data['merchant'] = $merId; //->merId
-$data['orderNo'] = $_GET['orderNo'];
-$data['amount'] = $_GET['amount']*1; //美元汇率
-$data['businessCode'] = "100071"; 
-// 100071	马来一类网银代收
-// 100072	马来一类钱包代收
-// 100104	马来西亚代收
+$data['orderNo'] = $_GET['id'];
+$data['amount'] = $_GET['amt']*1; //美元汇率
+$data['businessCode'] = "100055"; 
 $data['name'] = 'test';
 $data['phone'] = '603223442344';
 $data['email'] = 'test@mail.com';
-$data['notifyUrl'] = "https://tradingdiario.com/api/qpay/notify.php";
-$data['pageUrl'] = "https://tradingdiario.com/wap/#/wallet"; 
+$data['notifyUrl'] = "https://trade.pgim.pro/api/qpay/notify.php";
+$data['pageUrl'] = "https://trade.pgim.pro/wap/#/wallet"; 
 $data['subject'] = 'test'.$_GET['uid'];
 
 //test

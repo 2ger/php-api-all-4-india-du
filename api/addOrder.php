@@ -64,7 +64,7 @@ $res['status'] = 0;
 $res['msg'] = "success";
 pdo_begin();
 try {
-    pdo_update("user", $updateu, $whereu);
+    // pdo_update("user", $updateu, $whereu);//挂单不扣，通过扣
     pdo_insert("user_pendingorder", $pending);
     pdo_commit();
 } catch (PDOException $exception) {

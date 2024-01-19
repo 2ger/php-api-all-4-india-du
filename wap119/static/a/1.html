@@ -1,0 +1,1141 @@
+<!--<?php-->
+<!--header('Access-Control-Allow-Origin:*');-->
+
+<!--$code = $_GET['code'];-->
+<!--?>-->
+
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Custom themes</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="static/js/lightweight-charts.standalone.production.js"></script>
+
+    <style id="compiled-css" type="text/css">
+        body {
+            font-family: 'Trebuchet MS', Roboto, Ubuntu, sans-serif;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow: hidden!important;
+        }
+
+        #divTF {
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            padding: 6px 2px;
+        }
+
+        .div_chartType {
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            padding: 6px 2px;
+        }
+
+        .legend {
+            position: absolute;
+            left: 12px;
+            top: 40px;
+            z-index: 1;
+            font-size: 12px;
+            line-height: 18px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .candleChartSelected {
+            background-color: #3bb3e4;
+            border-radius: 20%;
+        }
+
+        .divTimeFrame {
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            padding-bottom: 5px;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Old versions of Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        .btnTimeFrame {
+            padding: 4px 4px;
+            margin-left: 2px;
+        }
+
+        .divTimeFrame .selected {
+            background-color: #3bb3e4;
+            border-radius: 20%;
+            color: White;
+        }
+
+        .selected {
+            background-color: #3bb3e4;
+            border-radius: 20%;
+            color: White;
+        }
+
+        .block_list {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 9;
+        }
+
+        .filter_menu {
+            background-color: #f1f1f1;
+            min-width: 50px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 0px;
+            top: 17px;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .filter_option {
+            color: black;
+            padding: 9px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #e0e0e07a;
+        }
+
+        .GreenQoute {
+            color: rgba(14, 166, 0, 1);
+            font-weight: bold;
+        }
+
+        .GreenQoute_DarkMode {
+            color: rgba(22, 255, 0, 1);
+            font-weight: bold;
+        }
+
+        .RedQoute {
+            color: Red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body >
+
+    <div>
+        <div onclick="hideMoreOption();" class="block_list" id="block_list"></div>
+        <div id="divTimeFrame" class="divTimeFrame">
+            <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td><span id="divTF"><span id="lbChartMode_1D" onclick="changeTimeFrame(this, '1D');"
+                                class="btnTimeFrame">1D</span><span id="lbChartMode_2W"
+                                onclick="changeTimeFrame(this, '2W');" class="btnTimeFrame">2W</span><span
+                                id="lbChartMode_1M" onclick="changeTimeFrame(this, '1M');"
+                                class="btnTimeFrame">1M</span><span id="lbChartMode_3M"
+                                onclick="changeTimeFrame(this, '3M');" class="btnTimeFrame">3M</span><span
+                                id="lbChartMode_6M" onclick="changeTimeFrame(this, '6M');"
+                                class="btnTimeFrame">6M</span><span id="lbChartMode_1Y"
+                                onclick="changeTimeFrame(this, '1Y');" class="btnTimeFrame">1Y</span><span
+                                id="lbChartMode_2Y" onclick="changeTimeFrame(this, '2Y');"
+                                class="btnTimeFrame">2Y</span><span id="lbChartMode_3Y"
+                                onclick="changeTimeFrame(this, '3Y');" class="btnTimeFrame">3Y</span><span
+                                id="lbChartMode_5Y" onclick="changeTimeFrame(this, '5Y');"
+                                class="btnTimeFrame">5Y</span><span id="lbChartMode_10Y"
+                                onclick="changeTimeFrame(this, '10Y');" class="btnTimeFrame">10Y</span></span></td>
+                    <td style="text-align:right;"><span class="div_chartType">
+                            <span id="div_img_chartType" style="padding: 3px;margin-left: 5px;"
+                                onclick="switchChartType();"><img id="img_chartType"
+                                    style="width:18px; vertical-align:middle;"
+                                    src="static/picture/charttype_candle_black.png" alt="CandleStick"></span>
+                            <span id="div_MA_Container" style="position:relative;"><span onclick="showSelectionList();"
+                                    style="vertical-align: middle; padding: 3px;" id="div_MA">MA</span>
+                                <span id="div_menu_selectionlist"
+                                    style="display:none; z-index:10; cursor:pointer; text-align:left;"
+                                    class="filter_menu">
+                                    <span onclick="changeSelection('0');" class="filter_option">-</span>
+                                    <span onclick="changeSelection('5');" class="filter_option">MA5</span>
+                                    <span onclick="changeSelection('10');" class="filter_option">MA10</span>
+                                    <span onclick="changeSelection('20');" class="filter_option">MA20</span>
+                                    <span onclick="changeSelection('50');" class="filter_option">MA50</span>
+                                    <span onclick="changeSelection('100');" class="filter_option">MA100</span>
+                                    <span onclick="changeSelection('200');" class="filter_option">MA200</span>
+                                    <span onclick="changeSelection('250');" class="filter_option">MA250</span>
+                                </span>
+                            </span>
+                            <span id="div_QRMark" onclick="toggleQRMark();" style="padding:3px;">QR</span>
+                            <span style="vertical-align: middle; padding-left:10px; display:inline-block;"
+                                id="div_chartmode"></span></span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="intradaychart_container">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var searchURL = window.location.search;
+        searchURL = searchURL.substring(1, searchURL.length);
+        var targetPageId = searchURL.split("&")[0].split("=")[1];
+        
+
+        var ws;
+        var barCreated = 0;
+        var chart_width = window.innerWidth;
+        var chart_height = window.innerHeight - 30;
+        var container = document.createElement('div');
+        document.getElementById('intradaychart_container').appendChild(container);
+        var chart = LightweightCharts.createChart(container, {
+            width: chart_width,
+            height: chart_height,
+            rightPriceScale: {
+                scaleMargins: {
+                    top: 0.3,
+                    bottom: 0.25,
+                },
+                borderVisible: false,
+            },
+            watermark: {
+                visible: false,
+                fontSize: 16,
+                horzAlign: 'center',
+                vertAlign: 'center',
+                color: '#e5e5e566',
+                text: '@MalaysiaStock.Biz',
+            },
+            //        layout: {
+            //		    backgroundColor: '#131722',
+            //		    textColor: '#d1d4dc',
+            //	    },
+            //	    grid: {
+            //		vertLines: {
+            //			color: 'rgba(42, 46, 57, 0)',
+            //		},
+            //		horzLines: {
+            //			color: 'rgba(42, 46, 57, 0)',
+            //		},
+            //	},
+
+            //	         layout: {
+            //        backgroundColor: '#ffffff',
+            //        textColor: '#333',
+            //      },
+            //      grid: {
+            //        horzLines: {
+            //          color: '#eee',
+            //        },
+            //        vertLines: {
+            //          color: '#ffffff',
+            //        },
+            //      },
+            timeScale: {
+                timeVisible: true,
+                secondsVisible: false,
+            },
+        });
+
+        var candleSeries = chart.addCandlestickSeries();
+        candleSeries.applyOptions({
+            priceFormat: {
+                type: 'price',
+                precision: 3,
+                minMove: 0.001,
+            },
+        });
+
+        var areaSeries = chart.addAreaSeries({
+            topColor: 'rgba(14, 166, 0, 0.36)',
+            bottomColor: 'rgba(14, 166, 0, 0.00)',
+            lineColor: 'rgba(14, 166, 0, 1)',
+            lineWidth: 2,
+            //        autoscaleInfoProvider: original => {
+            //            const res = original();
+            //            if (res.priceRange !== null) {
+            //                //res.priceRange.minValue = 0.99;
+            //                res.priceRange.maxValue = 2.71;
+            //            }
+            //            return res;
+            //        },
+        });
+
+        areaSeries.applyOptions({
+            priceFormat: {
+                type: 'price',
+                precision: 3,
+                minMove: 0.001,
+            },
+        });
+
+        var volumeSeries = chart.addHistogramSeries({
+            color: '#26a69a',
+            lastValueVisible: false,
+            priceFormat: {
+                type: 'volume',
+            },
+            priceScaleId: '',
+            scaleMargins: {
+                top: 0.8,
+                bottom: 0,
+            },
+        });
+
+        chart.applyOptions({
+            localization: {
+                dateFormat: 'yyyy/MM/dd',
+                timeFormatter: function (time) {
+
+                    return getLocalTime(time);
+                },
+
+            },
+        });
+
+        var smaLine = chart.addLineSeries({
+            color: 'rgba(4, 111, 232, 1)',
+            lineWidth: 1,
+        });
+
+        var darkTheme = {
+            chart: {
+                layout: {
+                    backgroundColor: 'rgba(48, 48, 48, 1)',
+                    textColor: '#d1d4dc',
+                },
+                watermark: {
+                    color: '#e5e5e566',
+                },
+                crosshair: {
+                    color: '#758696',
+                },
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        color: 'rgba(42, 46, 57, 0)',
+                    },
+                },
+            },
+            series: {
+                topColor: 'rgba(14, 166, 0, 0.36)',
+                bottomColor: 'rgba(14, 166, 0, 0.04)',
+                lineColor: 'rgba(14, 166, 0, 1)',
+            },
+        };
+
+        const lightTheme = {
+            chart: {
+                layout: {
+                    backgroundColor: '#fff',
+                    textColor: '#000',
+                },
+                watermark: {
+                    color: '#e5e5e5',
+                },
+                grid: {
+                    vertLines: {
+                        visible: false,
+                    },
+                    horzLines: {
+                        color: '#e5e5e566',
+                    },
+                },
+            },
+            series: {
+                topColor: 'rgba(14, 166, 0, 0.36)',
+                bottomColor: 'rgba(14, 166, 0, 0.00)',
+                lineColor: 'rgba(14, 166, 0, 1)',
+            },
+        };
+
+        var themesData = {
+            Dark: darkTheme,
+            Light: lightTheme,
+        };
+
+        var iCountData;
+
+        var lastBarTime = null;
+        var lastBarPrice_1 = null;
+        var lastBarPrice_2 = null;
+        var lastBarVolume = null;
+        var lastBarHigh = null;
+        var lastBarLow = null;
+        var lastBarOpen = null;
+        var refPriceLine;
+        var firstRow = document.createElement('div');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") > 0) {
+                document.getElementById('divTF').style.display = 'none';
+                document.getElementById('div_MA_Container').style.display = 'none';
+                document.getElementById('div_QRMark').style.display = 'none';
+            }
+            if (userIntradayChartType() == 'CANCLE') {
+                document.getElementById('div_img_chartType').className = "candleChartSelected";
+            }
+            var tbCode = document.getElementById('tbCode');
+            if (tbCode != null && tbCode != "undefined") {
+                if (tbCode.value == "0200I") {
+                    document.getElementById('div_QRMark').style.display = 'none';
+                }
+                getIntraDayQuote();
+
+
+                var tbSecurityName = document.getElementById('tbSecurityName');
+                var legend = document.createElement('div');
+                legend.classList.add('legend');
+                document.body.appendChild(legend);
+
+                firstRow.innerText = tbSecurityName.value + ' (' + tbCode.value + ')';
+                legend.appendChild(firstRow);
+
+                var tbIsIndex = document.getElementById('tbIsIndex');
+                var isIndex = 0;
+                if (tbIsIndex != null && tbIsIndex != "undefined" && tbIsIndex.value == '1') {
+                    isIndex = 1;
+                }
+                chart.subscribeCrosshairMove((param) => {
+                    if (param.time) {
+                        var price = param.seriesPrices.get(areaSeries);
+                        var volume = param.seriesPrices.get(volumeSeries);
+                        var candle = param.seriesPrices.get(candleSeries);
+
+                        if (userIntradayChartType() == 'LINE') {
+                            if (volume != null && volume != "undefined" && price != null && price != "undefined") {
+                                var iVolume = parseInt(volume);
+                                var iPrice = parseFloat(price);
+                                if (iVolume != Number.NaN && iVolume >= 0 && iPrice != Number.NaN && iPrice >= 0) {
+                                    if (isIndex) {
+                                        if (iVolume > 0) {
+                                            firstRow.innerText = tbSecurityName.value + ' (' + tbCode.value + ') ' + price.toFixed(3) + ' | Vol: ' + currencyFormat(iVolume, 2);
+                                        }
+                                    }
+                                    else {
+                                        firstRow.innerText = tbSecurityName.value + ' (' + tbCode.value + ') ' + iPrice.toFixed(3) + ' | Vol: ' + iVolume.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            if (volume != null && volume != "undefined" && candle != null && candle != "undefined") {
+                                var iVolume = parseInt(volume);
+                                var iLast = parseFloat(candle.close);
+                                var iOpen = parseFloat(candle.open);
+                                var iHigh = parseFloat(candle.high);
+                                var iLow = parseFloat(candle.low);
+
+                                if (iVolume != Number.NaN && iVolume >= 0 && iLast != Number.NaN && iLast >= 0 && iOpen != Number.NaN && iOpen >= 0 && iHigh != Number.NaN && iHigh >= 0 && iLow != Number.NaN && iLow >= 0) {
+                                    if (isIndex) {
+                                        if (iVolume > 0) {
+                                            firstRow.innerHTML = tbSecurityName.value + ' (' + tbCode.value + ') ' + '&nbsp;O' + iOpen.toFixed(3) + '&nbsp;&nbsp;H' + iHigh.toFixed(3) + '&nbsp;&nbsp;L' + iLow.toFixed(3) + '&nbsp;&nbsp;C&nbsp;' + iLast.toFixed(3) + ' <br/> Vol: ' + currencyFormat(iVolume, 2);
+                                        }
+                                    }
+                                    else {
+                                        firstRow.innerHTML = tbSecurityName.value + ' (' + tbCode.value + ') ' + '&nbsp;O' + iOpen.toFixed(3) + '&nbsp;&nbsp;H' + iHigh.toFixed(3) + '&nbsp;&nbsp;L' + iLow.toFixed(3) + '&nbsp;&nbsp;C&nbsp;' + iLast.toFixed(3) + ' <br/> Vol: ' + iVolume.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        if (tbPerformanceChange.value.indexOf('+') >= 0) {
+                            if (localStorage.getItem("MS_Intraday_chartmode") != null && localStorage.getItem("MS_Intraday_chartmode") == 'Dark') {
+                                firstRow.innerHTML = tbSecurityName.value + ' (' + tbCode.value + ') ' + '<span class="GreenQoute_DarkMode">' + tbPerformanceChange.value + '</span>' + getPerformancePeriod();
+                            }
+                            else {
+                                firstRow.innerHTML = tbSecurityName.value + ' (' + tbCode.value + ') ' + '<span class="GreenQoute">' + tbPerformanceChange.value + '</span>' + getPerformancePeriod();
+                            }
+
+                        }
+                        else if (tbPerformanceChange.value.indexOf('-') >= 0) {
+                            firstRow.innerHTML = tbSecurityName.value + ' (' + tbCode.value + ') ' + '<span class="RedQoute">' + tbPerformanceChange.value + '</span>' + getPerformancePeriod();
+                        }
+                        else {
+                            firstRow.innerHTML = tbSecurityName.value + ' (' + tbCode.value + ') ' + tbPerformanceChange.value + getPerformancePeriod();
+                        }
+                    }
+                });
+
+                var m = 'Light';
+                if (localStorage.getItem("MS_Intraday_chartmode") != null && localStorage.getItem("MS_Intraday_chartmode") == 'Dark') {
+                    m = 'Dark';
+                }
+                syncToTheme(m);
+
+                var refPrice = 0;
+                var tbCodeRef = document.getElementById('tbRef');
+                if (tbCodeRef != null && tbCodeRef != "undefined") {
+                    refPrice = parseFloat(tbCodeRef.value);
+                    refPrice_mode = refPrice;
+                }
+
+                //console.log('refPrice: ' + refPrice);
+                if (refPrice > 0) {
+                    var line = {
+                        price: refPrice,
+                        color: '#b7b7b7',
+                        lineWidth: 2,
+                        lineStyle: LightweightCharts.LineStyle.Solid,
+                        axisLabelVisible: true,
+                        title: '',
+                    };
+
+                    refPriceLine = areaSeries.createPriceLine(line);
+
+                    if (lastBarPrice_1 != null && lastBarPrice_1 > 0 && lastBarPrice_1 < refPrice) {
+                        areaSeries.applyOptions({
+                            topColor: "rgba(255, 82, 82, 0.36)",
+                            bottomColor: "rgba(255, 82, 82, 0.04)",
+                            lineColor: "rgba(255, 82, 82, 1)"
+                        });
+                    }
+                }
+            }
+
+        }, false);
+
+
+
+        function getIntraDayQuote() {
+            var tbCode = document.getElementById('tbCode');
+            var chartMode = userIntradayChartMode();
+            if (tbCode != null && tbCode != "undefined" && chartMode != '') {
+
+                var childNodes = document.getElementById('divTF').getElementsByTagName('span');
+                for (var i = 0; i < childNodes.length; i++) {
+                    childNodes[i].className = 'btnTimeFrame';
+                }
+                document.getElementById('lbChartMode_' + chartMode).className += " selected";
+
+                console.log(targetPageId,3333333)
+
+                var SERVER_URL = '../../api/getMaStock.php?code=' + targetPageId + '&time=' + chartMode;
+
+                const response = fetch(SERVER_URL, {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: tbCode.value,
+                })
+                    .then(r => r.json().then(data => ({ status: r.status, body: data })))
+                    .then(obj => handleIntradayQuotesResult(obj.body))
+                    .catch(function (error) {
+                        console.log('Request failed', error);
+                    });
+            }
+        };
+
+        var refPrice_mode = 0;
+        var data_price;
+        var data_QRMark;
+        function handleIntradayQuotesResult(trades) {
+            var result = JSON.parse(JSON.stringify(trades));
+            //console.log('result: ' + result);
+            if (result != null && result.quote_price != null && result.quote_volume != null && result.quote_price.length > 0 && result.quote_volume.length > 0) {
+                data_price = result.quote_price;
+                data_QRMark = result.quote_marker;
+
+                if (userIntradayChartType() == 'LINE') {
+                    areaSeries.setData(result.quote_price);
+                }
+                else if (userIntradayChartType() == 'CANDLE') {
+                    document.getElementById('div_img_chartType').className = "candleChartSelected";
+                    candleSeries.setData(result.quote_candle);
+                }
+
+                if (userIntradayChartQRMark() == "1") {
+                    document.getElementById('div_QRMark').className = "selected";
+                }
+                else {
+                    document.getElementById('div_QRMark').className = "";
+                }
+
+                /* Marker
+                var datesForMarkers = [result.quote_candle[result.quote_candle.length - 39], result.quote_candle[result.quote_candle.length - 19]];
+                var indexOfMinPrice = 0;
+                for (var i = 1; i < datesForMarkers.length; i++) {
+                    if (datesForMarkers[i].high < datesForMarkers[indexOfMinPrice].high) {
+                        indexOfMinPrice = i;
+                    }
+                }
+    
+                var markers = [{ time: result.quote_candle[result.quote_candle.length - 48].time, position: 'aboveBar', color: '#f68410', shape: 'circle', text: 'D' }];
+                for (var i = 0; i < datesForMarkers.length; i++) {
+                    if (i !== indexOfMinPrice) {
+                        markers.push({ time: datesForMarkers[i].time, position: 'aboveBar', color: '#e91e63', shape: 'arrowDown', text: 'QR -30%' });
+                    } else {
+                        markers.push({ time: datesForMarkers[i].time, position: 'aboveBar', color: '#2196F3', shape: 'arrowUp', text: 'QR 23%' });
+                    }
+                }
+                candleSeries.setMarkers(markers);
+                areaSeries.setMarkers(markers);
+                */
+                if (userIntradayChartQRMark() == "1") {
+                    candleSeries.setMarkers(result.quote_marker);
+                    areaSeries.setMarkers(result.quote_marker);
+                }
+                else {
+                    var empty_array = [];
+                    candleSeries.setMarkers(empty_array);
+                    areaSeries.setMarkers(empty_array);
+                }
+
+                /*
+                areaSeries.applyOptions({
+                    autoscaleInfoProvider: original => {
+                    const res = original();
+                    if (res.priceRange !== null) {
+                        //res.priceRange.minValue = 0;
+                        res.priceRange.maxValue = 0;
+                    }
+                    return res;
+                },
+                    });
+                
+                candleSeries.applyOptions({
+                    autoscaleInfoProvider: original => {
+                    const res = original();
+                    if (res.priceRange !== null) {
+                        //res.priceRange.minValue = 0;
+                        res.priceRange.maxValue = 0;
+                    }
+                    return res;
+                },
+                    });
+                */
+
+
+
+                volumeSeries.setData(result.quote_volume);
+
+                iCountData = result.quote_price.length;
+                console.log('iCountData: ' + iCountData);
+                if (iCountData > 1) {
+                    lastBarTime = result.quote_volume[result.quote_volume.length - 1].time;
+                    lastBarPrice_1 = result.quote_price[result.quote_price.length - 1].value;
+                    lastBarPrice_2 = result.quote_price[result.quote_price.length - 2].value;
+                    lastBarVolume = result.quote_volume[result.quote_volume.length - 1].value;
+                    lastBarHigh = result.quote_candle[result.quote_candle.length - 1].high;
+                    lastBarLow = result.quote_candle[result.quote_candle.length - 1].low;
+                    lastBarOpen = result.quote_candle[result.quote_candle.length - 1].open;
+                }
+
+                areaSeries.removePriceLine(refPriceLine);
+                candleSeries.removePriceLine(refPriceLine);
+
+                var chartMode = userIntradayChartMode();
+                var refPrice = 0;
+
+                if (chartMode == '1D') {
+                    chart.timeScale().setVisibleLogicalRange({ from: -10, to: (result.quote_price.length + 10) });
+                    var tbCodeRef = document.getElementById('tbRef');
+                    if (tbCodeRef != null && tbCodeRef != "undefined") {
+                        refPrice = parseFloat(tbCodeRef.value);
+                    }
+                    var tbPerformanceChange = document.getElementById('tbPerformanceChange');
+                    if (tbPerformanceChange != null && tbPerformanceChange != "undefined") {
+                        tbPerformanceChange.value = '';
+                    }
+
+                    if (firstRow.innerText.indexOf(') ') > 0) {
+                        firstRow.innerText = firstRow.innerText.split(') ')[0] + ') '
+                    }
+                }
+                else {
+                    chart.timeScale().setVisibleLogicalRange({ from: 0, to: (result.quote_price.length) });
+                    refPrice = result.quote_price[0].value;
+                    var tbPerformanceChange = document.getElementById('tbPerformanceChange');
+                    if (tbPerformanceChange != null && tbPerformanceChange != "undefined") {
+                        var periodChange = lastBarPrice_1 - refPrice;
+                        if (periodChange > 0) {
+                            tbPerformanceChange.value = ' +' + (lastBarPrice_1 - refPrice).toFixed(3) + ' (+' + (((lastBarPrice_1 - refPrice) / refPrice) * 100).toFixed(1) + '%)';
+                        }
+                        else {
+                            tbPerformanceChange.value = ' ' + (lastBarPrice_1 - refPrice).toFixed(3) + ' (' + (((lastBarPrice_1 - refPrice) / refPrice) * 100).toFixed(1) + '%)';
+                        }
+                        if (firstRow.innerText.indexOf(') ') > 0) {
+                            firstRow.innerText = firstRow.innerText.split(') ')[0] + ') '
+                        }
+
+                        if (tbPerformanceChange.value.indexOf('+') >= 0) {
+                            if (localStorage.getItem("MS_Intraday_chartmode") != null && localStorage.getItem("MS_Intraday_chartmode") == 'Dark') {
+                                firstRow.innerHTML += '<span class="GreenQoute_DarkMode">' + tbPerformanceChange.value + '</span>' + getPerformancePeriod();
+                            }
+                            else {
+                                firstRow.innerHTML += '<span class="GreenQoute">' + tbPerformanceChange.value + '</span>' + getPerformancePeriod();
+                            }
+                        }
+                        else if (tbPerformanceChange.value.indexOf('-') >= 0) {
+                            firstRow.innerHTML += '<span class="RedQoute">' + tbPerformanceChange.value + '</span>' + getPerformancePeriod();
+                        }
+                        else {
+                            firstRow.innerHTML += tbPerformanceChange.value + getPerformancePeriod();
+                        }
+                    }
+
+                    if (userIntradayChartQRMark() == "1") {
+
+                        areaSeries.applyOptions({
+                            scaleMargins: {
+                                top: 0.2,
+                                bottom: 0.2,
+                            },
+                        });
+
+                        candleSeries.applyOptions({
+                            scaleMargins: {
+                                top: 0.2,
+                                bottom: 0.2,
+                            },
+                        });
+                    }
+
+                }
+                refPrice_mode = refPrice;
+                if (refPrice > 0) {
+                    var line = {
+                        price: refPrice,
+                        color: '#b7b7b7',
+                        lineWidth: 2,
+                        lineStyle: LightweightCharts.LineStyle.Solid,
+                        axisLabelVisible: true,
+                        title: '',
+                    };
+
+                    if (userIntradayChartType() == 'LINE') {
+                        refPriceLine = areaSeries.createPriceLine(line);
+                    }
+                    else if (userIntradayChartType() == 'CANDLE') {
+                        refPriceLine = candleSeries.createPriceLine(line);
+                    }
+
+                }
+
+                if (userIntradayChartType() == 'LINE') {
+                    if (lastBarPrice_1 != null && lastBarPrice_1 > 0 && lastBarPrice_1 < refPrice) {
+                        areaSeries.applyOptions({
+                            topColor: "rgba(255, 82, 82, 0.36)",
+                            bottomColor: "rgba(255, 82, 82, 0.04)",
+                            lineColor: "rgba(255, 82, 82, 1)"
+                        });
+                    }
+                    else {
+                        if (localStorage.getItem("MS_Intraday_chartmode") != null && localStorage.getItem("MS_Intraday_chartmode") == 'Dark') {
+                            areaSeries.applyOptions({
+                                topColor: "rgba(17, 195, 0, 0.36)",
+                                bottomColor: "rgba(17, 195, 0, 0.04)",
+                                lineColor: "rgba(17, 195, 0, 1)"
+                            });
+                        }
+                        else {
+                            areaSeries.applyOptions({
+                                topColor: 'rgba(14, 166, 0, 0.36)',
+                                bottomColor: 'rgba(14, 166, 0, 0.00)',
+                                lineColor: 'rgba(14, 166, 0, 1)',
+                            });
+                        }
+                    }
+                }
+
+                var MASetting = userIntradayMASetting();
+                if (MASetting > 0) {
+                    var smaData = calculateSMA(data_price, MASetting);
+                    smaLine.setData(smaData);
+                    document.getElementById('div_MA').className += " selected";
+                    document.getElementById('div_MA').innerHTML = 'MA' + MASetting;
+                }
+                else {
+                    var empty_array = [];
+                    smaLine.setData(empty_array);
+                    document.getElementById('div_MA').className = "";
+                    document.getElementById('div_MA').innerHTML = 'MA';
+                }
+            }
+
+        };
+
+        function IsJsonString(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        };
+
+        function calculateSMA(data, count) {
+            var avg = function (data) {
+                var sum = 0;
+                for (var i = 0; i < data.length; i++) {
+                    sum += data[i].value;
+                }
+                return sum / data.length;
+            };
+            var result = [];
+            for (var i = count - 1, len = data.length; i < len; i++) {
+                var val = avg(data.slice(i - count + 1, i));
+                result.push({ time: data[i].time, value: val });
+            }
+            return result;
+        };
+
+        function getPerformancePeriod() {
+            var period = "";
+            if (userIntradayChartMode() == '2W') {
+                period = " past 2 weeks";
+            }
+            else if (userIntradayChartMode() == '1M') {
+                period = " past 1 month";
+            }
+            else if (userIntradayChartMode() == '3M') {
+                period = " past 3 months";
+            }
+            else if (userIntradayChartMode() == '6M') {
+                period = " past 6 months";
+            }
+            else if (userIntradayChartMode() == '1Y') {
+                period = " past 1 year";
+            }
+            else if (userIntradayChartMode() == '2Y') {
+                period = " past 2 years";
+            }
+            else if (userIntradayChartMode() == '3Y') {
+                period = " past 3 years";
+            }
+            else if (userIntradayChartMode() == '5Y') {
+                period = " past 5 years";
+            }
+            else if (userIntradayChartMode() == '10Y') {
+                period = " past 10 years";
+            }
+            return period;
+        };
+
+        function userIntradayChartMode() {
+            var chartMode = "1Y";
+            if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") < 0 && localStorage.getItem("MS_IntradayChartMode") != null) {
+                var tbMode = document.getElementById('tbMode');
+                if (tbMode != null && tbMode != "undefined") {
+                    if (tbMode.value == '') {
+                        tbMode.value = localStorage.getItem("MS_IntradayChartMode");
+                    }
+                    chartMode = tbMode.value;
+                }
+            }
+            return chartMode;
+        };
+
+        function userIntradayChartType() {
+            var chartType = "LINE";
+            if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") < 0) {
+                if (localStorage.getItem("MS_IntradayChartType") != null) {
+                    var tbChartType = document.getElementById('tbChartType');
+                    if (tbChartType != null && tbChartType != "undefined") {
+                        if (tbChartType.value == '') {
+                            tbChartType.value = localStorage.getItem("MS_IntradayChartType");
+                        }
+                        chartType = tbChartType.value;
+                    }
+                }
+            }
+            else {
+                if (localStorage.getItem("MS_IntradayChartType_StockChart") != null) {
+                    var tbChartType = document.getElementById('tbChartType');
+                    if (tbChartType != null && tbChartType != "undefined") {
+                        if (tbChartType.value == '') {
+                            tbChartType.value = localStorage.getItem("MS_IntradayChartType_StockChart");
+                        }
+                        chartType = tbChartType.value;
+                    }
+                }
+            }
+
+            return chartType;
+        };
+
+        function changeTimeFrame(ctrl, mode) {
+            // if(!parent.isSubscriber() && (mode == '5Y' || mode == '10Y'))
+            // {
+            //     parent.subscriberFeatureOnly();
+            // }
+            // else
+            // {
+            document.getElementById('tbMode').value = mode;
+            localStorage.setItem("MS_IntradayChartMode", mode);
+            getIntraDayQuote();
+            // }
+
+        };
+
+        function currencyFormat(num, d) {
+            if (num >= 10000000 || num <= -10000000) {
+                return parseFloat((num / 10000000).toFixed(d).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) + 'B';
+            }
+            else if (num >= 10000 || num <= -10000) {
+                return parseFloat(num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) + 'M';
+            }
+            else {
+                return parseFloat(num.toFixed(d).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')) + 'M';
+            }
+        };
+
+        function getLocalTime(ts) {
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+
+            var date = new Date(ts * 1000 - (3600000 * 8));
+            var year = date.getFullYear();
+            var month = months[date.getMonth()];
+            var day = date.getDate();
+            // Hours part from the timestamp
+            var hours = date.getHours();
+            // Minutes part from the timestamp
+            var minutes = "0" + date.getMinutes();
+            // Seconds part from the timestamp
+            var seconds = "0" + date.getSeconds();
+
+            // Will display time in 10:30:23 format
+            var formattedTime = day + ' ' + month + ' ' + year;
+            if (hours > 0) {
+                formattedTime += ' ' + hours + ':' + minutes.substr(-2);
+            }
+
+            return formattedTime;
+        };
+
+        function showSelectionList() {
+            showDiv2('div_menu_selectionlist');
+            showDiv2('block_list');
+        };
+
+        function changeSelection(period) {
+            if (period > 0) {
+                var smaData = calculateSMA(data_price, period);
+                smaLine.setData(smaData);
+                document.getElementById('div_MA').className += " selected";
+                document.getElementById('div_MA').innerHTML = 'MA' + period;
+                localStorage.setItem("MS_IntradayMA_General", period);
+            }
+            else {
+                document.getElementById('div_MA').className = "";
+                document.getElementById('div_MA').innerHTML = 'MA';
+                var empty_array = [];
+                smaLine.setData(empty_array);
+            }
+            hideMoreOption();
+            localStorage.setItem("MS_IntradayMA_" + userIntradayChartMode(), period);
+        };
+
+        function userIntradayMASetting() {
+            var MASetting = 0;
+            if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") < 0) {
+                if (localStorage.getItem("MS_IntradayMA_" + userIntradayChartMode()) != null) {
+                    MASetting = localStorage.getItem("MS_IntradayMA_" + userIntradayChartMode());
+                }
+                else if (localStorage.getItem("MS_IntradayMA_General") != null) {
+                    MASetting = localStorage.getItem("MS_IntradayMA_General");
+                }
+            }
+            return MASetting;
+        };
+
+        function hideMoreOption() {
+            hideDiv('div_menu_selectionlist');
+            hideDiv('block_list');
+        };
+
+        function hideDiv(div) {
+            var divHide = document.getElementById(div);
+            if (divHide != null && divHide != "undefined")
+                divHide.style.display = "none";
+        };
+
+        function showDiv2(div) {
+            var divHide = document.getElementById(div);
+            divHide.style.display = "inline";
+        };
+
+        function switchchartmore(img) {
+            if (img.src.indexOf('light-mode.png') > 0) {
+                // switch to dark mode now
+                document.getElementById('div_chartmode').innerHTML = '<img onclick="switchchartmore(this);" width="35px" src="https://www.malaysiastock.biz/App_Themes/images/dark-mode.png" title="Dark Mode" alt="Dark Mode"/>';
+                localStorage.setItem("MS_Intraday_chartmode", 'Light');
+                syncToTheme('Light');
+            }
+            else {
+                document.getElementById('div_chartmode').innerHTML = '<img onclick="switchchartmore(this);" width="35px" src="https://www.malaysiastock.biz/App_Themes/images/light-mode.png" title="Light Mode" alt="Light Mode"/>';
+                localStorage.setItem("MS_Intraday_chartmode", 'Dark');
+                syncToTheme('Dark');
+            }
+        };
+
+        function syncToTheme(theme) {
+            chart.applyOptions(themesData[theme].chart);
+            areaSeries.applyOptions(themesData[theme].series);
+
+            if (refPrice_mode > 0 && lastBarPrice_1 != null && lastBarPrice_1 > 0 && lastBarPrice_1 < refPrice_mode) {
+                areaSeries.applyOptions({
+                    topColor: "rgba(255, 82, 82, 0.36)",
+                    bottomColor: "rgba(255, 82, 82, 0.04)",
+                    lineColor: "rgba(255, 82, 82, 1)"
+                });
+            }
+
+            if (theme == 'Dark') {
+                firstRow.style.color = 'white';
+                document.body.style.backgroundColor = 'rgba(48, 48, 48, 1)';
+                document.getElementById('divTimeFrame').style.color = 'white';
+                document.getElementById('div_chartmode').innerHTML = '<img onclick="switchchartmore(this);" width="35px" src="https://www.malaysiastock.biz/App_Themes/images/light-mode.png" title="Light Mode" alt="Light Mode"/>';
+                document.getElementById('img_chartType').src = 'https://www.malaysiastock.biz/App_Themes/images/charttype_candle_white.png';
+            }
+            else {
+                firstRow.style.color = 'black';
+                document.body.style.backgroundColor = '#fff';
+                document.getElementById('divTimeFrame').style.color = 'black';
+                document.getElementById('div_chartmode').innerHTML = '<img onclick="switchchartmore(this);" width="35px" src="https://www.malaysiastock.biz/App_Themes/images/dark-mode.png" title="Dark Mode" alt="Dark Mode"/>';
+                if (userIntradayChartType() == 'LINE') {
+                    document.getElementById('img_chartType').src = 'https://www.malaysiastock.biz/App_Themes/images/charttype_candle_black.png';
+                }
+                else {
+                    document.getElementById('img_chartType').src = 'https://www.malaysiastock.biz/App_Themes/images/charttype_candle_white.png';
+                }
+            }
+
+        };
+
+        function toggleQRMark() {
+            var currentSetting = userIntradayChartQRMark();
+            if (currentSetting == "1") {
+                document.getElementById('div_QRMark').className = "";
+                var empty_array = [];
+                candleSeries.setMarkers(empty_array);
+                areaSeries.setMarkers(empty_array);
+                localStorage.setItem("MS_IntradayQRMark_" + userIntradayChartMode(), "0");
+                areaSeries.applyOptions({
+                    scaleMargins: {
+                        top: 0.1,
+                        bottom: 0.1,
+                    },
+                });
+
+                candleSeries.applyOptions({
+                    scaleMargins: {
+                        top: 0.3,
+                        bottom: 0.25,
+                    },
+                });
+            }
+            else {
+                document.getElementById('div_QRMark').className = "selected";
+                candleSeries.setMarkers(data_QRMark);
+                areaSeries.setMarkers(data_QRMark);
+                areaSeries.applyOptions({
+                    scaleMargins: {
+                        top: 0.2,
+                        bottom: 0.2,
+                    },
+                });
+
+                candleSeries.applyOptions({
+                    scaleMargins: {
+                        top: 0.2,
+                        bottom: 0.2,
+                    },
+                });
+                localStorage.setItem("MS_IntradayQRMark_" + userIntradayChartMode(), "1");
+            }
+
+        };
+
+        function userIntradayChartQRMark() {
+            var markEnabled = "0";
+            if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") < 0) {
+                if (localStorage.getItem("MS_IntradayQRMark_" + userIntradayChartMode()) != null) {
+                    markEnabled = localStorage.getItem("MS_IntradayQRMark_" + userIntradayChartMode());
+                }
+            }
+            return markEnabled;
+        };
+
+        function switchChartType() {
+            if (userIntradayChartType() == 'LINE') {
+                chart.removeSeries(areaSeries);
+                candleSeries = chart.addCandlestickSeries();
+                if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") < 0) {
+                    localStorage.setItem("MS_IntradayChartType", "CANDLE");
+                }
+                else {
+                    localStorage.setItem("MS_IntradayChartType_StockChart", "CANDLE");
+                }
+                document.getElementById('tbChartType').value = "CANDLE";
+                document.getElementById('div_img_chartType').className = "candleChartSelected";
+                document.getElementById('img_chartType').src = 'https://www.malaysiastock.biz/App_Themes/images/charttype_candle_white.png';
+            }
+            else {
+                if (localStorage.getItem("MS_Intraday_chartmode") != null && localStorage.getItem("MS_Intraday_chartmode") == 'Dark') {
+                    document.getElementById('img_chartType').src = 'https://www.malaysiastock.biz/App_Themes/images/charttype_candle_white.png';
+                }
+                else {
+                    document.getElementById('img_chartType').src = 'https://www.malaysiastock.biz/App_Themes/images/charttype_candle_black.png';
+                }
+
+                chart.removeSeries(candleSeries);
+                areaSeries = chart.addAreaSeries({
+                    topColor: 'rgba(14, 166, 0, 0.36)',
+                    bottomColor: 'rgba(14, 166, 0, 0.00)',
+                    lineColor: 'rgba(14, 166, 0, 1)',
+                    lineWidth: 2,
+                    //        autoscaleInfoProvider: original => {
+                    //            const res = original();
+                    //            if (res.priceRange !== null) {
+                    //                //res.priceRange.minValue = 0.99;
+                    //                res.priceRange.maxValue = 2.71;
+                    //            }
+                    //            return res;
+                    //        },
+                });
+                if (parent.document.location.pathname.toUpperCase().indexOf("STOCK-CHART.ASPX") < 0) {
+                    localStorage.setItem("MS_IntradayChartType", "LINE");
+                }
+                else {
+                    localStorage.setItem("MS_IntradayChartType_StockChart", "LINE");
+                }
+                document.getElementById('tbChartType').value = "LINE";
+                document.getElementById('div_img_chartType').className = "";
+            }
+            getIntraDayQuote();
+            document.getElementById('tbCode').value = targetPageId;
+        };
+
+    </script>
+    <input id="tbPerformanceChange" type="hidden">
+    <input id="tbMode" type="hidden" value="">
+    <input id="tbChartType" type="hidden" value="">
+    <input name="tbCode" type="hidden" id="tbCode" value="8966">
+    <input name="tbSecurityName" type="hidden" id="tbSecurityName" value="PRLEXUS">
+    <input name="tbRef" type="hidden" id="tbRef" value="0.440">
+    <input name="tbIsIndex" type="hidden" id="tbIsIndex" value="0">
+</body>
+
+</html>

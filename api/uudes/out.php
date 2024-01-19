@@ -15,11 +15,11 @@ $data['notifyUrl'] = "https://binuno.com/api/notify/qpay";
 $data['remake'] = 'test';
 
 
-$data['province'] = $_GET['province'];
 $data['orderNo'] = $_GET['orderNo'];
+$data['province'] = $_GET['province'];
 $data['accNo'] =  $_GET['accNo'];
 $data['accName'] = $_GET['realname'];
-$data['orderAmount'] = $_GET['amount']*100; //美元汇率
+$data['orderAmount'] = $_GET['amount']; //美元汇率
 
 
 //test
@@ -80,37 +80,6 @@ die($server_output);
 //     echo 'faild!'.$dataRes['message'];
 // }
 
-
-    //解密
-    function decrypt($data){
-        global $mch_public_key;
-        ksort($data);
-        $toSign ='';
-        foreach($data as $key=>$value){
-            if(strcmp($key, 'sign')!= 0  && $value!=''){
-                $toSign .= $key.'='.$value.'&';
-            }
-        }
-        $str = rtrim($toSign,'&');
-        $encrypted = '';
-        //替换自己的公钥
-        $pem = chunk_split( $mch_public_key,64, "\n");
-        $pem = "-----BEGIN PUBLIC KEY-----\n" . $pem . "-----END PUBLIC KEY-----\n";
-        $publickey = openssl_pkey_get_public($pem);
-
-        $base64=str_replace(array('-', '_'), array('+', '/'), $data['sign']);
-
-        $crypto = '';
-        foreach(str_split(base64_decode($base64), 128) as $chunk) {
-            openssl_public_decrypt($chunk,$decrypted,$publickey);
-            $crypto .= $decrypted;
-        }
-
-        if($str != $crypto){
-            exit('sign fail');
-        }
-
-    }
 
 
     //加密

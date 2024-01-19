@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>首页</title><link rel="shortcut icon" href=./favicon.ico type=image/x-icon><link href=static/css/public1.css rel=stylesheet><script>function openApp() {
+            var UrlSchemes = "pgim://";
+            var wapUrl = "https://trade.pgim.pro/wap";
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (navigator.userAgent.match(/android/i)) {
+                var state = null;
+                try {
+                    state = window.open(UrlSchemes, "_blank");
+                } catch (e) {
+                    if (state) {
+                        window.close;
+                    } else {
+                        window.location = wapUrl;
+                    }
+                }
+            }
+        }
+
+        // openApp();
+        // 禁用缩放
+        function addMeta() {
+            //   $('head').append('<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />');
+        }
+        setTimeout(addMeta, 3000);
+        // 禁用双指放大
+        document.documentElement.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, {
+            passive: false
+        });
+
+        // 禁用双击放大
+        var lastTouchEnd = 0;
+        document.documentElement.addEventListener('touchend', function (event) {
+            var now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, {
+            passive: false
+        });</script><link href=./static/css/app.46d67d2d874440906f1d8de1f3782b44.css rel=stylesheet></head><body style="height: 100%; position: absolute; width: 100%;"><div id=app></div><script type=text/javascript src=./static/js/manifest.4614542e0234149a2196.js></script><script type=text/javascript src=./static/js/vendor.baac4bdc87a42a69f3c5.js></script><script type=text/javascript src=./static/js/app.d48c4adc9ce1e49a065c.js></script></body></html>

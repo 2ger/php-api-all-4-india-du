@@ -64,8 +64,8 @@ if($op == "prove"){
     $position['order_num'] = $order['buy_num'];
     $position['order_lever'] = 1;
     $position['order_total_price'] = $order['target_price']*$order['buy_num']/$order['lever'];
-    $position['order_fee'] = $order['target_price']*0.05;
-    $position['order_spread'] = $order['target_price']*0.1;
+    $position['order_fee'] = $order['target_price']*0.0001;
+    $position['order_spread'] = 0;//$order['target_price']*0.1;
     $position['all_profit_and_lose'] = -$position['order_fee']-$position['order_spread'];
     
     if($user['enable_amt'] < $position['order_total_price']){
@@ -84,9 +84,9 @@ if($op == "prove"){
     $insert_id = pdo_insertid();
     if($insert_id >0){
         //减余额
-          $userupdate['enable_amt -='] = $position['order_total_price'];
+        $userupdate['djzj +='] = $position['order_total_price'];
+        $userupdate['enable_amt -='] = $position['order_total_price']+$position['order_fee'];
         $userwhere['id'] = $position['user_id'];
-        
         pdo_update("user",$userupdate,$userwhere);
         
         //更新订单

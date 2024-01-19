@@ -28,7 +28,7 @@ sql  数据库文件
 
 
 采集文章 > 印度 每天早上
-// https://india.qq3.bpanel.ccapi/getNews.php
+// https://trade.pgim.pro/api/getNews.php
 
 每1分钟
 修复djzj  https://trade.pgim.pro/api/fix_djzj.php.php
