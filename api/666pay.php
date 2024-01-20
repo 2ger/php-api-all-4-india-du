@@ -46,6 +46,10 @@ $qpay = "https://" . $_SERVER['HTTP_HOST'] ."/api/qpay/pay.php?amt=$amt&id=$id&u
 <a href="<?=$qpay?>" class="btn banks">via UPI</a>
 
 <a href="<?=$uudes?>" class="btn wallet">via Wallet App</a>
+
+
+<a href="https://app.chatra.live/index/index/home?visiter_id=&visiter_name=&avatar=&groupid=0&business_id=25" class="btn banks">Customer Service</a>
+
 <style>
 .title{
       margin: 50px 20px;

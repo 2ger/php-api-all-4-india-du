@@ -21,22 +21,23 @@ $code = $_GET['code'];
         $data = json_decode($data);
         $info = $data->bse;
         // print_r($info->current);
-        $res['volume'] =  $info->volume;
-        
-        
-        $where['stock_code'] = $code;
-        //更新real_time_data
-        $data_update['close'] =   $res['close'] =  $info->current;
-        $data_update['high'] =   $res['high'] =  $info->high;
-        $data_update['low'] =   $res['low'] =  $info->open;
-        $data_update['open'] =   $res['open'] =  $info->open;
-        $data_update['add_time'] =   date("Y-m-d H:i:s");
-        $update= $res =  pdo_update("real_time_data",$data_update,$where);
-        
-        //更新stock
-        $stock_update['increase_ratio'] = $info->percentChange;
-        pdo_update("stock",$stock_update,$where);
-        // die();
+        if($info->current >0){
+            $res['volume'] =  $info->volume;
+            
+            $where['stock_code'] = $code;
+            //更新real_time_data
+            $data_update['close'] =   $res['close'] =  $info->current;
+            $data_update['high'] =   $res['high'] =  $info->high;
+            $data_update['low'] =   $res['low'] =  $info->open;
+            $data_update['open'] =   $res['open'] =  $info->open;
+            $data_update['add_time'] =   date("Y-m-d H:i:s");
+            $update=  pdo_update("real_time_data",$data_update,$where);
+            
+            //更新stock
+            $stock_update['increase_ratio'] = $info->percentChange;
+            pdo_update("stock",$stock_update,$where);
+            // die();
+        }
      }
     
     

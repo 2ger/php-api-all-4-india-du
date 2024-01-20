@@ -73,7 +73,10 @@ if($code){
                   
                  $real['volume']  = $value['volume'];
                  $real['add_time']= date("Y-m-d H:i:s");
-                 $val['real_time_data'] =      $data['real_time_data']  =  pdo_insert("real_time_data",$real);
+                  $val['real_time_data update'] =     $res =  pdo_update("real_time_data",$real,$where); 
+                if(!$res){ 
+                    $val['real_time_data insert'] =      $data['real_time_data']  =  pdo_insert("real_time_data",$real);
+                }
               }
               
             

@@ -23,8 +23,19 @@ $redis->connect('127.0.0.1', 6379);
 $redis->select(0);
 $token = $_SERVER['HTTP_USERTOKEN'];
 $user = json_decode($redis->get($token));
-if (!$user) die("please login ");
+if (!$user){
+    $res['status'] = 1;
+    $res['msg'] = "please login!";
+    die(json_encode($res));
+}
+// print_r($user);
 $user_id = $user->id;
+$isLock = $user->isLock;
+if($isLock){
+    $res['status'] = 1;
+    $res['msg'] = "Your are locked for trading!";
+    die(json_encode($res));
+}
 
 //金额计算
 $order_total_price = $targetPrice * $buyNum / $lever;
