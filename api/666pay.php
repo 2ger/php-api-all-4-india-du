@@ -32,6 +32,7 @@ $currentURL = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']."&pay
 $OMPay = "https://" . $_SERVER['HTTP_HOST'] ."/api/OMPay/pay.php?amt=$amt&id=$id&user_id=$user_id";
 $uudes = "https://" . $_SERVER['HTTP_HOST'] ."/api/uudes/pay.php?amt=$amt&id=$id&user_id=$user_id";
 $qpay = "https://" . $_SERVER['HTTP_HOST'] ."/api/qpay/pay.php?amt=$amt&id=$id&user_id=$user_id";
+$uduncloud = "https://" . $_SERVER['HTTP_HOST'] ."/api/uduncloud/pay.php?amt=$amt&id=$id&user_id=$user_id";
 
 ?>
 
@@ -42,6 +43,8 @@ $qpay = "https://" . $_SERVER['HTTP_HOST'] ."/api/qpay/pay.php?amt=$amt&id=$id&u
 <!--<a href="<?=$currentURL?>1500" class="btn banks">via Banks</a>-->
 <!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
 <!--<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>-->
+
+<a href="<?=$uduncloud?>" class="btn banks">via USDT</a>
 
 <a href="<?=$qpay?>" class="btn banks">via UPI</a>
 

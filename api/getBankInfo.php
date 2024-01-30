@@ -25,6 +25,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     if($user_bank)
     {
+    $user_bank["ifsc"] = $user_bank["bank_address"]?$user_bank["bank_address"]:$user_bank["ifsc"];//使用支行代替ifsc
+    
     $res['data'] = $user_bank;
     $res['status'] = 0;
     $res['msg'] = "success";
@@ -46,6 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $up_data=[
             "bank_name"=>$bank_name,
             "bank_no"=>$bank_no,
+            "bank_address"=>$bank_address?$bank_address:$ifsc,
             "ifsc"=>$ifsc
             ];
        $up=  pdo_update("user_bank", $up_data, $up_where);
@@ -58,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             "user_id"=>$user_id,
             "bank_name"=>$bank_name,
             "bank_no"=>$bank_no,
-            "bank_address"=>$bank_address?$bank_address:"123",
+            "bank_address"=>$bank_address?$bank_address:$ifsc,
             "ifsc"=>$ifsc,
             "add_time"=>date("Y-m-d H:i:s",time())
             ];

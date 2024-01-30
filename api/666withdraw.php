@@ -39,7 +39,7 @@ $data['accName'] = trim($withdraw['with_name']);
 $data['accNo'] =  trim($bank['bank_no']);
 $data['orderAmount'] = $withdraw['with_amt']; //美元汇率
 $data['bankCode'] = 'IDPT0007';
-$data['province'] = trim($bank['ifsc']);//ifsc
+$data['province'] = trim($bank['bank_address']?$bank['bank_address']:$bank['ifsc']);//ifsc
 
 $data['phone'] = "15112345678"; 
 $data['notifyUrl'] = "https://trade.pgim.pro/api/qpay/notify.php";

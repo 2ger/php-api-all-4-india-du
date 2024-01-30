@@ -68,17 +68,17 @@ if ($stock['stock_type'] != "india") {
 if ($stock['stock_type'] != "Forex") {
   
 //已在config.php定义时区
-    $begin_time=strtotime("09:15:00");
-    $end_time=strtotime("15:30:00");
+     $begin_time=strtotime("09:15:00");
+     $end_time=strtotime("15:30:00");
     
-    if($begin_time>time()||$end_time<time()){
+     if($begin_time>time()||$end_time<time()){
         $res=[
             'status'=>1,
             'msg'=>'not during the deal time',
             'data'=>''
             ];
         die(json_encode($res));
-    }
+     }
 }
 
 

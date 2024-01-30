@@ -78,11 +78,22 @@ $up_position = [
 
 $user_amt = pdo_get("user", ["id" => $user_id], ["user_amt", "enable_amt", 'djzj']);
 
-if ($order['stock_type'] == "Forex") {
-    //外汇使用美元汇率 *83
-    // $enable_amt *=83;
+// //下单时间判断
+if ($order['stock_type'] != "Forex") {
+  
+//已在config.php定义时区
+    $begin_time=strtotime("09:15:00");
+    $end_time=strtotime("15:30:00");
+    
+     if($begin_time>time()||$end_time<time()){
+        $res=[
+            'status'=>1,
+            'msg'=>'not during the deal time',
+            'data'=>''
+            ];
+        die(json_encode($res));
+    }
 }
-
 $djzj = $user_amt["djzj"] - $benjin;
 if($djzj<0) $djzj =0;
 $up_user = [

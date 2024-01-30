@@ -73,6 +73,9 @@ if($op == "prove"){
     $position['agent_id'] = $user['agent_id'];
     $position['stock_name'] = $stock['stock_name'];
     $position['stock_code'] = $stock['stock_code'];
+    $position['profit_target_price'] = $position['profit_target'];
+    $position['stop_target_price'] = $position['stop_target'];
+
     $position['stock_gid'] = $stock['stock_gid'];
     $position['stock_spell'] = $stock['stock_spell'];
     $position['buy_order_id'] = date("YmdHis").$order['id'];
