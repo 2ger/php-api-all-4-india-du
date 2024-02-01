@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     if($user_bank)
     {
-    $user_bank["ifsc"] = $user_bank["bank_address"]?$user_bank["bank_address"]:$user_bank["ifsc"];//使用支行代替ifsc
+    $user_bank["ifsc"] = $user_bank["ifsc"]?$user_bank["ifsc"]:$user_bank["bank_address"];//使用支行代替ifsc
     
     $res['data'] = $user_bank;
     $res['status'] = 0;
