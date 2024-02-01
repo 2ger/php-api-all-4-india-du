@@ -33,6 +33,7 @@ if( $status == 3){//$mer == $get_mer_no && $currency == $get_currency &&
         
         $up['order_status'] =  1;
         $up['pay_time'] =  date("Y-m-d H:i:s");
+        $up['pay_amt'] =  $real_amt;
         $where1['id'] =  $order['id'];
         $re1 = pdo_update("user_recharge",$up,$where1);
         
