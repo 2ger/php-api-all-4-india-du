@@ -13,7 +13,7 @@ file_put_contents('../logs/pay_notify_post.log', date("Y-m-d H:i:s")."----\r\n u
     //   die('222');
        	$decimals = $REQ_BODY['decimals'];
        	$amount = $REQ_BODY['amount']/pow(10,$decimals);
-       	$real_amt = $amount*100;
+       	$real_amt = $amount*$_W['config']['usd']['inr'];
        	$address = $REQ_BODY['address'];
        	$coinType = $REQ_BODY['coinType'];//TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t  USDT_TRC20
        	$mainCoinType = $REQ_BODY['mainCoinType'];//195

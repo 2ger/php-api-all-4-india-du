@@ -1,5 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers:*');
+
 require '../framework/bootstrap.inc.php';
 
 
@@ -33,8 +35,8 @@ $user_id = $user->id;
 $isLock = $user->isLock;
 if($isLock){
     $res['status'] = 1;
-    $res['msg'] = "Your are locked for trading!";
-    die(json_encode($res));
+  //  $res['msg'] = "Your are locked for trading!";
+   // die(json_encode($res));
 }
 
 //金额计算

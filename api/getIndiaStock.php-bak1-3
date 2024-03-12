@@ -35,13 +35,11 @@ $code = $_GET['code'];
     }else{
          //  if(time()-strtotime($res['add_time']) > 60*1){
         //查网上
-        $url = "https://marketservices.indiatimes.com/marketservices/companyshortdata?companyid=$code&companytype=equity";       
-        // $url = "https://json.bselivefeeds.indiatimes.com/ET_Community/peerperformance?exchange=50&companyid=20477&pagesize=5&default=true&companytype=equity";//以收盘价为准
+        $url = "https://marketservices.indiatimes.com/marketservices/companyshortdata?companyid=$code&companytype=equity";
         $data = file_get_contents($url);
         
         $data = json_decode($data);
-        // $info = $data->bse;
-        $info = $data->nse;
+        $info = $data->bse;
         // print_r($info->current);
         if($info->current >0){
             $res['volume'] =  $info->volume;

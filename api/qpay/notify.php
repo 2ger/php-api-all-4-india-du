@@ -3,14 +3,15 @@
 require '../../framework/bootstrap.inc.php';
 
 $mer = "888458203";
- 
+
+if($_GPC["type"]=="SUCCESS") die("SUCCESS");//代付回调
 // var_dump($_GPC);
 $ip_address = $_SERVER['REMOTE_ADDR'];
-file_put_contents('../logs/pay_notify_post.log', date("Y-m-d H:i:s")."----\r\n".$ip_address."\n".$_GPC."\r\n\r",FILE_APPEND);
+file_put_contents('../logs/pay_notify_post.log', date("Y-m-d H:i:s")."----\r\n".$ip_address."\n".json_encode($_GPC)."\r\n\r",FILE_APPEND);
 
 $post = $_GPC['__input'];
 // var_dump($_GPC['__input']);
-
+// print_r($post);
 $payResult = $post['status'];//	1：支付成功 其他:失败
 $order_sn = $post['merchantOrderNo'];
 $payAmount = $post['payAmount'];
@@ -29,19 +30,23 @@ if( $payResult =="success"){//$mer == $get_mer_no && $currency == $get_currency 
     //   pdo_debug();
     if($order){
         
-        $up['order_status'] =  1;
-        $up['pay_time'] =  date("Y-m-d H:i:s");
-        $where1['id'] =  $order['id'];
-        $re1 = pdo_update("user_recharge",$up,$where1);
+     
         
         //充值
         $where2['id'] =  $order['user_id'];
         $up2['enable_amt +='] =  $real_amt;
         $up2['user_amt +='] =  $real_amt;
         $re2 = pdo_update("user",$up2,$where2);
+        
+        if($re2){
+               $up['order_status'] =  1;
+            $up['pay_time'] =  date("Y-m-d H:i:s");
+            $where1['id'] =  $order['id'];
+            $re1 = pdo_update("user_recharge",$up,$where1);
+        }
       
     
-        if($re2 && $re1) die("SUCCESS");
+        if($re1) die("SUCCESS");
     }else{
         
         die("no undone order!");

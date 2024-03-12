@@ -1,6 +1,7 @@
 <?php
 //印度指数搜索
 header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Headers:*');
 require '../framework/bootstrap.inc.php';
 //连接到 Redis 数据库
 $redis = new Redis();

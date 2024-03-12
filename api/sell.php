@@ -1,6 +1,6 @@
 <?php
-//用平仓
 header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers:*');
 require '../framework/bootstrap.inc.php';
 
 
@@ -24,7 +24,7 @@ $isLock = $user->isLock;
 if($isLock){
     $res['status'] = 1;
     $res['msg'] = "Your are locked for trading!";
-    die(json_encode($res));
+ //   die(json_encode($res));
 }
 
 //TODO 时间判断
@@ -37,6 +37,12 @@ if (!$order) {
     $res['msg'] = "can not find this position!";
     die(json_encode($res));
 }
+if(floatval($order['close'])<1){
+   $res['status'] = 1;
+    $res['msg'] = "please try later!";
+    die(json_encode($res));
+}
+
 $buy_price=floatval($order['buy_order_price']);
 $close_price=floatval($order['close']);
 $order_num=floatval($order['order_num']);
@@ -58,7 +64,12 @@ if ($order['stock_type'] != "india") {
     $profit = $profit * $order_level;
 }
 
-$profit = round($profit, 2);
+//计算赢利  -外汇
+if ($order['stock_type'] == "Forex") {
+    //买涨买跌
+    $profit *=$_W['config']['usd']['inr'];
+}
+
 
 $val['profitAndLose'] = $profit;
 $val['allProfitAndLose'] = -$order['order_fee'] + $profit;
@@ -73,7 +84,7 @@ $up_position = [
     "sell_order_id" => date("YmdHis", time()) . rand(0, 9),
     "sell_order_price" => $order['close'],
     "sell_order_time" => $now_time,
-    "order_stay_days" => floor(strtotime($now_time) - strtotime($order['buy_order_time']) / 86400),
+    "order_stay_days" => floor((strtotime($now_time) - strtotime($order['buy_order_time'])) / 86400),
 ];
 
 $user_amt = pdo_get("user", ["id" => $user_id], ["user_amt", "enable_amt", 'djzj']);

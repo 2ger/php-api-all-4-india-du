@@ -1,6 +1,7 @@
 <?php
 // qpay https://doc.qg-pay.com/
 
+require '../../framework/bootstrap.inc.php';
 $merId = "1000149";
 $mch_private_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJh4zOqBZyeaSH+sb0yokWNz07ulmSJ1WdhVKxf6KQciw0zMqIYjY8KcR+y/tzuyAwQRn++npB9cNY4/oTsFRjJSM696F6K4xRFqYXeC9xmkiwcAHBaIUGpX0jKBpS95e2e8VMHxCK/Lfk3RZUnt/1SvKmNzUEIpFZXksqQIgFKVAgMBAAECgYAsinWKN/0zc32kVnI5GbFHNUnwMkMW7uMtMEwjd//ORth4sfy1GteEvXTBc4wKk0kQQjnPn9BxHNXEVVA7VqIXkFJPAu/DNAYfPD3/N0Q+Lk5VphedPDlfWiA29yw4n0SgcOANLUCBmCZwuU5NkRzxmE9jCnYtBAsp4y5VwNY34QJBAPvvUM1jssK9Jt6yXMWBV12w53oMtLMs5BRpsDIUdiybDOjThUm4vIHBBHF8SoLxcE1tOjALp0tmjO5AfSmxRM0CQQCa7qBdvxL1HgeHzZlaQ1eCoTbMSM8YKaQWudxggTO84yPV1pnL3HmVgKy3R7KGlGNQuv2DRm4zpchi7VGha4TpAkEAkLidsw6VbraXsI/HKRGurTxlDEBmQRMFhhBcTbhhVihPVyPCymGbr/G/6q0aZHPrLh8TsOvQ00h6ppZXD+8r9QJADwc4jP9cwmQATP73chb4JRaoLxac5/YaEY5DvySpNRg/QJ3JW0nujT7nAfw1Z/J607jfoF0zkVTyZA4rDeJVCQJAV1C8HJ6vt5ho1lnOpmWijvwJJE8VFbaqSBHTSrcVp0a6n84W4uYIrRVt2gR3CVArDNj7Axr9jYspiXVgG/BCAA==";
 $gatewayUrl = 'https://api.qg-pay.com/singleOrder';
@@ -19,7 +20,7 @@ $data['province'] = $_GET['province'];
 $data['orderNo'] = $_GET['orderNo'];
 $data['accNo'] =  $_GET['accNo'];
 $data['accName'] = $_GET['realname'];
-$data['orderAmount'] = $_GET['amount']*100; //美元汇率
+$data['orderAmount'] = $_GET['amount']*$_W['config']['usd']['inr']; //美元汇率
 
 
 //test

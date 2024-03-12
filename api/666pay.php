@@ -44,7 +44,9 @@ $uduncloud = "https://" . $_SERVER['HTTP_HOST'] ."/api/uduncloud/pay.php?amt=$am
 <!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
 <!--<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>-->
 
-<a href="<?=$uduncloud?>" class="btn banks">via USDT</a>
+<a href="<?=$uduncloud?>&type=trc20" class="btn banks">via USDT (TRC20)</a>
+
+<a href="<?=$uduncloud?>&type=erc20" class="btn banks">via USDT (ERC20)</a>
 
 <a href="<?=$qpay?>" class="btn banks">via UPI</a>
 

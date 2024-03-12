@@ -2,6 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 require '../framework/bootstrap.inc.php';
 
+require_once  '../vendor/autoload.php';
+use Udun\Dispatch\UdunDispatch;
 // qpay
  $getmer = $_GPC['mer'];//手动回调
  $where['id'] = $id= $_GPC['withId'];//$_GPC['id'];
@@ -9,8 +11,31 @@ require '../framework/bootstrap.inc.php';
  
 //  var_dump($_GPC['__input']['withId']);
  
-// print_r($where);
  $withdraw = pdo_get("user_withdraw",$where);
+// print_r($withdraw);
+ 
+ if($withdraw['bank_name']=="USDT"){
+     //USDT提现
+    $merchant_no = "315449";
+    $api_key = "eb5137182f590a8897928ad50d6da740";
+    $gateway_address = "https://sig10.udun.io";
+    $callUrl = "https://trade.pgim.pro/api/uduncloud/notify.php";
+     $udunDispatch = new UdunDispatch([
+            'merchant_no' => $merchant_no, //;309634, //商户号
+            'api_key' => $api_key, //'b103e22c1a615c9dac5c79476a14405b',//apikey
+            'gateway_address'=>$gateway_address, //'https://sig10.udun.io', //节点
+            'callUrl'=>$callUrl, //'https://binancelink.com/api/notify/wallet', //回调地址
+            'debug' => false //false  //调试模式
+     ]);
+     $amt = $withdraw['with_amt']/100;
+     $res =   $udunDispatch->withdraw($id,'195','TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',$withdraw['bank_no'],$amt);
+      if($res['code'] !=200){
+                    die('提币失败，错误代码：'.$res['code']);
+       }
+    // print_r($res);
+    die("SUCCESS");
+     
+ }
 //  pdo_debug();
 // print_r($withdraw);
 // die();

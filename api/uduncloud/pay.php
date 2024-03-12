@@ -15,16 +15,30 @@ $api_key = "eb5137182f590a8897928ad50d6da740";
 $gateway_address = "https://sig10.udun.io";
 $callUrl = "https://trade.pgim.pro/api/uduncloud/notify.php";
 
+$address_type=isset($_GPC['type'])?$_GPC['type']:'trc20';
+
 $where['id'] = $uid = $_GPC["user_id"];
-$address = pdo_fetchcolumn("select address_trc20 from user where id = $uid");
+if($address_type=='trc20'){
+    $address = pdo_fetchcolumn("select address_trc20 from user where id = $uid");
+
+}elseif($address_type=='erc20'){
+    $address = pdo_fetchcolumn("select address_erc20 from user where id = $uid");
+}
+
 
 if(!$address){
+    if($address_type=='trc20'){
     $address = $update['address_trc20'] = generate_udun_address($merchant_no,$api_key,$gateway_address,$callUrl);
+        
+    }elseif($address_type=='erc20'){
+     $address = $update['address_erc20'] = generate_udun_address_erc20($merchant_no,$api_key,$gateway_address,$callUrl);
+}
     pdo_update("user",$update,$where);
     echo $address;
 }
 
-$whereOrder['order_sn'] =  $_GPC["id"];;
+$whereOrder['order_sn'] =  $_GPC["id"];
+$updateOrder['pay_channel'] =  2;
 $updateOrder['pay_img'] = $address;
     pdo_update("user_recharge",$updateOrder,$whereOrder);
 
@@ -132,7 +146,7 @@ $updateOrder['pay_img'] = $address;
     
     
 <div class="title">
-    --- TRC20 USDT ---
+    ---<?php echo strtoupper($address_type);?> USDT ---
 </div>
 
 <div id="qrcode" style="margin:0px auto;width:256px;"></div>

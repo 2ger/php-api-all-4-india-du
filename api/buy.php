@@ -29,6 +29,12 @@ $stopLoss = $_GPC['stopLoss'];
 $stock = pdo_fetch("select s.*,r.close from stock s left join real_time_data r on s.stock_gid= r.stock_gid where s.id = $stockId");
 if (!$stock) die("no stock found ");
 
+if(!$stock['close']){
+   $res['status'] = 1;
+    $res['msg'] = "please try later!";
+    die(json_encode($res));
+}
+
 //当前用户
 //连接到 Redis 数据库
 $redis = new Redis();
@@ -43,7 +49,7 @@ if (!$user){
 }
 // print_r($user);
 $user_id = $user->id;
-$isLock = $user->isLock;
+$isLock = pdo_fetchcolumn("select is_lock from user where id = ".$user_id);//redis 登陆才会更新，从数据库实时查
 if($isLock){
     $res['status'] = 1;
     $res['msg'] = "Your are locked for trading!";
@@ -62,6 +68,12 @@ if ($stock['stock_type'] != "india") {
     $spread_fee = 0;
     $position['spread_rate_price'] = 0;
 
+}
+if ($stock['stock_type'] == "Forex") {
+    //乘以汇率
+    $order_fee *= $_W['config']['usd']['inr'];
+    $order_total_price *= $_W['config']['usd']['inr'];
+    // die($order_fee);
 }
 
 // //下单时间判断
@@ -86,12 +98,7 @@ if ($stock['stock_type'] != "Forex") {
 // $enable_amt = pdo_fetchcolumn("select enable_amt from user where id = $user_id");
 $user_amt = pdo_get("user",["id"=>$user_id],["user_amt","enable_amt","djzj"]);
 
-if ($stock['stock_type'] == "Forex") {
-    //外汇使用美元汇率 *83
-    // $order_total_price *=83;
-    // $order_fee *=83;
-    // $spread_fee *=83;
-}
+
 if ($user_amt["enable_amt"] < ($order_total_price + $order_fee + $spread_fee)) {
     $res['status'] = 1;
     $res['msg'] = "No Available Amount";
@@ -127,6 +134,9 @@ $position['buy_order_id'] = date("YmdHis");
 $position['buy_order_time'] = date("Y-m-d H:i:s");
 $position['all_profit_and_lose'] = -$order_fee;
 
+$position['profit_target_price'] =$profitTarget;
+$position['stop_target_price'] =$stopLoss;
+
 
 $res['data'] = $position;
 $res['status'] = 0;
@@ -135,6 +145,10 @@ pdo_begin();
 try {
     pdo_update("user", $updateu, $whereu);
     pdo_insert("user_position", $position);
+    $res['insertid'] = pdo_insertid();
+// if(!$res['insertid']){
+//     pdo_debug();
+// }
     pdo_commit();
 } catch (PDOException $exception) {
     pdo_rollback();

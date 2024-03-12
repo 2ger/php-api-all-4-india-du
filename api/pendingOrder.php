@@ -84,8 +84,10 @@ if($op == "prove"){
     $position['order_direction'] =   $order['buy_type']?"买跌":"买涨";
     $position['order_num'] = $order['buy_num'];
     $position['order_lever'] = 1;
+    $position['profit_target_price'] = $order["profit_target"];
+    $position['stop_target_price'] = $order["stop_target"];
     $position['order_total_price'] = $order['target_price']*$order['buy_num']/$order['lever'];
-    $position['order_fee'] = $order['target_price']*0.0001;
+    $position['order_fee'] = $order['target_price']*$order['buy_num']/$order['lever']*0.0001;
     $position['order_spread'] = 0;//$order['target_price']*0.1;
     $position['all_profit_and_lose'] = -$position['order_fee']-$position['order_spread'];
     

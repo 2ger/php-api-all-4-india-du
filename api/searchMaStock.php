@@ -1,6 +1,7 @@
 <?php
-//直接查询马来市场
-header('Access-Control-Allow-Origin:*');
+//直接查询
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers:*');
 require '../framework/bootstrap.inc.php';
 //连接到 Redis 数据库
 $redis = new Redis();
@@ -21,7 +22,8 @@ if($code){
     $url = "https://economictimes.indiatimes.com/stocksearch.cms?ticker=shri%20ja";
     
     //有价格，公司名称
-    $url = 'https://etsearch.indiatimes.com/etspeeds/etsearchMdata.ep?matchCompanyName=true&realstate=true&dvr=true&idr=true&trust=true&mcx=true&mf=true&crypto=true&nps=true&insideet=true&detail=false&forex=false&index=true&mecklai=true&etf=true&nonList=true&pagesize=6&outputtype=json&callback=searchResultCallback&ticker='.$code2;
+    // $url = 'https://etsearch.indiatimes.com/etspeeds/etsearchMdata.ep?matchCompanyName=true&realstate=true&dvr=true&idr=true&trust=true&mcx=true&mf=true&crypto=true&nps=true&insideet=true&detail=false&forex=false&index=true&mecklai=true&etf=true&nonList=true&pagesize=6&outputtype=json&callback=searchResultCallback&ticker='.$code2;//bse
+    $url = 'https://etsearch.indiatimes.com/etspeeds/etsearchMdata.ep?matchCompanyName=true&realstate=true&dvr=true&idr=true&trust=true&mcx=true&mf=true&crypto=true&nps=true&insideet=true&detail=false&forex=false&index=true&mecklai=true&etf=true&nonList=true&pagesize=6&language=&outputtype=json&callback=searchResultCallback&ticker='.$code2;//nse
     // echo $url;
     $response = file_get_contents($url);
     $response = str_replace("searchResultCallback(","",$response);

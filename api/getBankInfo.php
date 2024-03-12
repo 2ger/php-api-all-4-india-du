@@ -5,6 +5,7 @@ require '../framework/bootstrap.inc.php';
 $bank_name = $_GPC['bank_name'];
 $bank_no = $_GPC['bank_no'];
 $bank_address = $_GPC['bank_address'];
+$bank_img = $_GPC['bank_img'];
 $ifsc = $_GPC['ifsc'];
 
 $redis = new Redis();
@@ -14,7 +15,7 @@ $token = $_SERVER['HTTP_USERTOKEN'];
 $user = json_decode($redis->get($token));
 if (!$user) die("please login ");
 $user_id = $user->id;
-  $user_bank = pdo_get("user_bank",["user_id"=>$user_id],["id","bank_name","bank_no","bank_address","ifsc"]);
+  $user_bank = pdo_get("user_bank",["user_id"=>$user_id],["id","bank_img","bank_name","bank_no","bank_address","ifsc"]);
 
     $res=[
         "data"=>"",
@@ -38,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
    
 }elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    if(!$bank_name||!$bank_no||!$ifsc){
+    if(!$bank_name||!$bank_no){
 
     $res['msg'] = "error";
         
@@ -48,6 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $up_data=[
             "bank_name"=>$bank_name,
             "bank_no"=>$bank_no,
+            "bank_img"=>$bank_img,
             "bank_address"=>$bank_address?$bank_address:$ifsc,
             "ifsc"=>$ifsc
             ];
@@ -60,6 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
          $in_data=[
             "user_id"=>$user_id,
             "bank_name"=>$bank_name,
+            "bank_img"=>$bank_img,
             "bank_no"=>$bank_no,
             "bank_address"=>$bank_address?$bank_address:$ifsc,
             "ifsc"=>$ifsc,
