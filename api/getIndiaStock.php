@@ -41,7 +41,8 @@ $code = $_GET['code'];
         
         $data = json_decode($data);
         // $info = $data->bse;
-        $info = $data->nse;
+        $info = $data->bse;
+       if(!$info) $info = $data->nse;
         // print_r($info->current);
         if($info->current >0){
             $res['volume'] =  $info->volume;

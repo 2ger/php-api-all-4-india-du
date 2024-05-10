@@ -69,5 +69,9 @@ $config['setting']['redis']['server'] = '127.0.0.1';//如果redis服务器在别
 $config['setting']['redis']['port'] = 6379;
 $config['setting']['redis']['pconnect'] = 0;
 $config['setting']['redis']['timeout'] = 1;
-$config['setting']['redis']['auth'] = 'yuucn'; //微擎
-$config['setting']['redis']['requirepass'] = '';//人人商城用这个
+$config['setting']['redis']['auth'] = 'yuucn'; //
+$config['setting']['redis']['requirepass'] = '';
+
+
+// -------------------------- CONFIG 汇率 --------------------------- //
+$config['usd']['inr'] = 83.1;

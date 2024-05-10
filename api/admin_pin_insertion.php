@@ -25,7 +25,7 @@ $stock = pdo_fetch("select * from real_time_data where stock_code=$stock_code");
 if ($stock) {
     $res = pdo_update('real_time_data', ['close' => $new_price], ['id' => $stock['id']]);
     if ($res) {
-        file_get_contents("https://trade.pgim.pro/api/auto_sell.php");
+        file_get_contents("https://trade.pgim.top/api/auto_sell.php");
         $return['status'] = 0;
         $return['msg'] = 'success';
     }

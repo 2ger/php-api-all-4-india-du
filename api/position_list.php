@@ -65,7 +65,9 @@ foreach ($list as &$val) {
             $val['profitAndLose'] = round(($val['profitAndLose'] / $_W['config']['usd']['inr']), 2);
         } else {
             $val['profit_and_lose'] = round(($val['profitAndLose'] * $_W['config']['usd']['inr']), 2);
+            $profit*= $_W['config']['usd']['inr'];
         }
+        
     }
 
     $val['allProfitAndLose'] = round((-$val['orderFee'] + $val['profitAndLose']), 2);
@@ -80,7 +82,8 @@ foreach ($list as &$val) {
 if ($list) {
     $res['status'] = 0;
     $res['msg'] = "success";
-    $res['profit_inr'] = round($profit_inr * $_W['config']['usd']['inr'], 2);
+    // $res['profit_inr'] = round($profit_inr * $_W['config']['usd']['inr'], 2);
+    $res['profit_inr'] = $profit_inr;
     $res['data']['total'] = count($list);
     $res['data']['list'] = $list;
 } else {

@@ -43,6 +43,29 @@ sql  数据库文件
 ~~~
 
 
+~~~
+更新持仓	正常	每隔1分钟执行	 https://trade.pgim.pro/api/update_position_price.php?op=auto
+-
+--	2024-02-08 01:56:43	执行  |  编辑  |  日志  |  删除
+访问URL[ https://trade.pgim.pro/getNews.php ]	正常	每天, 6点30分 执行	
+-
+--	2024-02-07 06:30:04	执行  |  编辑  |  日志  |  删除
+访问URL[ https://trade.pgim.pro/api/fix_djzj.php.php ]	正常	每隔1分钟执行	
+-
+--	2024-02-08 01:56:01	执行  |  编辑  |  日志  |  删除
+访问URL[ https://trade.pgim.pro/api/getAliPrices.php ]	正常	每隔1分钟执行	
+-
+--	2024-02-08 01:56:05	执行  |  编辑  |  日志  |  删除
+访问URL[ https://trade.pgim.pro/api/cai_india_stock_list.php ]	停用	每隔1分钟执行	
+-
+--	2024-02-08 01:56:06	执行  |  编辑  |  日志  |  删除
+访问URL[ https://trade.pgim.pro/api/cai_india_index_list.php ]	正常	每隔1分钟执行	
+-
+--	2024-02-08 01:56:02	执行  |  编辑  |  日志  |  删除
+置顶访问URL[ https://trade.pgim.pro/api/cai_india_economictimes_list.php ]	正常	每隔1分钟执行	
+
+~~~
+
 ### api
 php 补充api
 
@@ -82,6 +105,12 @@ php 补充api
 2. 666pay.php 支付api
 3. 666notify.php 回调
 4. 
+
+## 设置 config
+~~~
+汇率
+$_W['config']['usd']['inr']
+~~~
 
 ## 官网
 ## 图片预览

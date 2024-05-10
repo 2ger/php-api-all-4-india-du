@@ -23,7 +23,10 @@ $hour = date("H");
 if($op == "auto"){
     
 //持仓
-    $list = pdo_fetchall("SELECT p.stock_gid,p.stock_name,p.stock_code FROM `user_position` as p  where  p.stock_gid like '%mys%' group by p.stock_code order by p.id desc");
+$where_test = " and p.stock_code = '8724'";
+$where_test = "";
+
+    $list = pdo_fetchall("SELECT p.stock_gid,p.stock_name,p.stock_code,p.buy_order_price FROM `user_position` as p  where  p.stock_gid like '%mys%' and p.sell_order_id is  null $where_test group by p.stock_code order by p.id desc");
     // if(!$list) die("无任务");
     
     
@@ -37,10 +40,10 @@ if($op == "auto"){
         $data = json_decode($data,true);
         // var_dump($data);
         // continue;
-        // $info = $data->bse;
-        $info = $data['nse'];
-        // print_r($info->current);
-        if($info&&$info['current'] >0){
+        $info = $data['bse'];
+      if(!$info['current']) $info = $data['nse'];
+        // print_r($info['current']);
+        if($info['current'] >0){
             $res=[];
             //  var_dump($info);
             $res['volume'] =  $info['volume'];
@@ -54,10 +57,12 @@ if($op == "auto"){
             $update=  pdo_update("real_time_data",$data_update,$where);
             //更新stock
             $stock_update['increase_ratio'] = $info['percentChange'];
-            $res = pdo_update("stock",$stock_update,$where);
+            $res2 = pdo_update("stock",$stock_update,$where);
             
-            if($res) echo  $item["stock_name"]."更新成功，最新价格：".$info['current']."\n\n";
+            // if($res2) 
+            echo  $item["stock_name"]." 买入价: ".$item["buy_order_price"]."，最新价格：".$info['current']."\n";
             // die();
+            // pdo_debug();
         }
    }
 
