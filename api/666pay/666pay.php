@@ -11,8 +11,8 @@
 header("Access-Control-Allow-Origin: *");
 
  $pay_url = "https://api.666pay.xyz/pay/order/create";
- $mer = "888458208";
- $key = "a545103df14340038a9f59df25463a78";
+ $mer = "888356166";
+ $key = "e4ed58e148df46faa980dc82f6f3a908";
 //   $mer = "888458203";
 //  $key = "7bd5ff811951429084682738b8c9d818";
 
@@ -43,9 +43,9 @@ $qpay = "https://" . $_SERVER['HTTP_HOST'] ."/api/qpay/pay.php?amt=$amt&id=$id&u
 <!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
 <!--<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>-->
 
-<a href="<?=$qpay?>" class="btn banks">via UPI</a>
+<!--<a href="<?=$qpay?>" class="btn banks">via UPI</a>-->
 
-<a href="<?=$uudes?>" class="btn wallet">via Wallet App</a>
+<!--<a href="<?=$uudes?>" class="btn wallet">via Wallet App</a>-->
 <style>
 .title{
       margin: 50px 20px;

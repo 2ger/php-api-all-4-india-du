@@ -29,6 +29,22 @@ $stopLoss = $_GPC['stopLoss'];
 $stock = pdo_fetch("select s.*,r.close from stock s left join real_time_data r on s.stock_gid= r.stock_gid where s.id = $stockId");
 if (!$stock) die("no stock found ");
 
+//从redis取价格
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+$redis->select(3);
+$redData = $redis->get($stock['stock_gid']);
+$redData = json_decode($redData,true);
+$redData['last_done'];
+if(!$redData['last_done']){
+   $stock['close'] = $redData['last_done'];
+   //更新价格
+    // pdo_update("real_time_data",array("stock_gid"=>$stock['stock_gid']),array("close"=>$stock['close']));
+// 更新end
+}
+//从redis取价格  end
+
+
 if(!$stock['close']){
    $res['status'] = 1;
     $res['msg'] = "please try later!";

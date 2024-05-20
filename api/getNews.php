@@ -1,6 +1,6 @@
 <?php
 //采集文章 > 印度
-// https://trade.pgim.pro/getNews.php
+// https://etorhome.com//getNews.php
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 

@@ -32,6 +32,19 @@ if($isLock){
 //查询订单、价格、股票类型
 $order = pdo_fetch("select o.*,s.stock_type,r.close from user_position as o left join stock as s on s.stock_gid = o.stock_gid left join real_time_data r on r.stock_gid = o.stock_gid  where o.position_sn = '" . $positionSn . "'");
 
+//从redis取价格
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+$redis->select(3);
+$redData = $redis->get($order['stock_gid']);
+$redData = json_decode($redData,true);
+$redData['last_done'];
+if(!$redData['last_done']){
+   $order['close'] = $redData['last_done'];
+}
+//从redis取价格  end
+
+
 if (!$order) {
     $res['status'] = 1;
     $res['msg'] = "can not find this position!";

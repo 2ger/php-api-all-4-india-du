@@ -3,11 +3,7 @@
 require '../framework/bootstrap.inc.php';
 
  $pay_url = "https://api.666pay.xyz/pay/order/create";
- $mer = "888458208";
- $key = "a545103df14340038a9f59df25463a78";
- $pay_code='1500'; //通道编码，商户后台查看
- $currency = "MYR";
- $notify_url = "https://tradingvidya.com/api/666notify.php";
+ $mer = "888356245";
  
 // var_dump($_GPC);
 $ip_address = $_SERVER['REMOTE_ADDR'];
@@ -21,7 +17,7 @@ $payAmount = $_GPC['payAmount'];
 $real_amt = $payAmount;///4.4
 $get_currency = $_GPC['currency'];
 
-if($mer == $get_mer_no && $currency == $get_currency && $payResult ==1){
+if($mer == $get_mer_no &&  $payResult ==1){
     //没有单号,
     //仅处理10分钟内价格相同的订单
     $time_str = time()-60*10;

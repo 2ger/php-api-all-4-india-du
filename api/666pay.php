@@ -10,15 +10,15 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
- $pay_url = "https://api.666pay.xyz/pay/order/create";
- $mer = "888458208";
- $key = "a545103df14340038a9f59df25463a78";
+ $pay_url = "https://api.i666pay.com/pay/order/create";
+ $mer = "888356245";
+ $key = "1817d39083544dc09e30864760612891";
 //   $mer = "888458203";
 //  $key = "7bd5ff811951429084682738b8c9d818";
 
 //  $pay_code='1500'; //通道编码，商户后台查看 1501 钱包  1500 银行卡
  $currency = "MYR";
- $notify_url = "https://tradingvidya.com/api/666notify.php";
+ $notify_url = "https://etorhome.com/api/666notify.php";
  
  $pay_code = $_GET['pay_code'];
  $amt = $_GET['amt'];
@@ -33,6 +33,7 @@ $OMPay = "https://" . $_SERVER['HTTP_HOST'] ."/api/OMPay/pay.php?amt=$amt&id=$id
 $uudes = "https://" . $_SERVER['HTTP_HOST'] ."/api/uudes/pay.php?amt=$amt&id=$id&user_id=$user_id";
 $qpay = "https://" . $_SERVER['HTTP_HOST'] ."/api/qpay/pay.php?amt=$amt&id=$id&user_id=$user_id";
 $uduncloud = "https://" . $_SERVER['HTTP_HOST'] ."/api/uduncloud/pay.php?amt=$amt&id=$id&user_id=$user_id";
+$wowPay = "https://" . $_SERVER['HTTP_HOST'] . "/api/wow_pay/pay.php?amt=$amt&id=$id&user_id=$user_id";
 
 ?>
 
@@ -40,20 +41,20 @@ $uduncloud = "https://" . $_SERVER['HTTP_HOST'] ."/api/uduncloud/pay.php?amt=$am
     --- Choose a Pay Type ---
 </div>
 
-<!--<a href="<?=$currentURL?>1500" class="btn banks">via Banks</a>-->
+<a href="<?=$currentURL?>1102" class="btn banks">via (Customer Service)(666pay)</a>
 <!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
-<!--<a href="<?=$OMPay?>" class="btn wallet">via Wallet</a>-->
-
-<a href="<?=$uduncloud?>&type=trc20" class="btn banks">via USDT (TRC20)</a>
-
-<a href="<?=$uduncloud?>&type=erc20" class="btn banks">via USDT (ERC20)</a>
-
-<a href="<?=$qpay?>" class="btn banks">via UPI</a>
-
-<a href="<?=$uudes?>" class="btn wallet">via Wallet App</a>
+<!--<a href="<?=$wowPay?>" class="btn wallet">wow Wallet</a>-->
 
 
-<a href="https://app.chatra.live/index/index/home?visiter_id=&visiter_name=&avatar=&groupid=0&business_id=25" class="btn banks">Customer Service</a>
+<!--<a href="<?=$qpay?>" class="btn banks">via UPI(qpay)</a>-->
+
+<!--<a href="<?=$uudes?>" class="btn ">via Wallet App(uudes)</a>-->
+<a href="<?=$uduncloud?>&type=trc20" class="btn wallet">via USDT (TRC20)</a>
+
+<!--<a href="<?=$uduncloud?>&type=erc20" class="btn wallet">via USDT (ERC20)</a>-->
+
+
+<a href="https://app.chatra.live/index/index/home?visiter_id=&visiter_name=&avatar=&groupid=0&business_id=25" class="btn banks">via Banks(Customer Service)</a>
 
 <style>
 .title{
