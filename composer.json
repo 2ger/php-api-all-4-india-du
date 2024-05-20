@@ -1,5 +1,7 @@
 {
     "require": {
-        "uduncloud/udun-wallet-sdk": "^1.0"
+        "uduncloud/udun-wallet-sdk": "^1.0",
+        "ratchet/pawl": "^0.4.1",
+        "workerman/workerman": "^4.1"
     }
 }
