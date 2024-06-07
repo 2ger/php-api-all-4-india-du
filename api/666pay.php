@@ -18,7 +18,7 @@ header("Access-Control-Allow-Origin: *");
 
 //  $pay_code='1500'; //通道编码，商户后台查看 1501 钱包  1500 银行卡
  $currency = "MYR";
- $notify_url = "https://etorhome.com/api/666notify.php";
+ $notify_url = "https://etormarketing.com/api/666notify.php";
  
  $pay_code = $_GET['pay_code'];
  $amt = $_GET['amt'];

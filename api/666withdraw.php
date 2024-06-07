@@ -16,9 +16,11 @@ use Udun\Dispatch\UdunDispatch;
  
  if($withdraw['bank_name']=="USDT"){
      //USDT提现
-    $merchant_no = "315449";
-    $api_key = "eb5137182f590a8897928ad50d6da740";
-    $gateway_address = "https://sig10.udun.io";
+    
+    $merchant_no = "316538";
+$api_key = "69051a2a4333070ddbc1acc898805543";
+$gateway_address = "https://sig10.udun.io";
+
     $callUrl = "https://trade.pgim.pro/api/uduncloud/notify.php";
      $udunDispatch = new UdunDispatch([
             'merchant_no' => $merchant_no, //;309634, //商户号
@@ -54,88 +56,82 @@ use Udun\Dispatch\UdunDispatch;
 //  print_r($bank);
 //  die();
 //   die("SUCCESS"); //不提交支付平台，直接通过
-$merId = "1000784";
-$mch_private_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKARNXYiLsUp7k6KEHV8AjB7TXOCtXJamAaQjyPu4D52B1Eh4CYQCUNhy8On5ZXmQNDW458e9/dwacJ4YHuAq3jlM8YF9S8HqGZeVY0ZjVKabuWe9blC4UGSexFPa7lnZx/wW1w1z2/G0fA+Sk9zqGv3yZgO6/+Nes4Pe8dIxO7/AgMBAAECgYALFCXXH1aNXvGXjgbFmuer41zg+dMFLzAGhErj+cybhh/LhcS13bZGa6ZmzGAfl+g0jCsFAGe5QJaRVzOWWLmFcGaHncMyj33VxDbxbw0LfZ3hzqEDLqrcZCkP/LDKzo5hDTJdZEituMaCHZDJjn6Q3wPJXSeXnWHBeo8URBqZgQJBALVLI7D2mrRU+gldMV31pB/zd4mbMQtiqfgwZjaKg/lIPYagr9rqSm0OQ6Q+v0m0BehVunA3/wy1/p6jXx/mlfkCQQDiBuIz4E+Lva4iloQHh7xTH87msKqMfJ0Tb+igvKpnu5OmfR+QR+k4HVwBRk68r1roz/M9IBezQmQxJwi2tAq3AkBdWzgh5Jt9yVSIhejqDZhaq7Eetz/mMQR9vc6kv2d+cujb7tsfzA5PYk0KwxUWCxIPtjWvm+ZG0WEwp8hQURlhAkBdGDq45S2+P7zmUBpHQ7fkgNhmGePVA0prBA/LjImfOhohW63Rblz3mNgZSk0J2CvYcjYcOgio87JysEIdhmBXAkEAqzcjahGDNAK7QdgCE+sgLaf5v0FDns9G+Xzuz8my7kwkzEY5/zNnoW1Erh8g2ajFAjV+l1+RuhKH7mp2pGBCeg==";
-$gatewayUrl = 'https://api.qg-pay.com/singleOrder';
 
-$data['merchant'] = $merId; //->merId
-$data['businessCode'] = "100003"; 
-$data['orderNo'] = $withdraw['id'];
-$data['accName'] = trim($withdraw['with_name']);
-$data['accNo'] =  trim($bank['bank_no']);
-$data['orderAmount'] = $withdraw['with_amt']; //美元汇率
-$data['bankCode'] = 'BANK';
-$data['province'] = trim($bank['ifsc']?$bank['ifsc']:$bank['bank_address']);//ifsc
+ $pay_url = "https://api.i666pay.com/withdraw/order/create";
+ $mer = "888356245";
+ $key = "1817d39083544dc09e30864760612891";
+$map = [
+    'mer_no'=>$mer,
+    'settle_id'=>$id,//,//time().rand(100000,999999)
+    'currency'=>$currency,
+    'settle_amount'=>$withdraw['with_amt'],
+    'bankCode'=>$withdraw['bank_name'],
+    'accountName'=>$withdraw['with_name'],
+    'accountNo'=>$withdraw['bank_no'],
+    'settle_date'=>date('Y-m-d H:i:s'),
+    'notifyUrl'=>$notify_url,
+   
+];
 
-$data['phone'] = "15112345678"; 
-$data['notifyUrl'] = "https://trade.pgim.pro/api/qpay/notify.php";
-$data['remake'] = 'test';
+ 
+$sign = sendSign($map, $key);
+$map = array_merge($map,['sign' => $sign]);
+//echo $sign;
+// var_dump($map);
+$res = httpPost($pay_url, $map);
 
-
-$data = encrypt($data); 
-
-// echo $gatewayUrl;
-// var_dump($data);
-// die();
-
-$dataPost = $data;
-$dataPostJson = json_encode($dataPost, JSON_UNESCAPED_SLASHES );
-// var_dump($dataPostJson); echo '<hr>';
-$header = array(
-	'Content-Type: application/json',
-	'Content-Length: ' . strlen($dataPostJson)
-);
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $gatewayUrl);
-//curl_setopt($ch, CURLOPT_HEADER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $dataPostJson);
-//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-//curl_setopt($ch, CURLOPT_USERAGENT, $User_Agent);
-// Receive server response ...
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$server_output = curl_exec($ch);
-// curl_close ($ch);
-
-// die($server_output);
-$dataRes = json_decode($server_output,true);
-// var_dump($dataRes);
-if ($dataRes['code'] ==0) {
+//php
+$res = json_decode($res,true);
+// var_dump($res);die;
+if($res['code'] == "SUCCESS"){
    die("SUCCESS");
-} else {
-   die($dataRes['message']);
+}else{
+    $message = $res['message'];
+   die($message);
 }
 
 
-    //加密
-    function encrypt($data){
-        global $mch_private_key;
-        ksort($data);
-        $str = '';
-        foreach ($data as $k => $v){
-            if(!empty($v)){
-                $str .=(string) $k.'='.$v.'&';
-            }
-        }
-        $str = rtrim($str,'&');
-        $encrypted = '';
-        //替换成自己的私钥
-        $pem = chunk_split($mch_private_key, 64, "\n");
+ function httpPost($url, $data) {
+    $postData= http_build_query($data); //重要！！！
+    $ch = curl_init();
+    // 设置选项，包括URL
+    curl_setopt($ch, CURLOPT_URL, $url);
+    $header = array ();
+    $header [] = 'User-Agent: ozilla/5.0 (X11; Linux i686) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1';
+    $header [] = 'Accept-Charset: UTF-8,utf-8;q=0.7,*;q=0.3';
+    $header [] = 'Content-Type:application/x-www-form-urlencoded';
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);    // 对证书来源的检查
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);    // 从证书中检查SSL加密算法是否存在
+    curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // 模拟用户使用的浏览器
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);    // 使用自动跳转
+    curl_setopt($ch, CURLOPT_AUTOREFERER, 1);       // 自动设置Referer
+    curl_setopt($ch, CURLOPT_POST, 1);      // 发送一个 常规的Post请求
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    // Post提交的数据包
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);      // 设置超时限制防止死循环
+    curl_setopt($ch, CURLOPT_HEADER, 0);        // 显示返回的Header区域内容
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);    //获取的信息以文件流的形式返回
     
-        $pem = "-----BEGIN PRIVATE KEY-----\n" . $pem . "-----END PRIVATE KEY-----\n";
-    
-        $private_key = openssl_pkey_get_private($pem);
-        $crypto = '';
-        foreach (str_split($str, 117) as $chunk) {
-            openssl_private_encrypt($chunk, $encryptData, $private_key);
-            $crypto .= $encryptData;
-        }
-        $encrypted = base64_encode($crypto);
-        $encrypted = str_replace(array('+','/','='),array('-','_',''),$encrypted);
-
-        $data['sign']=$encrypted;
-        return $data;
+     $output = curl_exec($ch);
+    if(curl_errno($ch))
+    {
+        echo "Errno".curl_error($ch);   // 捕抓异常
     }
+    curl_close($ch);    // 关闭CURL
+    return $output;
+}
+
+function sendSign($params, $appsecret)
+{
+    ksort($params);
+    $signStr = '';
+    foreach($params as $key => $val){
+        if($val != null){
+            $signStr .= $key .'='.$val.'&';            
+        }
+    }
+    $signStr .= 'key='.$appsecret;
+    // echo $signStr;
+    return strtolower(md5($signStr));
+}
 ?>
