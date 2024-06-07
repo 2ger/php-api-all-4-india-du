@@ -10,11 +10,6 @@ use React\Promise\Timer\TimeoutException;
 $loop = Factory::create();
 
 
-
-//  $data['redis']= $redis->set('mys'.$code, json_encode($redis_data));
-//      $data['redis_str']= $redis->get('mys'.$code);
-
-
 $connector = new Connector($loop, new ReactConnector($loop, [
     'tls' => [
         'verify_peer' => false, // 视情况而定，如果需要验证对等证书，请设置为 true
@@ -27,30 +22,32 @@ $connector('wss://ws.chatra.live:2345')
         echo "Connected to WebSocket server.\n";
 
         $conn->on('message', function($msg) use ($conn) {
-            // echo "Received: {$msg}\n";
-            //  {"State":1,"Msg":{"Market":"FC","varieties":"XAU","contract":"XAU","open":"2419.64000","high":"2450.04000","low":"2407.16000","price":"2419.16000","close":"2417.52000","volume":"342065","tick":"1716211509","NV":"1","amplitude":"0.017725","marketValue":"","position":"","TTM":"","YS":"","DTE":"","MT":"1","Message":"Cba","DLP":"5","PDV":"","NAV":"","CFO":"-0.48000","POAV":"","B1":"2419.16000","B1V":"","S1":"2419.50000","S1V":"","Range":"42.88000","DOWNUP":"175","INDEX":"","VWAP":"","ChangeA":"1.64000","MRTA":"","MYTJ":"","ticks":"1716211509433","dealTransaction":"1716211509,2419.24000,1,2,,1716211509325"},"Code":"XAU","Cmd":"rm"}
+        
             $msg = json_decode($msg,true);
             $Code = $msg['Code'];
             $price =  $msg['Msg']['price'];
             
             //连接到 Redis 数据库
-$redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
-$redis->select(3);
-// $user = json_decode($redis->get($token));
-//  $redData = $redis->get("mysXAUUSD");
+            $redis = new Redis();
+            $redis->connect('127.0.0.1', 6379);
+            $redis->select(3);
+            // $user = json_decode($redis->get($token));
+            //  $redData = $redis->get("mysXAUUSD");
+            
+            if (strpos($Code, 'USD') === false) {
+                // 如果不包含 'USD'，则将 ' USD' 追加到 $string1
+                $Code .= 'USD';
+            }
+
           echo $Code." > ".$price."\n";
 //                 echo $redData;
-            $redData = $redis->get('mys'.$Code."USD");
+
+            $redData = $redis->get('mys'.$Code);
             if($redData){
-                // echo $redData;
-                // {"stock_code":"XAUUSD","chinese_stock_name":"XAUUSD","stock_name":"XAUUSD","last_done":2411.6001,"percent_change":2.564,"id":"179277","created_on":"2024-05-20 19:06:05","market":2.564,"low":2411.6001,"high":2411.6001,"sell_price":2411.6001,"buy_price":2411.6001,"lacp":2411.6001,"sell_volume":"XAUUSD","buy_volume":"XAUUSD","volume":"XAUUSD","change":2.564,"business_balance":2.564}
                 $redData = json_decode($redData,true);
                 $redData['last_done'] =$redData['lacp'] = $price;
-                 $redis->set('mys'.$Code."USD",json_encode($redData));
-                
+                 $redis->set('mys'.$Code,json_encode($redData));
             }
-            
             
             // 发送消息到服务器
             // $conn->send('Hello from client!');
@@ -67,4 +64,28 @@ $redis->select(3);
         $loop->stop();
     });
 
-$loop->run();
+
+
+if ($argc < 2) {
+    echo "Usage: php xxx.php [start|stop]\n";
+    exit(1);
+}
+$command = $argv[1];
+switch ($command) {
+    case 'start':
+        // 处理启动操作的代码
+        echo "Starting the process...\n";
+        // 这里添加启动操作的代码
+        $loop->run();
+        break;
+
+    case 'stop':
+        // 处理停止操作的代码
+        echo "Stopping the process...\n";
+        // 这里添加停止操作的代码
+          $loop->stop();
+        break;
+    default:
+       
+        exit(1);
+}

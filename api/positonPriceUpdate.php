@@ -1,5 +1,6 @@
 <?php
-// 定时更新持仓中的价格 https://tradingdiario.com/api/positonPriceUpdate.php
+// 定时更新持仓中的价格 -  印度
+// https://tradingdiario.com/api/positonPriceUpdate.php
 header('Access-Control-Allow-Origin:*');
 require '../framework/bootstrap.inc.php';
 

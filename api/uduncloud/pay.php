@@ -10,10 +10,10 @@ use Udun\Dispatch\UdunDispatch;
 // ini_set('error_reporting', -1); //显示所有错误
 
 
-$merchant_no = "315449";
-$api_key = "eb5137182f590a8897928ad50d6da740";
+$merchant_no = "316538";
+$api_key = "69051a2a4333070ddbc1acc898805543";
 $gateway_address = "https://sig10.udun.io";
-$callUrl = "https://trade.pgim.pro/api/uduncloud/notify.php";
+$callUrl = "https://etormarketing.com/api/uduncloud/notify.php";
 
 $address_type=isset($_GPC['type'])?$_GPC['type']:'trc20';
 

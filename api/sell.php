@@ -15,7 +15,7 @@ $user = json_decode($redis->get($token));
 if (!$user){
     $res['status'] = 1;
     $res['msg'] = "please login!";
-    die(json_encode($res));
+    // die(json_encode($res));
 }
 // print_r($user);
 $user_id = $user->id;
@@ -30,7 +30,14 @@ if($isLock){
 //TODO 时间判断
 
 //查询订单、价格、股票类型
-$order = pdo_fetch("select o.*,s.stock_type,r.close from user_position as o left join stock as s on s.stock_gid = o.stock_gid left join real_time_data r on r.stock_gid = o.stock_gid  where o.position_sn = '" . $positionSn . "'");
+$order = pdo_fetch("select o.*,s.stock_type,r.close from user_position as o left join stock as s on s.stock_gid = o.stock_gid left join real_time_data r on r.stock_gid = o.stock_gid  where o.sell_order_id is null and  o.position_sn = '" . $positionSn . "'");
+if (!$order) {
+    $res['status'] = 1;
+    $res['msg'] = "can not find this position!";
+    die(json_encode($res));
+}
+
+if($order) $user_id = $order['user_id'];
 
 //从redis取价格
 $redis = new Redis();
@@ -38,18 +45,32 @@ $redis->connect('127.0.0.1', 6379);
 $redis->select(3);
 $redData = $redis->get($order['stock_gid']);
 $redData = json_decode($redData,true);
-$redData['last_done'];
-if(!$redData['last_done']){
+// $redData['last_done'];
+if($redData['last_done']){
    $order['close'] = $redData['last_done'];
 }
 //从redis取价格  end
-
-
-if (!$order) {
-    $res['status'] = 1;
-    $res['msg'] = "can not find this position!";
-    die(json_encode($res));
+//后台， loss, win
+$op = $_GPC['op'];
+if($op == 'loss'){
+    if(floatval($order['stop_target_price'])<1){
+       $res['status'] = 1;
+        $res['msg'] = "无止损设置!";
+        die(json_encode($res));
+    }
+    $order['close'] = $order['stop_target_price'];
 }
+if($op == 'win'){
+       if(floatval($order['profit_target_price'])<1){
+   $res['status'] = 1;
+    $res['msg'] = "无止盈设置!";
+    die(json_encode($res));
+    }
+            $order['close'] = $order['profit_target_price'];
+}
+
+
+
 if(floatval($order['close'])<1){
    $res['status'] = 1;
     $res['msg'] = "please try later!";
@@ -100,7 +121,7 @@ $up_position = [
     "order_stay_days" => floor((strtotime($now_time) - strtotime($order['buy_order_time'])) / 86400),
 ];
 
-$user_amt = pdo_get("user", ["id" => $user_id], ["user_amt", "enable_amt", 'djzj']);
+$user_amt = pdo_get("user", ["id" => $user_id]);
 
 // //下单时间判断
 if ($order['stock_type'] != "Forex") {
@@ -122,17 +143,23 @@ $djzj = $user_amt["djzj"] - $benjin;
 if($djzj<0) $djzj =0;
 $up_user = [
     "enable_amt" => $user_amt["enable_amt"] + $profit + $benjin,
-    "user_amt" => $user_amt["user_amt"] + $profit,
+    "user_amt" => $user_amt["user_amt"] + $profit+ $benjin,
     "djzj" => $djzj
 ];
-// var_dump($up_user);
 $position_up_where = ["id" => $order['id']];
 $user_up_where = ["id" => $user_id];
+// var_dump($benjin);
+// var_dump($user_up_where);die();
 
 pdo_begin();
 try {
     pdo_update("user_position", $up_position, $position_up_where);
     pdo_update("user", $up_user, $user_up_where);
+    
+    
+    $amt = $profit+ $benjin;
+    add_cash_detail($user_amt, $order['id'],"Sell",$amt,"本金：$benjin + 收益：$profit");
+    
     $res['status'] = 0;
     $res['msg'] = "sell order success";
     pdo_commit();
@@ -143,5 +170,25 @@ try {
 
 }
 // var_dump(pdo_debug());
+
+
+function add_cash_detail($user,$position_id=0,$type,$amt,$detail){
+
+$de_summary = "当前余额：". $user['enable_amt']." > 变更:".$amt." >后余额: ".($user['enable_amt']+$amt)." > 详情：";
+$de_summary .= $detail;
+
+    $data['user_id'] = $user['id'];
+    $data['user_name'] = $user['real_name'];
+    $data['agent_name'] = $user['agent_name'];
+    $data['agent_id'] = $user['agent_id'];
+    
+    $data['position_id'] = $position_id;
+    $data['de_type'] = $type;
+    $data['de_amt'] = $amt;
+    $data['de_summary'] = $de_summary;
+    $data['add_time'] = date("Y-m-d H:i:s");
+    pdo_insert("user_cash_detail", $data);
+    
+}
 
 die(json_encode($res));

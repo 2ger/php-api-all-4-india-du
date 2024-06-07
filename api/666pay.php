@@ -35,13 +35,16 @@ $qpay = "https://" . $_SERVER['HTTP_HOST'] ."/api/qpay/pay.php?amt=$amt&id=$id&u
 $uduncloud = "https://" . $_SERVER['HTTP_HOST'] ."/api/uduncloud/pay.php?amt=$amt&id=$id&user_id=$user_id";
 $wowPay = "https://" . $_SERVER['HTTP_HOST'] . "/api/wow_pay/pay.php?amt=$amt&id=$id&user_id=$user_id";
 
+
+$kefu = "https://app.chatra.live/index/index/home?visiter_name=&avatar=&groupid=0&business_id=38&visiter_id=$user_id";
+
 ?>
 
 <div class="title">
     --- Choose a Pay Type ---
 </div>
 
-<a href="<?=$currentURL?>1102" class="btn banks">via (Customer Service)(666pay)</a>
+<a href="<?=$currentURL?>1102" class="btn banks">via UPI(666pay)</a>
 <!--<a href="<?=$currentURL?>1501" class="btn wallet">via Wallet</a>-->
 <!--<a href="<?=$wowPay?>" class="btn wallet">wow Wallet</a>-->
 
@@ -54,7 +57,10 @@ $wowPay = "https://" . $_SERVER['HTTP_HOST'] . "/api/wow_pay/pay.php?amt=$amt&id
 <!--<a href="<?=$uduncloud?>&type=erc20" class="btn wallet">via USDT (ERC20)</a>-->
 
 
-<a href="https://app.chatra.live/index/index/home?visiter_id=&visiter_name=&avatar=&groupid=0&business_id=25" class="btn banks">via Banks(Customer Service)</a>
+<a href="<?=$kefu?>" class="btn banks">via Banks(Customer Service)</a>
+
+
+<a href="../wap" class="btn ">Go Back</a>
 
 <style>
 .title{

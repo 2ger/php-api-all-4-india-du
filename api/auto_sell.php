@@ -66,9 +66,11 @@ foreach ($orders as $order) {
     if ($djzj < 0) $djzj = 0;
     $up_user = [
         "enable_amt" => $user_amt["enable_amt"] + $profit + $benjin,
-        "user_amt" => $user_amt["user_amt"] + $profit,
+        "user_amt" => $user_amt["user_amt"] + $profit+ $benjin,
         "djzj" => $djzj
     ];
+    
+    // die();
     // var_dump($up_user);
     $position_up_where = ["id" => $order['id']];
     $user_up_where = ["id" => $order['user_id']];

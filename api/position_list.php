@@ -21,6 +21,9 @@ if ($state == 1) {
 }
 // var_dump($where);
 
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+$redis->select(3);
 
 $list = pdo_fetchall("select `p`.*,`p`.stock_name as stockName,`p`.stock_gid as stockGid,`p`.buy_order_price as buyOrderPrice,`p`.order_num as orderNum ,
  `p`.position_sn as positionSn,
@@ -35,9 +38,16 @@ $list = pdo_fetchall("select `p`.*,`p`.stock_name as stockName,`p`.stock_gid as 
 //  var_dump($list);
 // pdo_debug();
 $profit_inr = 0;
+$order_total_price = 0;
 foreach ($list as &$val) {
 //    $val['now_price'] = pdo_fetchcolumn("select close from real_time_data where stock_gid = '" . $val['stock_gid'] . "' order by id desc");
 //    $val['stock_type'] = pdo_fetchcolumn("select stock_type from stock where stock_gid = '" . $val['stock_gid'] . "'");
+
+$redData = $redis->get($val['stock_gid']);
+$redData = json_decode($redData,true);
+if($redData['last_done']){
+   $val['now_price'] = $redData['last_done'];
+}
 
   if ($state == 1) {
         $profit = $val['profit_and_lose'];
@@ -75,6 +85,7 @@ foreach ($list as &$val) {
 
 
     $profit_inr += $profit;
+    $order_total_price += $val['order_total_price'];
 
     
 
@@ -83,6 +94,7 @@ if ($list) {
     $res['status'] = 0;
     $res['msg'] = "success";
     // $res['profit_inr'] = round($profit_inr * $_W['config']['usd']['inr'], 2);
+    $res['order_total_price'] = $order_total_price;//持仓中的价格
     $res['profit_inr'] = $profit_inr;
     $res['data']['total'] = count($list);
     $res['data']['list'] = $list;

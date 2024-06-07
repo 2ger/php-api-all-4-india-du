@@ -11,9 +11,10 @@ function fetchGoldNews() {
 $keyWord = "gold";
 $apiKey = "9428881e0b944fe7bd40277167067002";
     $url = "https://newsapi.org/v2/top-headlines?q=$keyWord&apiKey=$apiKey";
-    // echo $url;
+    echo $url."\n";
     $response = file_get_contents($url);
 
+    var_dump($data);
     // $ch = curl_init();
     // curl_setopt($ch, CURLOPT_URL, $url);
     // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -21,14 +22,13 @@ $apiKey = "9428881e0b944fe7bd40277167067002";
     // curl_close($ch);
 
     $data = json_decode($response, true);
-    // var_dump($data);
     return $data['articles'];
 }
 
 $goldNews = fetchGoldNews();
 
-echo "Current Gold Price: $goldPrice USD\n";
-echo "Latest Gold News:\n";
+// echo "Current Gold Price: $goldPrice USD\n";
+// echo "Latest Gold News:\n";
 foreach ($goldNews as $article) {
      
      $data = array('title' => $article['title'], 'content' => $article['content']);

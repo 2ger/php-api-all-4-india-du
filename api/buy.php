@@ -35,14 +35,16 @@ $redis->connect('127.0.0.1', 6379);
 $redis->select(3);
 $redData = $redis->get($stock['stock_gid']);
 $redData = json_decode($redData,true);
-$redData['last_done'];
-if(!$redData['last_done']){
+// $redData['last_done'];
+if($redData['last_done']){
    $stock['close'] = $redData['last_done'];
    //更新价格
-    // pdo_update("real_time_data",array("stock_gid"=>$stock['stock_gid']),array("close"=>$stock['close']));
+    pdo_update("real_time_data",array("stock_gid"=>$stock['stock_gid']),array("close"=>$stock['close']));
 // 更新end
 }
 //从redis取价格  end
+// echo $redData['last_done']." > ".$stock['close'];
+// die();
 
 
 if(!$stock['close']){
@@ -112,7 +114,7 @@ if ($stock['stock_type'] != "Forex") {
 
 //余额判断
 // $enable_amt = pdo_fetchcolumn("select enable_amt from user where id = $user_id");
-$user_amt = pdo_get("user",["id"=>$user_id],["user_amt","enable_amt","djzj"]);
+$user_amt = pdo_get("user",["id"=>$user_id]);//,["user_amt","enable_amt","djzj"]
 
 
 if ($user_amt["enable_amt"] < ($order_total_price + $order_fee + $spread_fee)) {
@@ -122,7 +124,7 @@ if ($user_amt["enable_amt"] < ($order_total_price + $order_fee + $spread_fee)) {
 } else {
     $whereu['id'] = $user_id;
     $updateu["enable_amt"] = $user_amt['enable_amt'] - ($order_total_price + $order_fee + $spread_fee);
-    $updateu["user_amt"] = $user_amt['user_amt'] - ($order_fee + $spread_fee);
+    $updateu["user_amt"] = $user_amt['user_amt'] - ($order_total_price+$order_fee + $spread_fee);//减本金，保持一至
     $updateu["djzj"] =$user_amt['djzj']+$order_total_price;
 }
 
@@ -154,6 +156,26 @@ $position['profit_target_price'] =$profitTarget;
 $position['stop_target_price'] =$stopLoss;
 
 
+function add_cash_detail($user,$position_id=0,$type,$amt,$detail){
+
+$de_summary = "当前余额：". $user['enable_amt']." > 变更:".$amt." >后余额: ".($user['enable_amt']+$amt)." > 详情：";
+$de_summary .= $detail;
+
+    $data['user_id'] = $user['id'];
+    $data['user_name'] = $user['real_name'];
+    $data['agent_name'] = $user['agent_name'];
+    $data['agent_id'] = $user['agent_id'];
+    
+    $data['position_id'] = $position_id;
+    $data['de_type'] = $type;
+    $data['de_amt'] = $amt;
+    $data['de_summary'] = $de_summary;
+    $data['add_time'] = date("Y-m-d H:i:s");
+    pdo_insert("user_cash_detail", $data);
+    
+}
+
+
 $res['data'] = $position;
 $res['status'] = 0;
 $res['msg'] = "success";
@@ -162,8 +184,11 @@ try {
     pdo_update("user", $updateu, $whereu);
     pdo_insert("user_position", $position);
     $res['insertid'] = pdo_insertid();
+    
+    $amt = $order_total_price + $order_fee + $spread_fee;
+    add_cash_detail($user_amt, $res['insertid'],"Buy",-$amt,"总价：$order_total_price + 手续费：$order_fee");
 // if(!$res['insertid']){
-//     pdo_debug();
+    // pdo_debug();
 // }
     pdo_commit();
 } catch (PDOException $exception) {
@@ -173,6 +198,7 @@ try {
     $res['data'] = $exception->getMessage();
 
 }
+
 die(json_encode($res));
         
         
