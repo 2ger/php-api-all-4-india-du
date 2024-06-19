@@ -4,6 +4,7 @@ require '../framework/bootstrap.inc.php';
 
 
 $buyNum = $_GPC['buyNum'];
+if(!$buyNum) $buyNum = 0.1;
 $lever = $_GPC['lever'];
 $buyType = $_GPC['buyType'];
 $stockId = $_GPC['stockId'];

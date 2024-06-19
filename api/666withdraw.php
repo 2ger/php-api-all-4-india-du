@@ -44,8 +44,8 @@ $gateway_address = "https://sig10.udun.io";
  
   //手动回调
  if($mer ==$getmer){
-     unset($where['with_status']);
-    $id=  $where['id'] = $_GPC['id'];
+    //  unset($where['with_status']);
+    // $id=  $where['id'] = $_GPC['id'];
  }
  
  if(!$withdraw) die("订单已审核！");
@@ -56,7 +56,10 @@ $gateway_address = "https://sig10.udun.io";
 //  print_r($bank);
 //  die();
 //   die("SUCCESS"); //不提交支付平台，直接通过
-
+ $currency = "MYR";
+ $notify_url = "https://etormarketing.com/api/666notify.php";
+ 
+ 
  $pay_url = "https://api.i666pay.com/withdraw/order/create";
  $mer = "888356245";
  $key = "1817d39083544dc09e30864760612891";
@@ -77,7 +80,6 @@ $map = [
 $sign = sendSign($map, $key);
 $map = array_merge($map,['sign' => $sign]);
 //echo $sign;
-// var_dump($map);
 $res = httpPost($pay_url, $map);
 
 //php
@@ -86,6 +88,7 @@ $res = json_decode($res,true);
 if($res['code'] == "SUCCESS"){
    die("SUCCESS");
 }else{
+var_dump($map);
     $message = $res['message'];
    die($message);
 }

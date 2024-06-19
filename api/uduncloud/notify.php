@@ -3,7 +3,7 @@
 require '../../framework/bootstrap.inc.php';
 
 $ip_address = $_SERVER['REMOTE_ADDR'];
-file_put_contents('../logs/pay_notify_post.log', date("Y-m-d H:i:s")."----\r\n udun: ".$ip_address."\n".$_GPC."\r\n\r",FILE_APPEND);
+file_put_contents('../logs/pay_notify_post.log', date("Y-m-d H:i:s")."----\r\n udun: ".$ip_address."\n".json_encode($_GPC)."\r\n\r",FILE_APPEND);
 
 
  $REQ_BODY = $_POST;

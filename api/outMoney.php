@@ -21,6 +21,11 @@ if($isLock){
     $res['msg'] = "Your are locked for trading!";
     die(json_encode($res));
 }
+if(!$user_bank["bank_img"]){
+    $res['status'] = 1;
+    $res['msg'] = "Please input your wallet_address!";
+    die(json_encode($res));
+}
 
     $res=[
         "data"=>"",
